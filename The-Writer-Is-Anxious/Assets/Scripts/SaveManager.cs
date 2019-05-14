@@ -4,37 +4,32 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
-    public static SaveManager instance { get; set; }
-    public SaveData saveData;
-
-    private void Awake()
+    /// <summary>
+    /// Save Data
+    /// </summary>
+    /// <param name="saveNumber">the index of save file</param>
+    public void Save(int saveNumber)
     {
-        DontDestroyOnLoad(gameObject);
-        if (instance == null)
-        {
-            instance = this;
-        }
-        Load();
-        Debug.Log(SaveDataHelper.Serialize<SaveData>(saveData));
-
+       PlayerPrefs.SetString("save"+ saveNumber.ToString(),SaveDataHelper.Serialize<SaveData>(GlobalManager.instance.saveData));
     }
 
-    public void Save()
+    /// <summary>
+    /// Load Data
+    /// </summary>
+    /// <param name="saveNumber">the idnex of load file</param>
+    public void Load(int saveNumber)
     {
-       PlayerPrefs.SetString("save"+1.ToString(),SaveDataHelper.Serialize<SaveData>(saveData));
-    }
-
-    public void Load()
-    {
-        if (PlayerPrefs.HasKey("save" + 1.ToString()))
+        if (PlayerPrefs.HasKey("save" + saveNumber.ToString()))
         {
-            saveData = SaveDataHelper.Deserialize<SaveData>(PlayerPrefs.GetString("save" + 1.ToString()));
+            GlobalManager.instance.saveData = SaveDataHelper.Deserialize<SaveData>(PlayerPrefs.GetString("save" + saveNumber.ToString()));
         }
         else
         {
-            saveData = new SaveData();
-            Save();
+            GlobalManager.instance.saveData = new SaveData();
+            Save(saveNumber);
         }
+        Debug.Log(SaveDataHelper.Serialize<SaveData>(GlobalManager.instance.saveData));
+     
     }
 
 }
