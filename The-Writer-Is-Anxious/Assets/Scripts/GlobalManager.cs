@@ -6,6 +6,7 @@ public class GlobalManager : MonoBehaviour
 {
     public static GlobalManager instance;
     public SaveData saveData;
+    public SaveDataMemory SaveDataMemory;
     public SaveManager saveManager;
 
     private void Awake()
