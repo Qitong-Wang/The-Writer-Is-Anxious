@@ -3,6 +3,10 @@
 /// </summary>
 public class SaveData 
 {
+    /// <summary>
+    /// the time of the file is saving
+    /// </summary>
+    public string time;
     public int life = 3;
-    public string name = "AA";
+    public bool[] name;
 }
