@@ -6,6 +6,7 @@ public class GlobalManager : MonoBehaviour
 {
     public static GlobalManager instance;
     public SaveData saveData;
+    public SaveDataMemory saveDataMemory;
     public SaveManager saveManager;
 
     private void Awake()
@@ -21,18 +22,57 @@ public class GlobalManager : MonoBehaviour
         }
         
         DontDestroyOnLoad(gameObject);
+       
 
     }
     // Start is called before the first frame update
     void Start()
     {
-        saveManager.Load(0);
+        //For Debug. Create a null data
+  
+        saveData = new SaveData
+        {
+            life = 3,
+            name = new bool[2]
+            {
+                false,false
+            },
+
+        };
+        
+       /*
+        saveDataMemory = new SaveDataMemory
+        {
+            unlockStory = new bool[2]
+                {
+            false,false
+            },
+        };
+        */
       
     }
 
-    // Update is called once per frame
-    void Update()
+    public void InitializeSaveData()
     {
-        
+        saveData = new SaveData
+        {
+            life = 3,
+            name = new bool[2]
+            {
+                    false,false
+            },
+
+        };
     }
+    public void InitializeSaveDataMemory()
+    {
+        saveDataMemory = new SaveDataMemory
+        {
+            unlockStory = new bool[2]
+            {
+                false,false
+            },
+        };
+    }
+   
 }
