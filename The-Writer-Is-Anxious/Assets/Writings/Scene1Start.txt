@@ -1,0 +1,54 @@
+(I.png fade in) 
+The Writer is anxious.
+(I_table.png) (I_table_light.png)
+Twelve hours ago, he suddenly realized there was a table in front of him, with only a shabby twinkling lamp and a piece of paper landing on it.
+But it is not just a piece of paper.
+(I_table_dialogue.png)
+I need to figure this out, the writer tells himself. The truth is that he has been telling this to himself for the entire past twelve hours, since he received his editor's 100th call.
+Click call -> dialogue fades out -> (I_table_ring.png) appears and animation. Click ring to continue.
+(division_line)( I_onphone)( I_onphone_dia)(Editor_onphone)(Editor_onphone_dia)
+Editor: "The situation is not optimistic."
+Editor: "This is the last chance we can offer you to publish your work. So don't let it go."
+I: “I know…”
+Editor: “…”
+Editor: “I used to be your fan.”
+Editor and dialogue disappeared.
+(I_sad)( I_sad_spotlight) on the left side (notebookshort) on the right side. Words appear on the right side using STxihei font.
+But it's not the writer's fault.
+The stress of daily life and the anxiety to create great work have drained nearly all of his ideas.
+What can he do now?
+Left side changed to (I_stare1_paper)( I_stare1)
+He can only stare at the paper in front of him.
+这里有点想做成按住stare之后画面逐渐放大，这样表现感觉会更有趣一点。好做吗？
+Click stare -> (I_stare2)
+And stare at it.
+Click stare -> 所有的图片左移。 Notebooklong.png接着notebookshort的边左移出来。字仍然显示在横线上。注意paper. 不要打出来， 使用paper1.png.
+And suddenly, the writer 
+grasps and heavily crumples the
+paper.
+Click crumples -> paper2.png. 重复至paper4.png。之后画面继续左移。 Paper球到左上角，分割线左面是notebookshort，右面是trash.png.
+Then he throws it into the trashcan.
+把paper球拖到trashcan里继续。Trashcan缩小。Division line和文字和横线左撤消失。好多东西出现，总之会变成这样：
+ 
+字幕出现在正下方：
+It is already 10pm. But the writer still does not have a slight hint of what he should do.
+Maybe doing some other things can help trigger some inspiration...
+此时可以自由活动。点击bookshelf继续主线。
+点击closed window -> 图片变成opened window。 左下角I 消失，I_bywindow出现在窗户旁边。字幕：
+The moon is beautiful, isn't it?
+点击clock。 字幕：
+It is 10pm. And yes, it is.
+点击trashcan， 字幕：
+NEVER look back to old drafts.
+点击Bookshelf. 左下角I消失，I_byshelf出现在shelf左边。
+Right! The books! Always the best solution, aren't they?
+The writer goes to the bookshelf, and picks up a...
+Choices:
+Fantasy book.
+Adventure book.
+Romance book.
+Horror book.
+Mystery book.
+Philosophy book.
+只有fantasy是一开始就解锁的。其他需要解锁剧情才可以解锁。 选择一项之后，Everything fades out. （book.png）出现。
+He gradually opens the book, and starts to read it...
