@@ -1,4 +1,3 @@
-@anxi
 The Writer is anxious.
 (I_table.png) (I_table_light.png)
 Twelve hours ago, he suddenly realized there was a table in front of him, with only a shabby twinkling lamp and a piece of paper landing on it.
@@ -18,7 +17,8 @@ I: “I know…”
 Editor: “…”
 Editor: “I used to be your fan.”
 (EditorDialogueEnd)
-(I_sad)( I_sad_spotlight) on the left side (notebookshort) on the right side. Words appear on the right side using STxihei font.
+(I_sad appear)( I_sad_spotlight) on the left side (notebookshort) on the right side. Words appear on the right side using STxihei font.
+(SadDialogueStart)
 But it's not the writer's fault.
 The stress of daily life and the anxiety to create great work have drained nearly all of his ideas.
 What can he do now?

@@ -15,13 +15,19 @@ public class Scene1Manager : MonoBehaviour
     /// When trigger is false, use resetTrigger to make trigger to true (by using GetMouseButtonUp)
     /// </summary>
     public bool resetTrigger = false;
-    int dialogueType = 0; //Default is 0, at dialogueText. 1 is at Idialogue. 2 is a t editorDialogue
-
+    /// <summary>
+    /// Default is 0, at dialogueText. 1 is at Idialogue. 2 is at editorDialogue. 3 is at sadDialogue
+    /// </summary>
+    int dialogueType = 0;
+    public GameObject triggerObj;
     List<string> dialogueList;
+    public GameObject objI;
     public GameObject objTable;
     public GameObject objTableDialogue;
     public GameObject objTableRing;
+
     //Scene of memory
+    public GameObject memoryMask;
     public GameObject mainCamera;
     public GameObject objMemory;
     public GameObject objIDialogue;
@@ -34,10 +40,12 @@ public class Scene1Manager : MonoBehaviour
     private float fraction;
     public float speed;
     private bool cameraMoveToMemory = false;
+    private bool cameraMoveToNormal = false;
     private TextAsset textAsset;
     //Sad
-    public GameObject triggerObj;
-
+    public GameObject objSadDialogue;
+    public Text sadDialogue;
+    public GameObject objSad;
     public Text textComp;
     
     //public Canvas canvas;
@@ -72,6 +80,7 @@ public class Scene1Manager : MonoBehaviour
             {
                 fraction += Time.deltaTime * speed;
                 mainCamera.transform.position = Vector3.Lerp(startCameraPosition, memoryCameraPosition, fraction);
+                
             }
             else
             {
@@ -79,9 +88,28 @@ public class Scene1Manager : MonoBehaviour
                 resetTrigger = true;
                 trigger = true;
                 NextStep();
+                fraction = 0;
+                }
+        }
+        if (cameraMoveToNormal == true)
+        {
+            if (fraction < 1)
+            {
+                fraction += Time.deltaTime * speed;
+                mainCamera.transform.position = Vector3.Lerp(memoryCameraPosition, startCameraPosition, fraction);
+                
+            }
+            else
+            {
+                cameraMoveToNormal = false;
+                resetTrigger = true;
+                trigger = true;
+                memoryMask.SetActive(false);
+                NextStep();
             }
         }
-       
+        //End memory. Begin Sad
+
     }
     void ReadTextFile()
     {
@@ -118,6 +146,11 @@ public class Scene1Manager : MonoBehaviour
                 editorDialogue.text = dialogueList[step];
                 step++;
             }
+            else if (dialogueType == 3)
+            {
+                sadDialogue.text = dialogueList[step];
+                step++;
+            }
 
         }
     }
@@ -127,6 +160,7 @@ public class Scene1Manager : MonoBehaviour
         
         if (dialogueList[step].Contains("(I_table.png)"))
         {
+            objI.SetActive(false);
             objTable.SetActive(true);
             step++;
             NextStep();
@@ -150,6 +184,7 @@ public class Scene1Manager : MonoBehaviour
             objTableRing.SetActive(false);
             dialogueObj.SetActive(false);
             cameraMoveToMemory = true;
+            memoryMask.SetActive(true);
             step++;
 
         }
@@ -183,6 +218,31 @@ public class Scene1Manager : MonoBehaviour
             dialogueType = 0;
             step++;
             NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(SadDialogueStart)"))
+        {
+            objSadDialogue.SetActive(true);
+            dialogueType = 3;
+            step++;
+            NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(SadDialogueEnd)"))
+        {
+            objSadDialogue.SetActive(false);
+            dialogueType = 0;
+            step++;
+            NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(I_sad appear)"))
+        {
+            cameraMoveToNormal = true;
+            step++;
+            objTable.SetActive(false);
+            objSad.SetActive(true);
+            
 
         }
 
