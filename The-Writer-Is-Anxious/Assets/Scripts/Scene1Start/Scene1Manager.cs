@@ -15,14 +15,28 @@ public class Scene1Manager : MonoBehaviour
     /// When trigger is false, use resetTrigger to make trigger to true (by using GetMouseButtonUp)
     /// </summary>
     bool resetTrigger = false;
+    int dialogueType = 0; //Default is 0, at dialogueText. 1 is at Idialogue. 2 is a t editorDialogue
 
     List<string> dialogueList;
     public GameObject objTable;
     public GameObject objTableDialogue;
     public GameObject objTableRing;
+    //Scene of memory
+    public GameObject mainCamera;
+    public GameObject objMemory;
+    public GameObject objIDialogue;
+    public GameObject objEditorDialogue;
+    public Text IDialogue;
+    public Text editorDialogue;
     public int step = 0;
-    public float cameraMoveLeft = -17.85f;
+    public Vector3 startCameraPosition;
+    public Vector3 memoryCameraPosition;
+    private float fraction;
+    public float speed;
+    private bool cameraMoveToMemory = false;
     private TextAsset textAsset;
+
+
     
     // Start is called before the first frame update
     void Start()
@@ -45,6 +59,22 @@ public class Scene1Manager : MonoBehaviour
             trigger = true;
             resetTrigger = false;
         }
+        //Begin memory
+        if (cameraMoveToMemory == true)
+        {
+            if (fraction < 1)
+            {
+                fraction += Time.deltaTime * speed;
+                mainCamera.transform.position = Vector3.Lerp(startCameraPosition, memoryCameraPosition, fraction);
+            }
+            else
+            {
+                cameraMoveToMemory = false;
+                resetTrigger = true;
+                trigger = true;
+                NextStep();
+            }
+        }
        
     }
     void ReadTextFile()
@@ -54,15 +84,30 @@ public class Scene1Manager : MonoBehaviour
     }
     public void NextStep()
     {
-       
+        print(dialogueList[step]);
         if (dialogueList[step][0] == '(')
         {
             StepAction();
+
         }
         else
         {
-            dialogueText.text = dialogueList[step];
-            step++;
+            if (dialogueType == 0)
+            {
+                dialogueText.text = dialogueList[step];
+                step++;
+            }
+            else if (dialogueType == 1)
+            {
+                IDialogue.text = dialogueList[step];
+                step++;
+            }
+            else if (dialogueType == 2)
+            {
+                editorDialogue.text = dialogueList[step];
+                step++;
+            }
+
         }
     }
 
@@ -90,10 +135,43 @@ public class Scene1Manager : MonoBehaviour
         }
         else if (dialogueList[step].Contains("(division_line)"))
         {
-            resetTrigger = true;
+            objMemory.SetActive(true);
             objTableRing.SetActive(false);
+            dialogueObj.SetActive(false);
+            cameraMoveToMemory = true;
             step++;
-           
+
+        }
+        else if (dialogueList[step].Contains("(IDialogueStart)"))
+        {
+            objIDialogue.SetActive(true);
+            dialogueType = 1;
+            step++;
+            NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(IDialogueEnd)"))
+        {
+            objIDialogue.SetActive(false);
+            dialogueType = 0;
+            step++;
+            NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(EditorDialogueStart)"))
+        {
+            objEditorDialogue.SetActive(true);
+            dialogueType = 2;
+            step++;
+            NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(EditorDialogueEnd)"))
+        {
+            objEditorDialogue.SetActive(false);
+            dialogueType = 0;
+            step++;
+            NextStep();
 
         }
 
