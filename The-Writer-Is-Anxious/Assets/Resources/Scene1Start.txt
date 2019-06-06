@@ -1,11 +1,10 @@
-(I.png fade in) 
 The Writer is anxious.
 (I_table.png) (I_table_light.png)
 Twelve hours ago, he suddenly realized there was a table in front of him, with only a shabby twinkling lamp and a piece of paper landing on it.
 But it is not just a piece of paper.
 (I_table_dialogue.png)
 I need to figure this out, the writer tells himself. The truth is that he has been telling this to himself for the entire past twelve hours, since he received his editor's 100th call.
-Click call -> dialogue fades out -> (I_table_ring.png) appears and animation. Click ring to continue.
+(dialogue fades out) (I_table_ring.png) appears and animation. Click ring to continue.
 (division_line)( I_onphone)( I_onphone_dia)(Editor_onphone)(Editor_onphone_dia)
 Editor: "The situation is not optimistic."
 Editor: "This is the last chance we can offer you to publish your work. So don't let it go."

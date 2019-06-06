@@ -2,69 +2,102 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+using System.Linq;
+
 
 public class Scene1Manager : MonoBehaviour
 {
     public Text dialogueText;
     public GameObject dialogueObj;
-    List<string> dialogues;
-    public GameObject[] objects;
+    bool trigger = true;
+    /// <summary>
+    /// When trigger is false, use resetTrigger to make trigger to true (by using GetMouseButtonUp)
+    /// </summary>
+    bool resetTrigger = false;
+
+    List<string> dialogueList;
+    public GameObject objTable;
+    public GameObject objTableDialogue;
+    public GameObject objTableRing;
     public int step = 0;
+    public float cameraMoveLeft = -17.85f;
+    private TextAsset textAsset;
+    
     // Start is called before the first frame update
     void Start()
     {
-        dialogues = new List<string>();
-        dialogues.Add("The Writer is anxious.");
-        dialogues.Add("Twelve hours ago, he suddenly realized there was a table in front of him, with only a shabby twinkling lamp and a piece of paper landing on it.");
-        dialogues.Add("But it is not just a piece of paper.");
-        dialogues.Add("I need to figure this out, the writer tells himself. The truth is that he has been telling this to himself for the entire past twelve hours, since he received his editor's 100th call.");
-        dialogues.Add("Editor: "+"\""+"The situation is not optimistic."+"\"");
-    }   
+        dialogueList = new List<string>();
+        textAsset = Resources.Load("Scene1Start") as TextAsset;
+        ReadTextFile();
+        
+     }   
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (trigger == true && Input.GetMouseButtonDown(0) )
         {
-            if (step == 0 || step == 1|| step == 2|| step ==3)
-            {
-                step++;
-                NextStep();
-
-            }
+            NextStep();
         }
+        if (resetTrigger == true && Input.GetMouseButtonUp(0))
+        {
+            trigger = true;
+            resetTrigger = false;
+        }
+       
+    }
+    void ReadTextFile()
+    {
+        dialogueList = textAsset.text.Split('\n').ToList();
+       
     }
     public void NextStep()
     {
-        if (step == 1)
+       
+        if (dialogueList[step][0] == '(')
         {
-            objects[0].SetActive(false); //I
-            objects[1].SetActive(true); //I_table
-            dialogueText.text = dialogues[1];
-
+            StepAction();
         }
-        else if (step == 2)
+        else
         {
-            dialogueText.text = dialogues[2];
+            dialogueText.text = dialogueList[step];
+            step++;
         }
-        else if (step == 3)
-        {
-            objects[2].SetActive(true); //I_table_dialogue
-            dialogueText.text = dialogues[3];
-        }
-        else if (step == 4)
-        {
-            dialogueObj.SetActive(false);
-            objects[2].SetActive(false);
-            objects[3].SetActive(true); //I_table_ring
-
-        }
-        else if (step == 5)
-        {
-            dialogueObj.SetActive(true);
-            dialogueText.text = dialogues[4];
-        }
-      
     }
-    
+
+    void StepAction()
+    {
+        
+        if (dialogueList[step].Contains("(I_table.png)"))
+        {
+            objTable.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(I_table_dialogue.png)"))
+        {
+            objTableDialogue.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(dialogue fades out)"))
+        {
+            objTableDialogue.SetActive(false);
+            objTableRing.SetActive(true);
+            step++;
+            trigger = false;
+        }
+        else if (dialogueList[step].Contains("(division_line)"))
+        {
+            resetTrigger = true;
+            objTableRing.SetActive(false);
+            step++;
+           
+
+        }
+
+
+
+    }
 }
