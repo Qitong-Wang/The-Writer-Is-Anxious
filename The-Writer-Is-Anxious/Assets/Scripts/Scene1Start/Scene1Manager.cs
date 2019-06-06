@@ -14,7 +14,7 @@ public class Scene1Manager : MonoBehaviour
     /// <summary>
     /// When trigger is false, use resetTrigger to make trigger to true (by using GetMouseButtonUp)
     /// </summary>
-    bool resetTrigger = false;
+    public bool resetTrigger = false;
     int dialogueType = 0; //Default is 0, at dialogueText. 1 is at Idialogue. 2 is a t editorDialogue
 
     List<string> dialogueList;
@@ -35,9 +35,14 @@ public class Scene1Manager : MonoBehaviour
     public float speed;
     private bool cameraMoveToMemory = false;
     private TextAsset textAsset;
+    //Sad
+    public GameObject triggerObj;
 
-
+    public Text textComp;
     
+    //public Canvas canvas;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +57,7 @@ public class Scene1Manager : MonoBehaviour
     {
         if (trigger == true && Input.GetMouseButtonDown(0) )
         {
+            print("1111");
             NextStep();
         }
         if (resetTrigger == true && Input.GetMouseButtonUp(0))
@@ -85,7 +91,11 @@ public class Scene1Manager : MonoBehaviour
     public void NextStep()
     {
         print(dialogueList[step]);
-        if (dialogueList[step][0] == '(')
+        if (dialogueList[step][0] == '@')
+        {
+            ClickAction();
+        }
+        else if (dialogueList[step][0] == '(')
         {
             StepAction();
 
@@ -96,6 +106,7 @@ public class Scene1Manager : MonoBehaviour
             {
                 dialogueText.text = dialogueList[step];
                 step++;
+               
             }
             else if (dialogueType == 1)
             {
@@ -110,7 +121,7 @@ public class Scene1Manager : MonoBehaviour
 
         }
     }
-
+   
     void StepAction()
     {
         
@@ -178,4 +189,94 @@ public class Scene1Manager : MonoBehaviour
 
 
     }
+
+    void ClickAction()
+    {
+        string word = dialogueList[step];
+        word = word.Substring(1, word.Length - 2);
+        print(word);
+        print(word.Length);
+        step++;
+        NextStep();
+        trigger = false;
+        DrawTrigger(word);
+        print("hhhhh");
+    }
+    public Text GetSuitableText()
+    {
+        if (dialogueType == 0)
+        {
+            return dialogueText;
+            
+
+        }
+        else if (dialogueType == 1)
+        {
+            return IDialogue;
+        }
+        else if (dialogueType == 2)
+        {
+            return editorDialogue;
+            
+        }
+        else
+        {
+            return null;
+        }
+    }
+    void DrawTrigger(string word)
+    {
+        int startIndex = dialogueList[step-1].IndexOf(word);
+        int endIndex = startIndex+ word.Length;
+        print(startIndex);
+        
+        Vector3 startPosition = PrintPos(startIndex);
+        Vector3 endPosition = PrintPos(endIndex);
+        new GameObject("point").transform.position = startPosition;
+        new GameObject("poin2").transform.position = endPosition;
+        float distance = endPosition.x - startPosition.x;
+        triggerObj.SetActive(true);
+        triggerObj.transform.position = new Vector3(startPosition.x, startPosition.y + distance, 0);
+        triggerObj.transform.localScale = new Vector3(distance, distance, 0);
+        
+    }
+
+    Vector3 PrintPos(int charIndex)
+    {
+        string text = GetSuitableText().text;
+
+        TextGenerator textGen = new TextGenerator(text.Length);
+        Vector2 extents = GetSuitableText().gameObject.GetComponent<RectTransform>().rect.size;
+        textGen.Populate(text, GetSuitableText().GetGenerationSettings(extents));
+
+        int newLine = text.Substring(0, charIndex).Split('\n').Length - 1;
+        int whiteSpace = text.Substring(0, charIndex).Split(' ').Length - 1;
+        int indexOfTextQuad = (charIndex * 4) + (newLine * 4) - 4;
+        if (indexOfTextQuad < textGen.vertexCount)
+        {
+            Vector3 avgPos = (textGen.verts[indexOfTextQuad].position +
+                textGen.verts[indexOfTextQuad + 1].position +
+                textGen.verts[indexOfTextQuad + 2].position +
+                textGen.verts[indexOfTextQuad + 3].position) / 4f;
+
+            //print(avgPos);
+            //PrintWorldPos(avgPos);
+            return GetSuitableText().transform.TransformPoint(avgPos);
+        }
+        else
+        {
+            Debug.LogError("Out of text bound");
+            return new Vector3(0,0,0);
+        }
+    }
+
+    void PrintWorldPos(Vector3 testPoint)
+    {
+        Vector3 worldPos = textComp.transform.TransformPoint(testPoint);
+        print(worldPos);
+        new GameObject("point").transform.position = worldPos;
+        Debug.DrawRay(worldPos, Vector3.up, Color.red, 50f);
+    }
+
+   
 }

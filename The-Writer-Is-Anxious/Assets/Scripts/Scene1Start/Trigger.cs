@@ -19,7 +19,9 @@ public class Trigger : MonoBehaviour
     }
     private void OnMouseDown()
     {
-         scene1Manager.NextStep();
+
+        scene1Manager.NextStep();
+        scene1Manager.resetTrigger = true;
     }
 
 }
