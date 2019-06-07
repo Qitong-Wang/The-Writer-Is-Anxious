@@ -1,5 +1,5 @@
 @is
-The Writer is anxious.
+The Writer <color=blue>is</color> anxious.
 (stop @)
 (I_table.png) (I_table_light.png)
 Twelve hours ago, he suddenly realized there was a table in front of him, with only a shabby twinkling lamp and a piece of paper landing on it.
@@ -24,10 +24,11 @@ Editor: “I used to be your fan.”
 But it's not the writer's fault.
 The stress of daily life and the anxiety to create great work have drained nearly all of his ideas.
 What can he do now?
-Left side changed to (I_stare1_paper)( I_stare1)
-He can only stare at the paper in front of him.
-这里有点想做成按住stare之后画面逐渐放大，这样表现感觉会更有趣一点。好做吗？
-Click stare -> (I_stare2)
+(I_stare1_paper)( I_stare1)
+@stare
+He can only <color=blue>stare</color> at the paper in front of him.
+(stop @)
+(stare enlarge)
 And stare at it.
 Click stare -> 所有的图片左移。 Notebooklong.png接着notebookshort的边左移出来。字仍然显示在横线上。注意paper. 不要打出来， 使用paper1.png.
 And suddenly, the writer 

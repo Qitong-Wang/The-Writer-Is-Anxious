@@ -21,7 +21,7 @@ public class Trigger : MonoBehaviour
     {
 
         scene1Manager.NextStep();
-        
+       
     }
 
 }
