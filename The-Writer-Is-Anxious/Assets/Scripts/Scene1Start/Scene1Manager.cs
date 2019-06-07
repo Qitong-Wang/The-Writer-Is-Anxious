@@ -157,8 +157,16 @@ public class Scene1Manager : MonoBehaviour
    
     void StepAction()
     {
-        
-        if (dialogueList[step].Contains("(I_table.png)"))
+
+        if (dialogueList[step].Contains("(stop @)"))
+        {
+            triggerObj.SetActive(false);
+            resetTrigger = false;
+            trigger = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(I_table.png)"))
         {
             objI.SetActive(false);
             objTable.SetActive(true);
@@ -240,6 +248,7 @@ public class Scene1Manager : MonoBehaviour
         {
             cameraMoveToNormal = true;
             step++;
+            trigger = false;
             objTable.SetActive(false);
             objSad.SetActive(true);
             
@@ -254,13 +263,10 @@ public class Scene1Manager : MonoBehaviour
     {
         string word = dialogueList[step];
         word = word.Substring(1, word.Length - 2);
-        print(word);
-        print(word.Length);
         step++;
         NextStep();
         trigger = false;
         DrawTrigger(word);
-        print("hhhhh");
     }
     public Text GetSuitableText()
     {
@@ -287,17 +293,16 @@ public class Scene1Manager : MonoBehaviour
     void DrawTrigger(string word)
     {
         int startIndex = dialogueList[step-1].IndexOf(word);
-        int endIndex = startIndex+ word.Length;
-        print(startIndex);
-        
+        int endIndex = startIndex+ word.Length+1;
+
         Vector3 startPosition = PrintPos(startIndex);
         Vector3 endPosition = PrintPos(endIndex);
-        new GameObject("point").transform.position = startPosition;
-        new GameObject("poin2").transform.position = endPosition;
+        //new GameObject("point").transform.position = startPosition;
+        //new GameObject("poin2").transform.position = endPosition;
         float distance = endPosition.x - startPosition.x;
         triggerObj.SetActive(true);
-        triggerObj.transform.position = new Vector3(startPosition.x, startPosition.y + distance, 0);
-        triggerObj.transform.localScale = new Vector3(distance, distance, 0);
+        triggerObj.transform.position = new Vector3(startPosition.x + distance / 2, startPosition.y + distance/2, 0);
+        triggerObj.GetComponent<BoxCollider2D>().size = new Vector2(distance, distance);
         
     }
 
@@ -330,13 +335,7 @@ public class Scene1Manager : MonoBehaviour
         }
     }
 
-    void PrintWorldPos(Vector3 testPoint)
-    {
-        Vector3 worldPos = textComp.transform.TransformPoint(testPoint);
-        print(worldPos);
-        new GameObject("point").transform.position = worldPos;
-        Debug.DrawRay(worldPos, Vector3.up, Color.red, 50f);
-    }
+ 
 
    
 }

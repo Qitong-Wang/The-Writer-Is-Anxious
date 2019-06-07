@@ -1,4 +1,6 @@
+@is
 The Writer is anxious.
+(stop @)
 (I_table.png) (I_table_light.png)
 Twelve hours ago, he suddenly realized there was a table in front of him, with only a shabby twinkling lamp and a piece of paper landing on it.
 But it is not just a piece of paper.
