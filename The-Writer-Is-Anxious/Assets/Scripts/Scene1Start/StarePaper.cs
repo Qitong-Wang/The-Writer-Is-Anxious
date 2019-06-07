@@ -23,8 +23,7 @@ public class StarePaper : MonoBehaviour
             }
             else
             {
-                scene1Manager.resetTrigger = true;
-                scene1Manager.trigger = true;
+                
                 scene1Manager.NextStep();
                 scene1Manager.step++;
                 enlarge = false;

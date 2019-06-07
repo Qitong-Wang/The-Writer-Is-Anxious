@@ -50,6 +50,9 @@ public class Scene1Manager : MonoBehaviour
     public GameObject objStare;
     public GameObject objStarePaper;
     public StarePaper starePaper;
+    //Crumble
+    public GameObject objNotebook;
+    public GameObject objCrumble;
     //public Canvas canvas;
 
 
@@ -67,7 +70,6 @@ public class Scene1Manager : MonoBehaviour
     {
         if (trigger == true && Input.GetMouseButtonDown(0) )
         {
-            print("1111");
             NextStep();
         }
         if (resetTrigger == true && Input.GetMouseButtonUp(0))
@@ -257,6 +259,7 @@ public class Scene1Manager : MonoBehaviour
         }
         else if (dialogueList[step].Contains("(I_stare1_paper)"))
         {
+            objNotebook.SetActive(true);
             objSad.SetActive(false);
             objStarePaper.SetActive(true);
             objStare.SetActive(true);
@@ -269,6 +272,15 @@ public class Scene1Manager : MonoBehaviour
             starePaper.enlarge = true;
             trigger = false;
             step++;
+        }
+        else if (dialogueList[step].Contains("(stare left)"))
+        {
+
+            trigger = false;
+            objSadDialogue.SetActive(false);
+            step++;
+            objNotebook.GetComponent<Notebook>().moveLeft1 = true;
+            
         }
 
 
@@ -312,6 +324,7 @@ public class Scene1Manager : MonoBehaviour
     }
     void DrawTrigger(string word)
     {
+        triggerObj.SetActive(true);
         int startIndex = dialogueList[step-1].IndexOf(word);
         int endIndex = startIndex+ word.Length+1;
         //print(startIndex);

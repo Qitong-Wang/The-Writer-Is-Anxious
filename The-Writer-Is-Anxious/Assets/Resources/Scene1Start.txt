@@ -29,7 +29,10 @@ What can he do now?
 He can only <color=blue>stare</color> at the paper in front of him.
 (stop @)
 (stare enlarge)
+@stare
 And stare at it.
+(stop @)
+(stare left)
 Click stare -> 所有的图片左移。 Notebooklong.png接着notebookshort的边左移出来。字仍然显示在横线上。注意paper. 不要打出来， 使用paper1.png.
 And suddenly, the writer 
 grasps and heavily crumples the
