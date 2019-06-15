@@ -10,6 +10,11 @@ public class CrumbleTrigger : MonoBehaviour
     public Sprite paper2;
     public Sprite paper3;
     public Sprite paper4;
+    public Notebook notebook;
+    /// <summary>
+    /// Call by notebook
+    /// </summary>
+    public bool beginCrumble = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,22 +28,29 @@ public class CrumbleTrigger : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        if (inputTime == 0)
+        if (beginCrumble == true)
         {
-            paper.sprite = paper2;
-            inputTime ++;
+            if (inputTime == 0)
+            {
+                paper.sprite = paper2;
+                inputTime++;
+            }
+            else if (inputTime == 1)
+            {
+                paper.sprite = paper3;
+                inputTime++;
+            }
+            else if (inputTime == 2)
+            {
+                paper.sprite = paper4;
+                paper.gameObject.transform.parent = null;
+                inputTime++;
+                notebook.moveLeft2 = true;
+
+            }
+          
         }
-        else if (inputTime == 1)
-        {
-            paper.sprite = paper3;
-            inputTime++;
-        }
-        else if (inputTime == 2)
-        {
-            paper.sprite = paper4;
-            inputTime++;
-        }
-        //scene1Manager.NextStep();
+
 
     }
 }
