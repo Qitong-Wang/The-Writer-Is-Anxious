@@ -9,7 +9,6 @@ public class Paper : MonoBehaviour
     /// </summary>
     public bool beginDrag = false;
     public GameObject trushcan;
-    public Vector3 trushPosition;
     public bool checkVector = false;
     float minX;
     float maxX;
@@ -67,15 +66,16 @@ public class Paper : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         print(collision.gameObject.name);
         if (collision.gameObject.name.Equals("trashcan"))
         {
             beginDrag = false;
-            transform.position = trushPosition;
+            
             print("Finish!");
         }
     }
+   
     
 }
