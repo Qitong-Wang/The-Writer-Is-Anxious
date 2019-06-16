@@ -44,7 +44,7 @@ public class NormalSceneManager : MonoBehaviour
         }
 
     }
-    public void ReadTextFile()
+    public virtual void ReadTextFile()
     {
         dialogueList = textAsset.text.Split('\n').ToList();
 

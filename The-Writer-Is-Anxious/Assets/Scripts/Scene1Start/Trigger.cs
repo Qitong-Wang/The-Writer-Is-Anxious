@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
-    public Scene1Manager scene1Manager;
+    public NormalSceneManager normalSceneManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class Trigger : MonoBehaviour
     private void OnMouseDown()
     {
 
-        scene1Manager.NextStep();
+        normalSceneManager.NextStep();
        
     }
 

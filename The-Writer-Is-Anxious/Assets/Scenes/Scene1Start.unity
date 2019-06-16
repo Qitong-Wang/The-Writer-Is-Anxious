@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d18f49d59788c489b03e5c486480c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene1Manager: {fileID: 1361947335}
+  normalSceneManager: {fileID: 1361947335}
 --- !u!1 &271734621
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +902,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   beginDrag: 0
   trushcan: {fileID: 557852797}
-  trushPosition: {x: 2, y: 0, z: 0}
   checkVector: 0
 --- !u!61 &334965476
 BoxCollider2D:
@@ -2030,7 +2029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61d18f49d59788c489b03e5c486480c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene1Manager: {fileID: 1361947335}
+  normalSceneManager: {fileID: 1361947335}
 --- !u!61 &924057719
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2680,6 +2679,9 @@ MonoBehaviour:
   trigger: 1
   resetTrigger: 0
   triggerObj: {fileID: 269547214}
+  dialogueList: []
+  textAsset: {fileID: 0}
+  step: 0
   objI: {fileID: 781383472}
   objTable: {fileID: 906711916}
   objTableDialogue: {fileID: 345939918}
@@ -2691,7 +2693,6 @@ MonoBehaviour:
   objEditorDialogue: {fileID: 1077611171}
   IDialogue: {fileID: 566221307}
   editorDialogue: {fileID: 1192221741}
-  step: 0
   startCameraPosition: {x: 0, y: 1, z: -10}
   memoryCameraPosition: {x: -17.85, y: 1, z: -10}
   speed: 1
