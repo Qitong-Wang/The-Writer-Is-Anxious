@@ -6,21 +6,14 @@ using System.IO;
 using System.Linq;
 
 
-public class Scene1Manager : MonoBehaviour
+public class Scene1Manager : NormalSceneManager
 {
-    public Text dialogueText;
-    public GameObject dialogueObj;
-    public bool trigger = true;
-    /// <summary>
-    /// When trigger is false, use resetTrigger to make trigger to true (by using GetMouseButtonUp)
-    /// </summary>
-    public bool resetTrigger = false;
+  
     /// <summary>
     /// Default is 0, at dialogueText. 1 is at Idialogue. 2 is at editorDialogue. 3 is at sadDialogue
     /// </summary>
     int dialogueType = 0;
-    public GameObject triggerObj;
-    List<string> dialogueList;
+   
     public GameObject objI;
     public GameObject objTable;
     public GameObject objTableDialogue;
@@ -34,14 +27,13 @@ public class Scene1Manager : MonoBehaviour
     public GameObject objEditorDialogue;
     public Text IDialogue;
     public Text editorDialogue;
-    public int step = 0;
     public Vector3 startCameraPosition;
     public Vector3 memoryCameraPosition;
     private float fraction;
     public float speed;
     private bool cameraMoveToMemory = false;
     private bool cameraMoveToNormal = false;
-    private TextAsset textAsset;
+    
     //Sad
     public GameObject objDivisionLineRight;
     public GameObject objSadDialogue;
@@ -66,17 +58,9 @@ public class Scene1Manager : MonoBehaviour
      }   
 
     // Update is called once per frame
-    void Update()
+    public override void Update()
     {
-        if (trigger == true && Input.GetMouseButtonDown(0) )
-        {
-            NextStep();
-        }
-        if (resetTrigger == true && Input.GetMouseButtonUp(0))
-        {
-            trigger = true;
-            resetTrigger = false;
-        }
+        base.Update();
         //Begin memory
         if (cameraMoveToMemory == true)
         {
@@ -115,12 +99,8 @@ public class Scene1Manager : MonoBehaviour
         //End memory. Begin Sad
 
     }
-    void ReadTextFile()
-    {
-        dialogueList = textAsset.text.Split('\n').ToList();
-       
-    }
-    public void NextStep()
+   
+    public override void NextStep()
     {
         print(dialogueList[step]);
         if (dialogueList[step][0] == '@')
@@ -159,7 +139,7 @@ public class Scene1Manager : MonoBehaviour
         }
     }
    
-    void StepAction()
+    public override void StepAction()
     {
 
         if (dialogueList[step].Contains("(stop @)"))
@@ -286,16 +266,8 @@ public class Scene1Manager : MonoBehaviour
 
     }
 
-    void ClickAction()
-    {
-        string word = dialogueList[step];
-        word = word.Substring(1, word.Length - 2);
-        step++;
-        NextStep();
-        trigger = false;
-        DrawTrigger(word);
-    }
-    public Text GetSuitableText()
+
+    public override Text GetSuitableText()
     {
         if (dialogueType == 0)
         {
@@ -322,57 +294,7 @@ public class Scene1Manager : MonoBehaviour
             return null;
         }
     }
-    void DrawTrigger(string word)
-    {
-        triggerObj.SetActive(true);
-        int startIndex = dialogueList[step-1].IndexOf(word);
-        int endIndex = startIndex+ word.Length+1;
-        //print(startIndex);
-        Vector3 startPosition = PrintPos(startIndex);
-        Vector3 endPosition = PrintPos(endIndex);
-        if (startPosition.x > endPosition.x)
-        {
-            startPosition = PrintPos(startIndex + 1); //Means it change the line at the beginning of the word.
-        }
-        //new GameObject("point").transform.position = startPosition;
-        //new GameObject("poin2").transform.position = endPosition;
-        float distance = endPosition.x - startPosition.x;
-        triggerObj.SetActive(true);
-        triggerObj.transform.position = new Vector3(startPosition.x + distance / 2, startPosition.y + distance/2, 0);
-        triggerObj.GetComponent<BoxCollider2D>().size = new Vector2(distance, distance);
-        
-    }
-
-    Vector3 PrintPos(int charIndex)
-    {
-        string text = GetSuitableText().text;
-
-        TextGenerator textGen = new TextGenerator(text.Length);
-        Vector2 extents = GetSuitableText().gameObject.GetComponent<RectTransform>().rect.size;
-        textGen.Populate(text, GetSuitableText().GetGenerationSettings(extents));
-
-        int newLine = text.Substring(0, charIndex).Split('\n').Length - 1;
-        int whiteSpace = text.Substring(0, charIndex).Split(' ').Length - 1;
-        int indexOfTextQuad = (charIndex * 4) + (newLine * 4) - 4;
-        if (indexOfTextQuad < textGen.vertexCount)
-        {
-            Vector3 avgPos = (textGen.verts[indexOfTextQuad].position +
-                textGen.verts[indexOfTextQuad + 1].position +
-                textGen.verts[indexOfTextQuad + 2].position +
-                textGen.verts[indexOfTextQuad + 3].position) / 4f;
-
-            //print(avgPos);
-            //PrintWorldPos(avgPos);
-            return GetSuitableText().transform.TransformPoint(avgPos);
-        }
-        else
-        {
-            Debug.LogError("Out of text bound");
-            return new Vector3(0,0,0);
-        }
-    }
-
- 
+   
 
    
 }
