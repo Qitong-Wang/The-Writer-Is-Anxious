@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Paper : MonoBehaviour
 {
@@ -68,12 +69,11 @@ public class Paper : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.name);
+        
         if (collision.gameObject.name.Equals("trashcan"))
         {
             beginDrag = false;
-            
-            print("Finish!");
+            SceneManager.LoadScene("BookShelf");
         }
     }
    
