@@ -14,6 +14,7 @@ public class Scene2Background : MonoBehaviour
     bool ableClick = true;
     public GameObject objScene2Manager;
     public GameObject objBackground;
+    public GameObject backgroundMask;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,7 @@ public class Scene2Background : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (Input.GetMouseButtonDown(0))
         {
             if (ableClick == true)
@@ -67,11 +69,23 @@ public class Scene2Background : MonoBehaviour
 
         if (sentenceCurrentIndex > sentenceCount)
         {
+            StartCoroutine(FadeTo(0f, 1.0f));
             yield return new WaitForSeconds(1f);
-            Camera.main.backgroundColor = Color.white;
             objScene2Manager.SetActive(true);
             objBackground.SetActive(false);
+            backgroundMask.SetActive(false);
         }
         yield return null;
+    }
+
+    IEnumerator FadeTo(float aValue, float aTime)
+    {
+        float alpha = backgroundMask.GetComponent<Image>().color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(0, 0, 0, Mathf.Lerp(alpha, aValue, t));
+            backgroundMask.GetComponent<Image>().color = newColor;
+            yield return null;
+        }
     }
 }
