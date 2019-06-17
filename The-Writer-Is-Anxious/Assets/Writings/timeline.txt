@@ -1,0 +1,14 @@
+5.29    start art finished
+6.5	cat art finished | start programming
+6.12	RPG art | cat programming
+6.19	RPG art | cat programming
+6.26	Romance art | RPG programming
+7.3	Zombie art | RPG programming
+7.10	Zombie art | Romance programming + Zombie programming
+7.17	Mystery art | Zombie programming
+7.24	Mystery art | Mystery programming
+7.31	MR art | Mystery programming
+8.7	End art | MR programming
+8.14	Polish + Animation | MR programming
+8.21	Animation | End programming
+8.28	Animation | Other mechanics
