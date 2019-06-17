@@ -21,7 +21,7 @@ public class Scene2Manager : NormalSceneManager
     void Start()
     {
         dialogueList = new List<string>();
-        textAsset = Resources.Load("Scene2Start") as TextAsset;
+        textAsset = Resources.Load("Scene2Catroom") as TextAsset;
         ReadTextFile();
         dialogueIndexDictionary = new Dictionary<string, int>();
     }
