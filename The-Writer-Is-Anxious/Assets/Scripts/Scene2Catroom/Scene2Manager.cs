@@ -14,6 +14,10 @@ public class Scene2Manager : NormalSceneManager
     /// </summary>
     int dialogueType = 0;
     Dictionary<string, int> dialogueIndexDictionary;
+    /// <summary>
+    /// Whether player can interactive with other objects in the game
+    /// </summary>
+    public bool otherObjActive = false;
     
 
 
