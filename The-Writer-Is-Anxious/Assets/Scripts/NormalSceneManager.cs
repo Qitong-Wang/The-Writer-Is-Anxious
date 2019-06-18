@@ -51,12 +51,12 @@ public class NormalSceneManager : MonoBehaviour
     }
     public virtual void NextStep()
     {
-        
+       
     }
 
     public virtual void StepAction()
     {
-
+       
        
     }
     public virtual Text GetSuitableText()

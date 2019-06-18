@@ -479,7 +479,6 @@ MonoBehaviour:
   kitchen: {fileID: 136031918}
   entryWay: {fileID: 1956803492}
   scene2Manager: {fileID: 922944555}
-  roomIndex: 0
   right: 1
 --- !u!61 &155909626
 BoxCollider2D:
@@ -1289,7 +1288,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &922944554
 Transform:
   m_ObjectHideFlags: 0
@@ -1316,8 +1315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b45540d1a0a5c264bbbe3a77397f0ada, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueText: {fileID: 0}
-  dialogueObj: {fileID: 0}
+  dialogueText: {fileID: 269702770}
+  dialogueObj: {fileID: 269702768}
   trigger: 1
   resetTrigger: 0
   triggerObj: {fileID: 0}
@@ -1325,6 +1324,7 @@ MonoBehaviour:
   textAsset: {fileID: 0}
   step: 0
   otherObjActive: 1
+  roomIndex: 0
 --- !u!1 &999250555
 GameObject:
   m_ObjectHideFlags: 0
@@ -1527,7 +1527,6 @@ MonoBehaviour:
   kitchen: {fileID: 136031918}
   entryWay: {fileID: 1956803492}
   scene2Manager: {fileID: 922944555}
-  roomIndex: 0
   right: 0
 --- !u!61 &1150106860
 BoxCollider2D:
