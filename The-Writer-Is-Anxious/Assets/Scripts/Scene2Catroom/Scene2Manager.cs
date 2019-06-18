@@ -18,6 +18,7 @@ public class Scene2Manager : NormalSceneManager
     /// Whether player can interactive with other objects in the game
     /// </summary>
     public bool otherObjActive = false;
+    public int roomIndex;
     
 
 

@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// O is catRoom. 1 is Kitchen, 2 is entry way.
 /// catroom - kitchen - entry way - catroom
+/// roomIndex is stored in Scene2Manager
 /// </summary>
 public class Scene2Arrow : MonoBehaviour
 {
@@ -12,7 +13,6 @@ public class Scene2Arrow : MonoBehaviour
     public GameObject kitchen;
     public GameObject entryWay;
     public Scene2Manager scene2Manager;
-    public int roomIndex = 0;
     public bool right;
     // Start is called before the first frame update
     void Start()
@@ -31,21 +31,21 @@ public class Scene2Arrow : MonoBehaviour
         {
             if (right == true)
             {
-                if (roomIndex == 0)
+                if (scene2Manager.roomIndex == 0)
                 {
-                    roomIndex = 1;
+                    scene2Manager.roomIndex = 1;
                     catRoom.SetActive(false);
                     kitchen.SetActive(true);
                 }
-                else if (roomIndex == 1)
+                else if (scene2Manager.roomIndex == 1)
                 {
-                    roomIndex = 2;
+                    scene2Manager.roomIndex = 2;
                     kitchen.SetActive(false);
                     entryWay.SetActive(true);
                 }
                 else
                 {
-                    roomIndex = 0;
+                    scene2Manager.roomIndex = 0;
                     entryWay.SetActive(false);
                     catRoom.SetActive(true);
 
@@ -53,23 +53,23 @@ public class Scene2Arrow : MonoBehaviour
             }
             else
             {
-                if (roomIndex == 0)
+                if (scene2Manager.roomIndex == 0)
                 {
-                    roomIndex = 2;
+                    scene2Manager.roomIndex = 2;
                     catRoom.SetActive(false);
                     entryWay.SetActive(true);
                 }
-                else if (roomIndex == 1)
+                else if (scene2Manager.roomIndex == 1)
                 {
-                    roomIndex = 0;
+                    scene2Manager.roomIndex = 0;
                     kitchen.SetActive(false);
                     catRoom.SetActive(true);
                 }
                 else
                 {
-                    roomIndex = 1;
+                    scene2Manager.roomIndex = 1;
                     entryWay.SetActive(false);
-                    catRoom.SetActive(true);
+                    kitchen.SetActive(true);
                 }
             }
         }
