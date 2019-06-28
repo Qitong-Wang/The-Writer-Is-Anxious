@@ -11,11 +11,7 @@ public class NormalSceneManager : MonoBehaviour
     public Text dialogueText;
     public GameObject dialogueObj;
     public bool trigger = true;
-    /// <summary>
-    /// When trigger is false, use resetTrigger to make trigger to true (by using GetMouseButtonUp)
-    /// </summary>
-    public bool resetTrigger = false;
-    
+  
     public GameObject triggerObj;
     public List<string> dialogueList;
     public TextAsset textAsset;
@@ -37,12 +33,7 @@ public class NormalSceneManager : MonoBehaviour
         {
             NextStep();
         }
-        if (resetTrigger == true && Input.GetMouseButtonUp(0))
-        {
-            trigger = true;
-            resetTrigger = false;
-        }
-
+     
     }
     public virtual void ReadTextFile()
     {
@@ -123,6 +114,12 @@ public class NormalSceneManager : MonoBehaviour
         }
     }
 
+    public IEnumerator ResetTriggerTrue()
+    {
+        yield return new WaitForSeconds(0.5f);
+        trigger = true;
+        yield return null;
+    }
 
 
 

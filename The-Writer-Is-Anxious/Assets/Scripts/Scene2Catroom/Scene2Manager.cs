@@ -37,7 +37,7 @@ public class Scene2Manager : NormalSceneManager
         textAsset = Resources.Load("Scene2Catroom") as TextAsset;
         dialogueIndexDictionary = new Dictionary<string, int>();
         ReadTextFile();
-        otherObjActive = true;
+        otherObjActive = false;
         ReadDialogue("Catroom Open");
 
     }
@@ -75,6 +75,7 @@ public class Scene2Manager : NormalSceneManager
 
     public override void NextStep()
     {
+        print(step);
         print(dialogueList[step]);
         if (dialogueList[step][0] == '@')
         {
@@ -106,11 +107,19 @@ public class Scene2Manager : NormalSceneManager
         {
             dialogueObj.SetActive(false);
             otherObjActive = true;
+            trigger = false;
         }
         else if(dialogueList[step].Contains("(Catroom Open)"))
         {
             dialogueObj.SetActive(true);
             otherObjActive = false;
+            step++;
+            NextStep();
+        }
+        else
+        {
+
+            step++;
             NextStep();
         }
         
@@ -121,7 +130,9 @@ public class Scene2Manager : NormalSceneManager
     {
         otherObjActive = false;
         step = dialogueIndexDictionary[tagName];
-        StepAction();
+        print(tagName);
+        print(step);
+        NextStep();
     }
     public override Text GetSuitableText()
     {
