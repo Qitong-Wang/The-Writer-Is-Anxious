@@ -27,7 +27,9 @@ public class Scene2Manager : NormalSceneManager
     //Catroom
     bool firstVisit = false;
 
-    
+    public GameObject objBowl;
+    public GameObject objItemBowl;
+    public bool pickupBowl = false;
 
 
     // Start is called before the first frame update
@@ -102,8 +104,14 @@ public class Scene2Manager : NormalSceneManager
     public override void StepAction()
     {
 
-       
-        if (dialogueList[step].Contains("(end)"))
+        if (dialogueList[step].Contains("(stop @)"))
+        {
+            triggerObj.SetActive(false);
+            StartCoroutine("ResetTriggerTrue");
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(end)"))
         {
             dialogueObj.SetActive(false);
             otherObjActive = true;
@@ -113,6 +121,14 @@ public class Scene2Manager : NormalSceneManager
         {
             dialogueObj.SetActive(true);
             otherObjActive = false;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(pickup bowl)"))
+        {
+            Destroy(objBowl);
+            objItemBowl.SetActive(true);
+            pickupBowl = true;
             step++;
             NextStep();
         }

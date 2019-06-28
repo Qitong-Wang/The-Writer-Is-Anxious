@@ -7,5 +7,9 @@ Cat is here.
 (end)
 (Bowl)
 This is an empty bowl...
-Pick it up.
+@Pick
+<color=blue>Pick</color> it up.
+(stop @)
+(pickup bowl)
+Time to find some food.
 (end)

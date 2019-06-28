@@ -69,15 +69,16 @@ public class NormalSceneManager : MonoBehaviour
         triggerObj.SetActive(true);
         int startIndex = dialogueList[step - 1].IndexOf(word);
         int endIndex = startIndex + word.Length + 1;
-        //print(startIndex);
+        print(startIndex);
+        print(endIndex);
         Vector3 startPosition = PrintPos(startIndex);
         Vector3 endPosition = PrintPos(endIndex);
         if (startPosition.x > endPosition.x)
         {
             startPosition = PrintPos(startIndex + 1); //Means it change the line at the beginning of the word.
         }
-        //new GameObject("point").transform.position = startPosition;
-        //new GameObject("poin2").transform.position = endPosition;
+        new GameObject("point").transform.position = startPosition;
+        new GameObject("poin2").transform.position = endPosition;
         float distance = endPosition.x - startPosition.x;
         triggerObj.SetActive(true);
         triggerObj.transform.position = new Vector3(startPosition.x + distance / 2, startPosition.y + distance / 2, 0);
