@@ -19,3 +19,23 @@ Meow…
 (Tail)
 Aww. You don’t want to try that.
 (end)
+(ShelfUp)
+Oops! You cannot reach that high.
+(end)
+(ShelfMiddle)
+(shelfmiddle start)
+There lies the owner's diary and a bunch of other stuffs.
+(option ReadDiary LeaveDiary )
+Read the diary.
+Leave it there.
+(end)
+(ReadDiary)
+…… 
+It’s full of compliments about Cat.
+You close it.
+(shelfmiddle end)
+(end)
+(LeaveDiary)
+You close the drawer.
+(shelfmiddle end)
+(end)

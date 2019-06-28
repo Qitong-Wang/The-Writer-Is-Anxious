@@ -10,7 +10,7 @@ public class Scene2Manager : NormalSceneManager
 {
 
     /// <summary>
-    /// Default is 0, at dialogueText. 
+    /// Default is 0, at dialogueText. 1 is option1, 2 is option2
     /// </summary>
     int dialogueType = 0;
     /// <summary>
@@ -23,13 +23,24 @@ public class Scene2Manager : NormalSceneManager
     public bool otherObjActive = false;
 
     public int roomIndex;
-
+    //Option
+    public Text dialogueOption1;
+    public Text dialogueOption2;
+    public GameObject objOption1;
+    public GameObject objOption2;
+    public int option1LineNumber;
+    public int option2LineNumber;
+   
     //Catroom
     bool firstVisit = false;
 
     public GameObject objBowl;
     public GameObject objItemBowl;
     public bool pickupBowl = false;
+    public SpriteRenderer shelfMiddle;
+    public Sprite shelfMiddleNormal;
+    public Sprite shelfMiddleTmp;
+    
 
 
     // Start is called before the first frame update
@@ -129,6 +140,40 @@ public class Scene2Manager : NormalSceneManager
             Destroy(objBowl);
             objItemBowl.SetActive(true);
             pickupBowl = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(shelfmiddle start)"))
+        {
+            shelfMiddle.sprite = shelfMiddleTmp;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(shelfmiddle end)"))
+        {
+            shelfMiddle.sprite = shelfMiddleNormal;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(option"))
+        {
+            string[] optionNumbers = dialogueList[step].Split(" "[0]);
+            objOption1.SetActive(true);
+            objOption2.SetActive(true);
+            option1LineNumber = dialogueIndexDictionary[optionNumbers[1]];
+            option2LineNumber = dialogueIndexDictionary[optionNumbers[2]];
+            step++;
+            dialogueOption1.text = dialogueList[step];
+            step++;
+            dialogueOption2.text = dialogueList[step];
+            trigger = false;
+            step++;
+           
+        }
+        else if (dialogueList[step].Contains("(optionEnd)"))
+        {
+            objOption1.SetActive(false);
+            objOption2.SetActive(false);
             step++;
             NextStep();
         }
