@@ -1203,6 +1203,8 @@ GameObject:
   m_Component:
   - component: {fileID: 864888027}
   - component: {fileID: 864888026}
+  - component: {fileID: 864888028}
+  - component: {fileID: 864888029}
   m_Layer: 0
   m_Name: normalcat
   m_TagString: Untagged
@@ -1272,6 +1274,33 @@ Transform:
   m_Father: {fileID: 1107544207}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &864888028
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864888025}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7.578608, y: 7.5614557, z: 0.2}
+  m_Center: {x: -0.4138405, y: -0.028192317, z: 0}
+--- !u!114 &864888029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864888025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bbba6c7c78cf640883c14f8ae01f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene2Manager: {fileID: 922944555}
+  triggerName: Cat
 --- !u!1 &904810575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,6 +2402,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1511405679}
   - component: {fileID: 1511405678}
+  - component: {fileID: 1511405680}
+  - component: {fileID: 1511405681}
   m_Layer: 0
   m_Name: normaltail
   m_TagString: Untagged
@@ -2442,6 +2473,33 @@ Transform:
   m_Father: {fileID: 1107544207}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1511405680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511405677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62bbba6c7c78cf640883c14f8ae01f8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scene2Manager: {fileID: 922944555}
+  triggerName: Tail
+--- !u!65 &1511405681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511405677}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.7691457, y: 3.86262, z: 0.2}
+  m_Center: {x: 0.07115841, y: 0.17789671, z: 0}
 --- !u!1 &1703870020
 GameObject:
   m_ObjectHideFlags: 0

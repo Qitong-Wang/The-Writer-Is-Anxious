@@ -13,3 +13,9 @@ This is an empty bowl...
 (pickup bowl)
 Time to find some food.
 (end)
+(Cat)
+Meow…
+(end)
+(Tail)
+Aww. You don’t want to try that.
+(end)
