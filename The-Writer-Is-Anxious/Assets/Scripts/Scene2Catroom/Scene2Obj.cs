@@ -19,6 +19,7 @@ public class Scene2Obj : MonoBehaviour
     {
 
     }
+    
     private void OnMouseDown()
     {
         if (scene2Manager.otherObjActive == true)

@@ -53,6 +53,9 @@ public class Scene2Arrow : MonoBehaviour
                     scene2Manager.roomIndex = 2;
                     kitchen.SetActive(false);
                     entryWay.SetActive(true);
+                    scene2Manager.ReadDialogue("EntryWay");
+                    scene2Manager.otherObjActive = false;
+                    scene2Manager.dialogueObj.SetActive(true);
                 }
                 else
                 {
@@ -71,6 +74,9 @@ public class Scene2Arrow : MonoBehaviour
                     scene2Manager.roomIndex = 2;
                     catRoom.SetActive(false);
                     entryWay.SetActive(true);
+                    scene2Manager.ReadDialogue("EntryWay");
+                    scene2Manager.otherObjActive = false;
+                    scene2Manager.dialogueObj.SetActive(true);
                 }
                 else if (scene2Manager.roomIndex == 1)
                 {

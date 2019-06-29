@@ -75,6 +75,10 @@ public class Scene2Manager : NormalSceneManager
     public GameObject objEntryWay;
     public SpriteRenderer lockedDoor;
     public Sprite openedDoor;
+    public SpriteRenderer catPicture;
+    public Sprite catPicCheer;
+    public Sprite catPicAngry;
+    public GameObject objKnight;
 
     
 
@@ -256,6 +260,7 @@ public class Scene2Manager : NormalSceneManager
             pickupBowl = false;
             objItemBowl.SetActive(false);
             roomIndex = 0;
+            catPicture.sprite = catPicAngry;
             step++;
             NextStep();
         }
@@ -307,6 +312,12 @@ public class Scene2Manager : NormalSceneManager
             NextStep();
             
         }
+        else if (dialogueList[step].Contains("(GetOutCottage)"))
+        {
+            objKnight.SetActive(true);
+            step++;
+            NextStep();
+        }
         else if (dialogueList[step].Contains("(afterMilkBowlCatroom)"))
         {
             objmilkInBowl.SetActive(false);
@@ -317,6 +328,7 @@ public class Scene2Manager : NormalSceneManager
             roomIndex = 0;
             meow.sprite = cheerfulMeow;
             lockedDoor.sprite = openedDoor;
+            catPicture.sprite = catPicCheer;
             step++;
             afterMilkCat = true;
             NextStep();
@@ -344,6 +356,7 @@ public class Scene2Manager : NormalSceneManager
             step++;
             NextStep();
         }
+
         else
         {
 

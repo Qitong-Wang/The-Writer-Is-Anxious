@@ -168,3 +168,19 @@ Yummy milk.
 Cat looks happy.
 You are relieved.
 (end)
+ 
+(EntryWay)
+There the door is.
+(end)
+(LockedDoor)
+Double checked: it’s locked.
+(end)
+(Picture)
+That’s Cat.
+(end)
+(Rosetable)
+Magic roses still need water.
+(end)
+(GetOutCottage)
+Knight gets out of the cottage.
+(end)
