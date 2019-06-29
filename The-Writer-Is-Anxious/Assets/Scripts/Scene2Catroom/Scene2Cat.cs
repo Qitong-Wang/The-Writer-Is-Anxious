@@ -36,6 +36,13 @@ public class Scene2Cat : MonoBehaviour
                 scene2Manager.otherObjActive = false;
                 scene2Manager.dialogueObj.SetActive(true);
             }
+            else if (scene2Manager.afterMilkCat == true)
+            {
+                scene2Manager.ReadDialogue("CatWithMilk");
+                scene2Manager.StartCoroutine("ResetTriggerTrue");
+                scene2Manager.otherObjActive = false;
+                scene2Manager.dialogueObj.SetActive(true);
+            }
             else
             {
                 scene2Manager.ReadDialogue("Cat");

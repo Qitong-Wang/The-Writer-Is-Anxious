@@ -68,6 +68,7 @@ public class Scene2Manager : NormalSceneManager
     public bool afterDropMilk = false;
     public GameObject objmilkInBowl;
     public bool afterMilkBowl = false;
+    public bool afterMilkCat = false;
 
 
     //EntryWay
@@ -97,7 +98,7 @@ public class Scene2Manager : NormalSceneManager
             if (dialogueList[i][0] == '(')
             {
                
-                if(dialogueList[i].Contains("end") == false)
+                if(dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(stop @)") == false)
                 {
                     //Add the tag to the dictionary. 
                     dialogueIndexDictionary.Add(dialogueList[i].Substring(1,dialogueList[i].Length-3), i );
@@ -293,6 +294,7 @@ public class Scene2Manager : NormalSceneManager
         }
         else if (dialogueList[step].Contains("(afterMilkBowl)"))
         {
+            StartCoroutine("ResetTriggerTrue");
             objmilkInBowl.SetActive(true);
             pickupBowl = false;
             objItemBowl.SetActive(false);
@@ -316,6 +318,7 @@ public class Scene2Manager : NormalSceneManager
             meow.sprite = cheerfulMeow;
             lockedDoor.sprite = openedDoor;
             step++;
+            afterMilkCat = true;
             NextStep();
         }
        

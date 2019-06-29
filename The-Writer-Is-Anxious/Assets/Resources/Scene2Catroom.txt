@@ -147,6 +147,7 @@ The table doesn't seem very heavy...
 <color=blue>Shove.</color>
 @Shove.
 <color=blue>Shove.</color>
+(stop @)
 (milkTimer)
 (end)
 (milkTimerFinish)
@@ -159,4 +160,11 @@ Safe.
 Mmm...
 ...
 You hear something from the hallway.
+(end)
+(BowlwithMilk)
+Yummy milk.
+(end)
+(CatWithMilk)
+Cat looks happy.
+You are relieved.
 (end)
