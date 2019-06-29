@@ -22,6 +22,7 @@ Aww. You don’t want to try that.
 (ShelfUp)
 Oops! You cannot reach that high.
 (end)
+ 
 (ShelfMiddle)
 (shelfmiddle start)
 There lies the owner's diary and a bunch of other stuffs.
@@ -39,3 +40,45 @@ You close it.
 You close the drawer.
 (shelfmiddle end)
 (end)
+ 
+(ShelfBelow)
+(shelfbelow start)
+Look what you found! Doratos!
+You would really love to have some. But Cat is still hungry...
+(option DoratosEat DoratosCat )
+Eat some.
+Give some to Cat.
+(DoratosEat)
+...
+...
+...tasted good, just as you expected.
+(shelfbelow end)
+(end)
+(DoratosCat)
+(end)
+(DoratosCatWithoutBowl)
+Ah-oh. You need to have something to hold the food.
+(shelfbelow end)
+(end)
+(DoratosCatWithBowl)
+Mmm...
+...
+You hear something from the hallway.
+(afterDoratosCat)
+(shelfbelow end)
+(end)
+(ShelfBelowAfterDoratosCat)
+Look what you found! Doratos!
+Eat some.
+...
+...
+...tasted good, just as you expected.
+(end)
+
+(BowlWithDoratos)
+Doratos.
+(end)
+(CatWithDoratos)
+Cat is staring at the bowl.
+(end)
+ 

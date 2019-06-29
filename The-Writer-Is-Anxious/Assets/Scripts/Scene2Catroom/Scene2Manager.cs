@@ -33,13 +33,25 @@ public class Scene2Manager : NormalSceneManager
    
     //Catroom
     bool firstVisit = false;
-
+    public GameObject objCatroom;
     public GameObject objBowl;
     public GameObject objItemBowl;
     public bool pickupBowl = false;
     public SpriteRenderer shelfMiddle;
     public Sprite shelfMiddleNormal;
     public Sprite shelfMiddleTmp;
+    public SpriteRenderer shelfBelow;
+    public Sprite shelfBelowNormal;
+    public Sprite shelfBelowDoratos;
+    public bool afterDoratosCat = false;
+    public GameObject objBowlWithDoratos;
+    public SpriteRenderer meow;
+    public Sprite thankfulMeow;
+
+
+    //EntryWay
+    public SpriteRenderer lockedDoor;
+    public Sprite openedDoor;
     
 
 
@@ -152,6 +164,41 @@ public class Scene2Manager : NormalSceneManager
         else if (dialogueList[step].Contains("(shelfmiddle end)"))
         {
             shelfMiddle.sprite = shelfMiddleNormal;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(shelfbelow start)"))
+        {
+            shelfBelow.sprite = shelfBelowDoratos;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(shelfbelow end)"))
+        {
+            shelfBelow.sprite = shelfBelowNormal;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(DoratosCat)"))
+        {
+            if (pickupBowl == false)
+            {
+                ReadDialogue("DoratosCatWithoutBowl");
+            }
+            else
+            {
+                ReadDialogue("DoratosCatWithBowl");
+            }
+        }
+        else if (dialogueList[step].Contains("(afterDoratosCat)"))
+        {
+            afterDoratosCat = true;
+            objBowlWithDoratos.SetActive(true);
+            objBowlWithDoratos.transform.SetParent(objCatroom.transform);
+            objItemBowl.SetActive(false);
+            pickupBowl = false;
+            meow.sprite = thankfulMeow;
+            lockedDoor.sprite = openedDoor;
             step++;
             NextStep();
         }
