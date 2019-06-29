@@ -117,7 +117,7 @@ public class NormalSceneManager : MonoBehaviour
 
     public IEnumerator ResetTriggerTrue()
     {
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         trigger = true;
         yield return null;
     }

@@ -85,9 +85,15 @@ Cat is staring at the bowl.
 (Kitchen)
 This seems to be the kitchen.
 (end)
+(KitchenDropMilk)
+Uh-oh.
+(end)
 (frigerUp)
 You would really like to know what is there.
 And you are really not tall enough.
+(end)
+(frigerUpDropMilk)
+Spilled milk does not make you any taller.
 (end)
 
 (frigerDown)
@@ -123,4 +129,34 @@ You do not want to approach it.
 (CatWithRottenFood)
 Scared? Angry?
 You cannot read Cat's face.	
+(end)
+ 
+(Milk)
+That's milk!
+Unfortunately, you can't reach it...
+(end)
+(Table)
+The table doesn't seem very heavy...
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+(milkTimer)
+(end)
+(milkTimerFinish)
+(end)
+(milkWithBowl)
+I got the bowl!”
+(afterMilkBowl)
+Safe.
+(afterMilkBowlCatroom)
+Mmm...
+...
+You hear something from the hallway.
 (end)

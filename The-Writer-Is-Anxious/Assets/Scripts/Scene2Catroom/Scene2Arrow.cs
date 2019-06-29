@@ -37,7 +37,14 @@ public class Scene2Arrow : MonoBehaviour
                     scene2Manager.roomIndex = 1;
                     catRoom.SetActive(false);
                     kitchen.SetActive(true);
-                    scene2Manager.ReadDialogue("Kitchen");
+                    if (scene2Manager.afterDropMilk == true)
+                    {
+                        scene2Manager.ReadDialogue("KitchenDropMilk");
+                    }
+                    else
+                    {
+                        scene2Manager.ReadDialogue("Kitchen");
+                    }
                     scene2Manager.otherObjActive = false;
                     scene2Manager.dialogueObj.SetActive(true);
                 }
@@ -79,7 +86,15 @@ public class Scene2Arrow : MonoBehaviour
                     scene2Manager.roomIndex = 1;
                     entryWay.SetActive(false);
                     kitchen.SetActive(true);
-                    scene2Manager.ReadDialogue("Kitchen");
+                    if (scene2Manager.afterDropMilk == true)
+                    {
+                        scene2Manager.ReadDialogue("KitchenDropMilk");
+                    }
+                    else
+                    {
+                        scene2Manager.ReadDialogue("Kitchen");
+                    }
+                    
                     scene2Manager.otherObjActive = false;
                     scene2Manager.dialogueObj.SetActive(true);
                 }

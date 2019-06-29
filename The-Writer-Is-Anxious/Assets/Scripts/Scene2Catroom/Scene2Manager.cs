@@ -54,17 +54,27 @@ public class Scene2Manager : NormalSceneManager
     public Sprite shockedTail;
     public GameObject objMeow;
     public GameObject objBowlWithRootenFood;
-
+    public GameObject objBowlWithMilk;
+    public Sprite cheerfulMeow;
 
     //Kitchen
     public GameObject objKitchen;
     public bool afterFrigerAppear = false;
     public SpriteRenderer frigerBelow;
     public Sprite rottenFood;
-    
+    public GameObject objMilkTimer;
+    public GameObject objMilk;
+    public GameObject objMilkOnFloor;
+    public bool afterDropMilk = false;
+    public GameObject objmilkInBowl;
+    public bool afterMilkBowl = false;
+
+
     //EntryWay
+    public GameObject objEntryWay;
     public SpriteRenderer lockedDoor;
     public Sprite openedDoor;
+
     
 
 
@@ -248,6 +258,67 @@ public class Scene2Manager : NormalSceneManager
             step++;
             NextStep();
         }
+        else if (dialogueList[step].Contains("(milkTimer)"))
+        {
+            objMilkTimer.SetActive(true);
+            objMilkTimer.GetComponent<Scene2MilkTimer>().startTimer = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(milkTimerFinish)"))
+        {
+            StartCoroutine("ResetTriggerTrue");
+            otherObjActive = false;
+            dialogueObj.SetActive(true);
+            objMilkTimer.SetActive(false);
+            if (pickupBowl == false)
+            {
+                Destroy(objMilk);
+                objMilkOnFloor.transform.parent = objKitchen.transform;
+                objMilkOnFloor.SetActive(true);
+                afterDropMilk = true;
+            }
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(milkWithBowl)"))
+        {
+            StartCoroutine("ResetTriggerTrue");
+            otherObjActive = false;
+            dialogueObj.SetActive(true);
+            objMilkTimer.SetActive(false);
+            step++;
+            NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(afterMilkBowl)"))
+        {
+            objmilkInBowl.SetActive(true);
+            pickupBowl = false;
+            objItemBowl.SetActive(false);
+            afterMilkBowl = true;
+            objEntryWay.SetActive(false);
+            objKitchen.SetActive(true);
+            objCatroom.SetActive(false);
+            roomIndex = 1;
+            step++;
+            NextStep();
+            
+        }
+        else if (dialogueList[step].Contains("(afterMilkBowlCatroom)"))
+        {
+            objmilkInBowl.SetActive(false);
+            objBowlWithMilk.transform.SetParent(objCatroom.transform);
+            objBowlWithMilk.SetActive(true);
+            objKitchen.SetActive(false);
+            objCatroom.SetActive(true);
+            roomIndex = 0;
+            meow.sprite = cheerfulMeow;
+            lockedDoor.sprite = openedDoor;
+            step++;
+            NextStep();
+        }
+       
         else if (dialogueList[step].Contains("(option"))
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);
