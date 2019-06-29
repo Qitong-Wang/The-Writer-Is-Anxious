@@ -18,7 +18,7 @@ public class Scene2ShelfBelow : MonoBehaviour
     {
 
     }
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
         if (scene2Manager.otherObjActive == true)
         {
