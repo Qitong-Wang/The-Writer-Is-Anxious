@@ -29,6 +29,7 @@ public class Scene2Arrow : MonoBehaviour
     {
         if (scene2Manager.otherObjActive == true)
         {
+            scene2Manager.StartCoroutine("ResetTriggerTrue");
             if (right == true)
             {
                 if (scene2Manager.roomIndex == 0)
@@ -36,6 +37,9 @@ public class Scene2Arrow : MonoBehaviour
                     scene2Manager.roomIndex = 1;
                     catRoom.SetActive(false);
                     kitchen.SetActive(true);
+                    scene2Manager.ReadDialogue("Kitchen");
+                    scene2Manager.otherObjActive = false;
+                    scene2Manager.dialogueObj.SetActive(true);
                 }
                 else if (scene2Manager.roomIndex == 1)
                 {
@@ -48,7 +52,9 @@ public class Scene2Arrow : MonoBehaviour
                     scene2Manager.roomIndex = 0;
                     entryWay.SetActive(false);
                     catRoom.SetActive(true);
-
+                    scene2Manager.ReadDialogue("Catroom");
+                    scene2Manager.otherObjActive = false;
+                    scene2Manager.dialogueObj.SetActive(true);
                 }
             }
             else
@@ -64,12 +70,18 @@ public class Scene2Arrow : MonoBehaviour
                     scene2Manager.roomIndex = 0;
                     kitchen.SetActive(false);
                     catRoom.SetActive(true);
+                    scene2Manager.ReadDialogue("Catroom");
+                    scene2Manager.otherObjActive = false;
+                    scene2Manager.dialogueObj.SetActive(true);
                 }
                 else
                 {
                     scene2Manager.roomIndex = 1;
                     entryWay.SetActive(false);
                     kitchen.SetActive(true);
+                    scene2Manager.ReadDialogue("Kitchen");
+                    scene2Manager.otherObjActive = false;
+                    scene2Manager.dialogueObj.SetActive(true);
                 }
             }
         }

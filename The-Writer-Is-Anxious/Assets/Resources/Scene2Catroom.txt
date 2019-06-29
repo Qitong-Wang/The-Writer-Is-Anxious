@@ -2,7 +2,7 @@
 In a word, Knight needs to look for a way to feed Cat. His journey has just begun. 
 He can't be trapped here forever...
 (end)
-(Catroom Again)
+(Catroom)
 Cat is here.
 (end)
 (Bowl)
@@ -82,3 +82,45 @@ Doratos.
 Cat is staring at the bowl.
 (end)
  
+(Kitchen)
+This seems to be the kitchen.
+(end)
+(frigerUp)
+You would really like to know what is there.
+And you are really not tall enough.
+(end)
+
+(frigerDown)
+Ew! Look at what you found.
+That's a smell you will never forget in your life.
+(RottonFoodAppear)
+(end)
+(frigerRottenFood)
+If you could, you would not like to smell this again.
+(option RottenFoodEat RottenFoodCat )
+Eat some.
+Give some to Cat.
+(RottenFoodEat)
+...
+You do not feel very good.
+Your eyesight starts to blur...
+(EndScene)
+(end)
+(RottenFoodCat)
+(end)
+(RottenFoodWithoutBowl)
+Ah-oh. You need to have something to hold the food.
+(end)
+(RottenFoodWithBowl)
+(afterRottenFoodCat)
+Mmm...
+...
+You hear something from the hallway.
+(end)
+(BowlWithRottenFood)
+You do not want to approach it.
+(end)
+(CatWithRottenFood)
+Scared? Angry?
+You cannot read Cat's face.	
+(end)

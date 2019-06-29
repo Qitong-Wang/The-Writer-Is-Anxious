@@ -47,8 +47,21 @@ public class Scene2Manager : NormalSceneManager
     public GameObject objBowlWithDoratos;
     public SpriteRenderer meow;
     public Sprite thankfulMeow;
+    public bool afterRottenFoodCat = false;
+    public SpriteRenderer cat;
+    public Sprite shockedCat;
+    public SpriteRenderer tail;
+    public Sprite shockedTail;
+    public GameObject objMeow;
+    public GameObject objBowlWithRootenFood;
 
 
+    //Kitchen
+    public GameObject objKitchen;
+    public bool afterFrigerAppear = false;
+    public SpriteRenderer frigerBelow;
+    public Sprite rottenFood;
+    
     //EntryWay
     public SpriteRenderer lockedDoor;
     public Sprite openedDoor;
@@ -140,7 +153,7 @@ public class Scene2Manager : NormalSceneManager
             otherObjActive = true;
             trigger = false;
         }
-        else if(dialogueList[step].Contains("(Catroom Open)"))
+        else if (dialogueList[step].Contains("(Catroom Open)"))
         {
             dialogueObj.SetActive(true);
             otherObjActive = false;
@@ -202,6 +215,39 @@ public class Scene2Manager : NormalSceneManager
             step++;
             NextStep();
         }
+        else if (dialogueList[step].Contains("(RottonFoodAppear)"))
+        {
+            frigerBelow.sprite = rottenFood;
+            afterFrigerAppear = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(RottenFoodCat)"))
+        {
+            if (pickupBowl == true)
+            {
+                ReadDialogue("RottenFoodWithBowl");
+            }
+            else
+            {
+                ReadDialogue("RottenFoodWithoutBowl");
+            }
+        }
+        else if (dialogueList[step].Contains("(afterRottenFoodCat)"))
+        {
+            objBowlWithRootenFood.transform.SetParent(objCatroom.transform);
+            objBowlWithRootenFood.SetActive(true);
+            objKitchen.SetActive(false);
+            objCatroom.SetActive(true);
+            cat.sprite = shockedCat;
+            tail.sprite = shockedTail;
+            Destroy(objMeow);
+            pickupBowl = false;
+            objItemBowl.SetActive(false);
+            roomIndex = 0;
+            step++;
+            NextStep();
+        }
         else if (dialogueList[step].Contains("(option"))
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);
@@ -215,7 +261,7 @@ public class Scene2Manager : NormalSceneManager
             dialogueOption2.text = dialogueList[step];
             trigger = false;
             step++;
-           
+
         }
         else if (dialogueList[step].Contains("(optionEnd)"))
         {

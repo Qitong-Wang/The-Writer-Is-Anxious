@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class Scene2Cat : MonoBehaviour
+public class Scene2FrigerDown : MonoBehaviour
 {
 
     public Scene2Manager scene2Manager;
@@ -22,23 +22,16 @@ public class Scene2Cat : MonoBehaviour
     {
         if (scene2Manager.otherObjActive == true)
         {
-            if (scene2Manager.afterDoratosCat == true)
+            if (scene2Manager.afterFrigerAppear == false)
             {
-                scene2Manager.ReadDialogue("CatWithDoratos");
-                scene2Manager.StartCoroutine("ResetTriggerTrue");
-                scene2Manager.otherObjActive = false;
-                scene2Manager.dialogueObj.SetActive(true);
-            }
-            else if (scene2Manager.afterRottenFoodCat == true)
-            {
-                scene2Manager.ReadDialogue("CatWithRottenFood");
+                scene2Manager.ReadDialogue("frigerDown");
                 scene2Manager.StartCoroutine("ResetTriggerTrue");
                 scene2Manager.otherObjActive = false;
                 scene2Manager.dialogueObj.SetActive(true);
             }
             else
             {
-                scene2Manager.ReadDialogue("Cat");
+                scene2Manager.ReadDialogue("frigerRottenFood");
                 scene2Manager.StartCoroutine("ResetTriggerTrue");
                 scene2Manager.otherObjActive = false;
                 scene2Manager.dialogueObj.SetActive(true);
