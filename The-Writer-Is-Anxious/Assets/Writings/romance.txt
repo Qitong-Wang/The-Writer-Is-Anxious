@@ -1,0 +1,92 @@
+#在上一幕点击出现的princess开始romance剧情。底色变成白色，frame放在四个角落。princess说话的时候就放normal+nametag+dialoguebox，有选项的时候对话框消失，三个选项框（choice）放在中间，竖着排开。表情有很多是为之后做的。下面文字中带括号的不出现在dialogue里，是表情/好感度变化。我还没想好要不要把好感度具象化。好感度可以为负，起始是30. 好感度上升的时候heart会出现。这个我之后做个动画。
+#箭头是在dialogue下面放着的，可参考传统rpg/galgame那种，动来动去的。
+
+Princess:
+...My dear savior. Is that you who saved my life from that horrible creature?
+Could I know your name?
+
+#choice:
+Knight. ->A
+Please call me Knight, your majesty. ->B
+Who are you? ->C
+
+#A:
+Princess:
+Knight...
+
+#B:
+Princess:
+Sure, Knight... (Blush, love+10)
+
+#C:
+Princess:
+Ah...
+My name is Princess, the Princess of Country.
+You must be the knight that my father sent to protect me.
+
+Princess:
+Please let me express my gratitude and respect for your courage and selflessness.
+Could you tell me what happened to the town after I was caught, Knight?
+Is everyone okay? Is my father okay?
+
+#choice:
+There has not been much change since you left, your majesty. ->A
+How exactly do you get caught? ->B
+We are all worrying about you. But I had faith that I could find you.  ->C
+
+#A:
+Princess:
+That sounds good.
+
+#B:
+Princess:
+I'd assume they are all fine then. (love-20)
+
+#C:
+Princess:
+Oh... (Blush, love+20)
+
+Princess:
+So... what should we do now? Do you have any ideas, Knight?
+
+#Choices:
+We should go back to see King - he is so worried about you. ->A
+I'm cool with anything. What about you? ->B
+I will follow you to wherever you would like to go. ->C
+
+#A:
+Princess:
+Okay.
+But before that... Wahhhh!
+
+#B:
+Princess:
+Okay.
+I suggest we... Wahhhh!
+
+#C:
+Princess:
+Okay.
+Actually... Wahhhh!
+
+#插入cg
+
+Knight:
+Are you okay, your majesty? Did you get hurt?
+
+Princess:
+No...
+Thank you, Knight. What I wanted to say earlier was...
+
+#cg消失，只剩下对话框
+...
+...
+...Boom.
+
+
+Screams. From the direction of where you came - the town.
+Smoke. Boom! Smoke...
+
+Princess:
+What is going on? What is that sound...?
+Ahhhh!!!
