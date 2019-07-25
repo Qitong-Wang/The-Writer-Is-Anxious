@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float currentSpeed;
     public float jumpSpeed;
     Rigidbody2D rigidBody;
+    public float rayLength;
     public bool onGround;
     public LayerMask groundLayer;
     public GameObject gameOverCanvas;
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
     }
     public virtual bool OnGround()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2.5f, groundLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, rayLength, groundLayer);
 
         if (hit.collider != null)
         {
