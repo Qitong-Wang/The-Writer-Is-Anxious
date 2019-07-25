@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public bool onGround;
     public LayerMask groundLayer;
     public GameObject gameOverCanvas;
+    public GameOverManager gameOverManager;
 
     // Start is called before the first frame update
     void Start()
@@ -88,7 +89,8 @@ public class Player : MonoBehaviour
     }
     public void GameOver()
     {
-       // gameOverCanvas.SetActive(true);
+        gameOverCanvas.SetActive(true);
+        gameOverManager.PauseGame();
     }
 
 }
