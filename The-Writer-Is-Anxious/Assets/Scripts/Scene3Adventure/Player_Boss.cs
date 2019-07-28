@@ -14,9 +14,7 @@ public class Player_Boss : MonoBehaviour
     public Text hpText;
     public int coins;
     public int hp;
-    public bool immune;
-
-    public float immunetTime;
+  
 
     // Start is called before the first frame update
     void Start()
@@ -47,11 +45,9 @@ public class Player_Boss : MonoBehaviour
     }
     public void DecreaseHP()
     {
-        if (immune == false)
-        {
-            hp -= 1;
-            UpdateHPText();
-        }
+         hp -= 1;
+         UpdateHPText();
+        
         if (hp <= 0)
         {
             GameOver();

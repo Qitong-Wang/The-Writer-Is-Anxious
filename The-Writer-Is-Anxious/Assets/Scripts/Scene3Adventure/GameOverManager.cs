@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
+    public string restartSceneName;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +24,6 @@ public class GameOverManager : MonoBehaviour
     public void RestartScene()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene("Scene3Adventure");
+        SceneManager.LoadScene("restartSceneName");
     }
 }
