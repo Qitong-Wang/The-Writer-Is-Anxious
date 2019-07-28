@@ -122,5 +122,16 @@ public class Player : MonoBehaviour
     {
         hpText.text = "HP:" + hp;
     }
-
+    public void DecreaseHP()
+    {
+        if (immune == false)
+        {
+            hp -= 1;
+            UpdateHPText();
+        }
+        if (hp <= 0)
+        {
+            GameOver();
+        }
+    }
 }
