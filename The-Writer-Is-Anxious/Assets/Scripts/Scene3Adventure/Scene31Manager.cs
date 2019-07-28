@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 
 
-public class Scene3Manager : NormalSceneManager
+public class Scene31Manager : NormalSceneManager
 {
 
     /// <summary>
@@ -22,7 +22,7 @@ public class Scene3Manager : NormalSceneManager
     /// </summary>
     public bool otherObjActive = false;
 
-   
+  
     //Option
     public Text dialogueOption1;
     public Text dialogueOption2;
@@ -31,17 +31,20 @@ public class Scene3Manager : NormalSceneManager
     public int option1LineNumber;
     public int option2LineNumber;
 
-  
+
+    public bool askKing = false;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         dialogueList = new List<string>();
-        textAsset = Resources.Load("Scene3Adventure") as TextAsset;
+        textAsset = Resources.Load("Scene31King") as TextAsset;
         dialogueIndexDictionary = new Dictionary<string, int>();
         ReadTextFile();
         otherObjActive = false;
-        ReadDialogue("Adventure Open");
+        ReadDialogue("King open");
 
     }
     public override void ReadTextFile()
@@ -70,7 +73,9 @@ public class Scene3Manager : NormalSceneManager
     public override void Update()
     {
         base.Update();
-       
+        //Begin memory
+
+        //End memory. Begin Sad
 
     }
 
@@ -114,10 +119,38 @@ public class Scene3Manager : NormalSceneManager
         {
             dialogueObj.SetActive(false);
             otherObjActive = true;
-           // Time.timeScale = 1;
             trigger = false;
         }
-      
+        else if (dialogueList[step].Contains("(Ask)"))
+        {
+            askKing = true;
+            step++;
+            NextStep();
+
+        }
+        else if (dialogueList[step].Contains("(option"))
+        {
+            string[] optionNumbers = dialogueList[step].Split(" "[0]);
+            objOption1.SetActive(true);
+            objOption2.SetActive(true);
+            option1LineNumber = dialogueIndexDictionary[optionNumbers[1]];
+            option2LineNumber = dialogueIndexDictionary[optionNumbers[2]];
+            step++;
+            dialogueOption1.text = dialogueList[step];
+            step++;
+            dialogueOption2.text = dialogueList[step];
+            trigger = false;
+            step++;
+
+        }
+        else if (dialogueList[step].Contains("(optionEnd)"))
+        {
+            objOption1.SetActive(false);
+            objOption2.SetActive(false);
+            step++;
+            NextStep();
+        }
+
         else
         {
 
@@ -127,13 +160,11 @@ public class Scene3Manager : NormalSceneManager
 
 
     }
-  
+
     public void ReadDialogue(string tagName)
     {
         otherObjActive = false;
         step = dialogueIndexDictionary[tagName];
-        dialogueObj.SetActive(true);
-        //Time.timeScale = 0;
         print(tagName);
         print(step);
         NextStep();
