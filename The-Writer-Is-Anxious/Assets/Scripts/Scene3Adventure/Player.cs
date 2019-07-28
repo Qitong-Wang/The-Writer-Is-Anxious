@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 /// <summary>
 /// Player script in Scene3Adventure
 /// </summary>
@@ -15,12 +16,20 @@ public class Player : MonoBehaviour
     public GameObject gameOverCanvas;
     public GameOverManager gameOverManager;
     public Scene3Manager scene3Manager;
+    public Text coinsText;
+    public Text hpText;
     public int coins;
+    public int hp;
+    public bool immune;
+    
+    public float immunetTime;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        UpdateCoinText();
+        UpdateHPText();
 
     }
 
@@ -32,6 +41,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         Jump();
+        if (immune == true && Time.time > immunetTime + 5f)
+        {
+            immune = false;
+            transform.localScale -= new Vector3(0.1f, 0.1f, 0.1f);
+        }
     }
     public virtual void Jump()
     {
@@ -93,6 +107,20 @@ public class Player : MonoBehaviour
     {
         gameOverCanvas.SetActive(true);
         gameOverManager.PauseGame();
+    }
+    public void Immune()
+    {
+        transform.localScale += new Vector3(0.1f, 0.1f, 0.1f);
+        immune = true;
+        immunetTime = Time.time;
+    }
+    public void UpdateCoinText()
+    {
+        coinsText.text = "Coins:" + coins;
+    }
+    public void UpdateHPText()
+    {
+        hpText.text = "HP:" + hp;
     }
 
 }

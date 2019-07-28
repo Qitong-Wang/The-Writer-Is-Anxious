@@ -35,6 +35,11 @@ public class QuestionMark : MonoBehaviour
                 if (markType == 1)
                 {
                     player.coins += 10;
+                    player.UpdateCoinText();
+                }
+                else if (markType == 2)
+                {
+                    player.Immune();
                 }
                 gameObject.GetComponent<SpriteRenderer>().color = Color.black;
                 alreadyCollide = true;
