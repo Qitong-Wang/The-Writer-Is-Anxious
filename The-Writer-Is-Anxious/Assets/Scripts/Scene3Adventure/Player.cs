@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public LayerMask groundLayer;
     public GameObject gameOverCanvas;
     public GameOverManager gameOverManager;
+    public Scene3Manager scene3Manager;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
     }
     public virtual void Jump()
     {
-        if (OnGround() == true)
+        if (OnGround() == true && scene3Manager.otherObjActive == true)
         {
             if (Input.GetButtonDown("Jump"))
             {
@@ -55,12 +56,12 @@ public class Player : MonoBehaviour
     }
     public virtual void Move()
     {
-        if (Input.GetAxis("Horizontal")>0)
+        if (Input.GetAxis("Horizontal")>0 && scene3Manager.otherObjActive == true)
         {
 
             rigidBody.velocity = new Vector2(currentSpeed, rigidBody.velocity.y);
         }
-        else if (Input.GetAxis("Horizontal") < 0)
+        else if (Input.GetAxis("Horizontal") < 0 && scene3Manager.otherObjActive == true)
         {
 
             rigidBody.velocity = new Vector2(-currentSpeed, rigidBody.velocity.y);
