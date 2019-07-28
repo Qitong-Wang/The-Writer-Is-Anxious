@@ -136,6 +136,7 @@ public class Scene3Manager : NormalSceneManager
     {
         otherObjActive = false;
         step = dialogueIndexDictionary[tagName];
+        dialogueObj.SetActive(true);
         Time.timeScale = 0;
         print(tagName);
         print(step);
