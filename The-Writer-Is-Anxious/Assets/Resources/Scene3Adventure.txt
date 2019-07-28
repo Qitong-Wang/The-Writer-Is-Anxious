@@ -6,3 +6,7 @@ Knight knows what he needs to do.
 Oh--brave young Knight! 
 The King must have been waiting long for thy coming... (sob)
 (end)
+(Child)
+Oh--brave young Knight! 
+The King must have been waiting long for thy coming... (sob)
+(end)

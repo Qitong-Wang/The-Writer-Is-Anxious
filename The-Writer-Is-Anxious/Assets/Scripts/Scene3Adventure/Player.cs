@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public GameObject gameOverCanvas;
     public GameOverManager gameOverManager;
     public Scene3Manager scene3Manager;
+    public int coins;
 
     // Start is called before the first frame update
     void Start()

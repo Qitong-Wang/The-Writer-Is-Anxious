@@ -115,7 +115,7 @@ public class Scene3Manager : NormalSceneManager
         {
             dialogueObj.SetActive(false);
             otherObjActive = true;
-            Time.timeScale = 1;
+           // Time.timeScale = 1;
             trigger = false;
         }
       
@@ -128,16 +128,13 @@ public class Scene3Manager : NormalSceneManager
 
 
     }
-    /// <summary>
-    /// In Adventure, readDialogue makes Time.timeScale to 0.
-    /// </summary>
-    /// <param name="tagName"></param>
+  
     public void ReadDialogue(string tagName)
     {
         otherObjActive = false;
         step = dialogueIndexDictionary[tagName];
         dialogueObj.SetActive(true);
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         print(tagName);
         print(step);
         NextStep();
