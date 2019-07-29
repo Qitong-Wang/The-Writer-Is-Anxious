@@ -34,8 +34,9 @@ public class Scene2Background : MonoBehaviour
         {
             if (ableClick == true)
             {
-                StartCoroutine(Animate());
                 ableClick = false;
+                StartCoroutine(Animate());
+                
                 
             }
         }
@@ -44,17 +45,12 @@ public class Scene2Background : MonoBehaviour
     IEnumerator Animate()
     {
 
-        if (sentenceCurrentIndex != 0)
+        if (sentenceCurrentIndex != 0 && sentenceCurrentIndex<= sentenceCount)
         {
             //Let last sentence disappear
-            if (sentenceCurrentIndex >= 5)
-            {
-                objSentences[4].GetComponent<Animator>().SetTrigger("End");
-            }
-            else
-            {
-                objSentences[sentenceCurrentIndex - 1].GetComponent<Animator>().SetTrigger("End");
-            }
+           
+            objSentences[sentenceCurrentIndex - 1].GetComponent<Animator>().SetTrigger("End");
+            
             
             yield return new WaitForSeconds(0.75f);
         }
@@ -67,7 +63,7 @@ public class Scene2Background : MonoBehaviour
             objSentences[sentenceCurrentIndex] = sentence;
         }
         //Waiting time and destroy last sentence. Player cannot click.
-        if (sentenceCurrentIndex != 0)
+        if (sentenceCurrentIndex != 0 && sentenceCurrentIndex <= sentenceCount)
         {
             yield return new WaitForSeconds(waitTime - 0.75f);
             objSentences[sentenceCurrentIndex - 1].SetActive(false);
