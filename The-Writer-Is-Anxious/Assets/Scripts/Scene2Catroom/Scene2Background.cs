@@ -6,7 +6,7 @@ public class Scene2Background : MonoBehaviour
 {
     public List<string> sentences;
     int sentenceCount;
-    int sentenceCurrentIndex = 0;
+    public int sentenceCurrentIndex = 0;
     public GameObject[] objSentences;
     public GameObject prefabSentence;
     public Canvas canvas;
@@ -15,6 +15,10 @@ public class Scene2Background : MonoBehaviour
     public GameObject objScene2Manager;
     public GameObject objBackground;
     public GameObject backgroundMask;
+    public GameObject objCatroom;
+    public GameObject objArrow;
+    public GameObject objWhiteBG;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +34,9 @@ public class Scene2Background : MonoBehaviour
         {
             if (ableClick == true)
             {
-                StartCoroutine(Animate());
                 ableClick = false;
+                StartCoroutine(Animate());
+                
                 
             }
         }
@@ -39,10 +44,14 @@ public class Scene2Background : MonoBehaviour
 
     IEnumerator Animate()
     {
-        if (sentenceCurrentIndex != 0)
+
+        if (sentenceCurrentIndex != 0 && sentenceCurrentIndex<= sentenceCount)
         {
             //Let last sentence disappear
-            objSentences[sentenceCurrentIndex-1].GetComponent<Animator>().SetTrigger("End");
+           
+            objSentences[sentenceCurrentIndex - 1].GetComponent<Animator>().SetTrigger("End");
+            
+            
             yield return new WaitForSeconds(0.75f);
         }
         if (sentenceCurrentIndex < sentenceCount)
@@ -54,7 +63,7 @@ public class Scene2Background : MonoBehaviour
             objSentences[sentenceCurrentIndex] = sentence;
         }
         //Waiting time and destroy last sentence. Player cannot click.
-        if (sentenceCurrentIndex != 0)
+        if (sentenceCurrentIndex != 0 && sentenceCurrentIndex <= sentenceCount)
         {
             yield return new WaitForSeconds(waitTime - 0.75f);
             objSentences[sentenceCurrentIndex - 1].SetActive(false);
@@ -65,7 +74,9 @@ public class Scene2Background : MonoBehaviour
         }
         //Player is able to click
         ableClick = true;
+        
         sentenceCurrentIndex++;
+        
 
         if (sentenceCurrentIndex > sentenceCount)
         {
@@ -73,7 +84,11 @@ public class Scene2Background : MonoBehaviour
             yield return new WaitForSeconds(1f);
             objScene2Manager.SetActive(true);
             objBackground.SetActive(false);
+            objCatroom.SetActive(true);
+            objArrow.SetActive(true);
+            objWhiteBG.SetActive(true);
             backgroundMask.SetActive(false);
+
         }
         yield return null;
     }

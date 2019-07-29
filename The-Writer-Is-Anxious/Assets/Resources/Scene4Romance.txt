@@ -1,6 +1,6 @@
 (Romance Open)
-(PrincessAppear)
-(Princess)
+(#PrincessAppear)
+(#Princess)
 ...My dear savior. Is that you who saved my life from that horrible creature?
 Could I know your name?
 (option3 Name_1 Name_2 Name_3 )
@@ -9,12 +9,74 @@ Please call me Knight, your majesty.
 Who are you?
 (Name_1)
 Knight...
-(end)
+(Jump PrincessStep2 )
 (Name_2)
-Sure, Knight... (Blush, love+10)
-(end)
+(#BlushAppear)
+Sure, Knight... 
+(#ResetExpression)
+(Jump PrincessStep2 )
 (Name_3)
 Ah...
 My name is Princess, the Princess of Country.
 You must be the knight that my father sent to protect me.
+(Jump PrincessStep2 )
+
+(PrincessStep2)
+Please let me express my gratitude and respect for your courage and selflessness.
+Could you tell me what happened to the town after I was caught, Knight?
+Is everyone okay? Is my father okay?
+(option3 Father_1 Father_2 Father_3 )
+There has not been much change since you left, your majesty.
+How exactly do you get caught?
+We are all worrying about you. But I had faith that I could find you.
+(Father_1)
+That sounds good.
+(Jump PrincessStep3 )
+(Father_2)
+I'd assume they are all fine then.
+(Jump PrincessStep3 )
+(Father_3)
+(#BlushAppear)
+Oh...
+(#ResetExpression)
+(Jump PrincessStep3 )
+
+(PrincessStep3)
+So... what should we do now? Do you have any ideas, Knight?
+(option3 Idea_1 Idea_2 Idea_3 )
+We should go back to see King - he is so worried about you.
+I'm cool with anything. What about you?
+I will follow you to wherever you would like to go.
+(Idea_1)
+Okay.
+But before that... Wahhhh!
+(Jump PrincessStep4 )
+(Idea_2)
+Okay.
+I suggest we... Wahhhh!
+(Jump PrincessStep4 )
+(Idea_3)
+Okay.
+Actually... Wahhhh!
+(Jump PrincessStep4 )
+
+(PrincessStep4)
+(#PrincessDisappear)
+(#CGAppear)
+(K#night)
+Are you okay, your majesty? Did you get hurt?
+(#Princess)
+No...
+Thank you, Knight. What I wanted to say earlier was...
+(#CGDisappear)
+(#TagDisappear)
+...
+...
+...Boom.
+Screams. From the direction of where you came - the town.
+Smoke. Boom! Smoke...
+(#PrincessAppear)
+(#Princess)
+What is going on? What is that sound...?
+Ahhhh!!!
 (end)

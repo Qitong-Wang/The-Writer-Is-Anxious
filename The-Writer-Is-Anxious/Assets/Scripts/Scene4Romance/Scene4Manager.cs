@@ -25,18 +25,24 @@ public class Scene4Manager : NormalSceneManager
     //NameTag
     public Text nameTagText;
     public GameObject objNameTag;
+    public GameObject objTagText;
     //Option
     public Text dialogueOption1;
     public Text dialogueOption2;
     public Text dialogueOption3;
     public GameObject objOptionBar;
+    public GameObject objOption1;
+    public GameObject objOption2;
+    public GameObject objOption3;
     public int option1LineNumber;
     public int option2LineNumber;
     public int option3LineNumber;
 
     //Objects
+    public int love = 0;
     public GameObject objPrincess;
-   
+    public GameObject objBlush;
+    public GameObject objCG;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,7 +62,8 @@ public class Scene4Manager : NormalSceneManager
             if (dialogueList[i][0] == '(')
             {
 
-                if (dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(stop @)") == false)
+                if (dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(#") == false
+                    && dialogueList[i].Contains("(Jump") == false)
                 {
                     //Add the tag to the dictionary. 
                     dialogueIndexDictionary.Add(dialogueList[i].Substring(1, dialogueList[i].Length - 3), i);
@@ -113,6 +120,7 @@ public class Scene4Manager : NormalSceneManager
             otherObjActive = true;
             trigger = false;
         }
+      
         else if (dialogueList[step].Contains("(Romance Open)"))
         {
             dialogueObj.SetActive(true);
@@ -121,23 +129,85 @@ public class Scene4Manager : NormalSceneManager
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(PrincessAppear)"))
+        else if (dialogueList[step].Contains("(Father_2)"))
+        {
+            love -= 20;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#PrincessAppear)"))
         {
             objPrincess.SetActive(true);
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(Princess)"))
+        else if (dialogueList[step].Contains("(#PrincessDisappear)"))
+        {
+            objPrincess.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#CGAppear)"))
+        {
+            objCG.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#CGDisappear)"))
+        {
+            objCG.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#TagDisappear)"))
+        {
+            objNameTag.SetActive(false);
+            objTagText.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#Princess)"))
         {
             objNameTag.SetActive(true);
+            objTagText.SetActive(true);
             nameTagText.text = "Princess";
             step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#Knight)"))
+        {
+            objNameTag.SetActive(true);
+            objTagText.SetActive(true);
+            nameTagText.text = "Knight";
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#ResetExpression)"))
+        {
+            objBlush.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#BlushAppear)"))
+        {
+            love += 10;
+            objBlush.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(Jump"))
+        {
+            string[] optionNumbers = dialogueList[step].Split(" "[0]);
+            step = dialogueIndexDictionary[optionNumbers[1]];
             NextStep();
         }
         else if (dialogueList[step].Contains("(option3"))
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);
             objOptionBar.SetActive(true);
+            objOption1.SetActive(true);
+            objOption2.SetActive(true);
+            objOption3.SetActive(true);
             option1LineNumber = dialogueIndexDictionary[optionNumbers[1]];
             option2LineNumber = dialogueIndexDictionary[optionNumbers[2]];
             option3LineNumber = dialogueIndexDictionary[optionNumbers[3]];
