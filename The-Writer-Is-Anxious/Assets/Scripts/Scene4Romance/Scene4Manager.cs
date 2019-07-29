@@ -129,6 +129,12 @@ public class Scene4Manager : NormalSceneManager
             step++;
             NextStep();
         }
+        else if (dialogueList[step].Contains("(Father_2)"))
+        {
+            love -= 20;
+            step++;
+            NextStep();
+        }
         else if (dialogueList[step].Contains("(#PrincessAppear)"))
         {
             objPrincess.SetActive(true);
