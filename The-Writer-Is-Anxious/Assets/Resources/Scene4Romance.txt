@@ -27,7 +27,7 @@ Could you tell me what happened to the town after I was caught, Knight?
 Is everyone okay? Is my father okay?
 (option3 Father_1 Father_2 Father_3 )
 There has not been much change since you left, your majesty.
-How exactly do you get caught? ->B
+How exactly do you get caught?
 We are all worrying about you. But I had faith that I could find you.
 (Father_1)
 That sounds good.
