@@ -75,6 +75,8 @@ Thank you, Knight. What I wanted to say earlier was...
 ...Boom.
 Screams. From the direction of where you came - the town.
 Smoke. Boom! Smoke...
+(#PrincessAppear)
 (#Princess)
 What is going on? What is that sound...?
 Ahhhh!!!
+(end)
