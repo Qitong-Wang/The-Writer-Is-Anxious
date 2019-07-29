@@ -1,0 +1,14 @@
+(King open)
+I shall await thy return with Princess, my brave Knight.
+(option Ask Leave )
+Ask where Princess went.
+Leave.
+(Ask)
+The princess Princess was taken away by the accursed Dragon out of the town.
+Long has he become the threat of our land.
+So I say unto thee - vanquish the evil monster hiding under the darkness, and bring Princess back to me.
+May the victory be with you, Knight!
+(end)
+(Leave)
+告辞
+(end)

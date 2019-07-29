@@ -1,131 +1,186 @@
-(blackboard)
-Once upon a time,
-there was a knight named Knight trapped in a cottage with a cat named Cat.
-She was cute and smart, covered with beautiful, short dark blue fur.
-But she was capricious and needy right now and would only let Knight go if he fed her.
-(endBlackboard)
-(转场，这里会有三个房间，起始在有猫的房间。画面中上放whitebg.png，两侧放arrow.png，点击即可切换房间)
-
-(开场，在猫房间)
-In a word, Knight needs to look for a way to feed Cat. His journey has just begun. He can't be trapped here forever...
-(之后再回到猫房间)
+(Catroom Open)
+In a word, Knight needs to look for a way to feed Cat. His journey has just begun. 
+He can't be trapped here forever...
+(end)
+(Catroom)
 Cat is here.
-(点击bowl)
+(end)
+(Bowl)
 This is an empty bowl...
-(选项)
-Pick it up.
-(pick)(bowl消失，出现在右下角)
+@Pick
+<color=blue>Pick</color> it up.
+(stop @)
+(pickup bowl)
 Time to find some food.
-(点击cat)
+(end)
+(Cat)
 Meow…
-(点击tail)
+(end)
+(Tail)
 Aww. You don’t want to try that.
-(点击最上方的shelf)
+(end)
+(ShelfUp)
 Oops! You cannot reach that high.
-(点击中间的shelf)(shelf_s 变成 seconddrawer)(注，点击其他的东西调查后，该图片会变回shelf_s。之后将统一标注为temporary。若有永久性改变会标注为permanent。)
+(end)
+ 
+(ShelfMiddle)
+(shelfmiddle start)
 There lies the owner's diary and a bunch of other stuffs.
-(选项)
+(option ReadDiary LeaveDiary )
 Read the diary.
 Leave it there.
-(read)
+(end)
+(ReadDiary)
 …… 
 It’s full of compliments about Cat.
 You close it.
-(leave, 图片变回原样)
+(shelfmiddle end)
+(end)
+(LeaveDiary)
 You close the drawer.
-(点击下面的 shelf)(shelf_s 变成 doratos) (temporary)
+(shelfmiddle end)
+(end)
+ 
+(ShelfBelow)
+(shelfbelow start)
 Look what you found! Doratos!
 You would really love to have some. But Cat is still hungry...
-(选项)
+(option DoratosEat DoratosCat )
 Eat some.
 Give some to Cat.
-(eat)
+(DoratosEat)
 ...
 ...
 ...tasted good, just as you expected.
-(give)
-(如果没有拿bowl)
+(shelfbelow end)
+(end)
+(DoratosCat)
+(end)
+(DoratosCatWithoutBowl)
 Ah-oh. You need to have something to hold the food.
-(如果有bowl)
-(此处触发第一条开门的方法。这之后其余方法将不会被触发了。Doratos_inbowl出现在bowl的里面。Hungrymeow变成thankful meow。Lockeddoor变成opened door。)
+(shelfbelow end)
+(end)
+(DoratosCatWithBowl)
 Mmm...
 ...
 You hear something from the hallway.
-	(此时与bowl对话)
-	Doratos.
-	(此时与cat对话)
-	Cat is staring at the bowl.
-	(此时与抽屉里的doratos对话，只会有eat的选项)
-(厨房。刚进入：)
+(afterDoratosCat)
+(shelfbelow end)
+(end)
+(ShelfBelowAfterDoratosCat)
+Look what you found! Doratos!
+Eat some.
+...
+...
+...tasted good, just as you expected.
+(end)
+
+(BowlWithDoratos)
+Doratos.
+(end)
+(CatWithDoratos)
+Cat is staring at the bowl.
+(end)
+ 
+(Kitchen)
 This seems to be the kitchen.
-(点击上面的friger)
+(end)
+(KitchenDropMilk)
+Uh-oh.
+(end)
+(frigerUp)
 You would really like to know what is there.
 And you are really not tall enough.
-(点击下面的friger)(friger_s变成 rottenfood)
+(end)
+(frigerUpDropMilk)
+Spilled milk does not make you any taller.
+(end)
+
+(frigerDown)
 Ew! Look at what you found.
 That's a smell you will never forget in your life.
-(之后再次点击rottenfood)
+(RottonFoodAppear)
+(end)
+(frigerRottenFood)
 If you could, you would not like to smell this again.
-(选项)
+(option RottenFoodEat RottenFoodCat )
 Eat some.
 Give some to Cat.
-(eat)
+(RottenFoodEat)
 ...
 You do not feel very good.
 Your eyesight starts to blur...
-(之后跳转到end scene)
-(give) 
-(如果没有拿bowl)
+(EndScene)
+(end)
+(RottenFoodCat)
+(end)
+(RottenFoodWithoutBowl)
 Ah-oh. You need to have something to hold the food.
-(如果有bowl)
-(传送回catroom，此处触发第二条开门的方法。这之后其余方法将不会被触发了。rottenfood_inbowl出现在bowl的里面。Hungrymeow消失。Cat变成shockedcat。Tail变成shockedtail。Lockeddoor变成opened door。)
+(end)
+(RottenFoodWithBowl)
+(afterRottenFoodCat)
 Mmm...
 ...
 You hear something from the hallway.
-	(此时与bowl对话)
-	You do not want to approach it.
-	(此时与cat对话)
-	Scared? Angry?
+(end)
+(BowlWithRottenFood)
+You do not want to approach it.
+(end)
+(CatWithRottenFood)
+Scared? Angry?
 You cannot read Cat's face.	
-(点击milk)
+(end)
+ 
+(Milk)
 That's milk!
 Unfortunately, you can't reach it...
-(点击table)
+(end)
+(Table)
 The table doesn't seem very heavy...
-(选项)
-Shove.
-(累计shove 5 次之后)
-The milk box is falling...
-It seems like you only have 10 seconds left...
-(此对话在倒计时结束前不会因为切场景而消失。10会倒计时到0，如果没有拿bowl，milk变成milk_onfloor在floor上，Permanent。)
-Uh-oh.
-	(此时点击上方friger)
-	Spilled milk does not make you any taller.
-	(之后每次回到kitchen之后显示的话变为)
-	Uh-oh.
-(如果事前拿了bowl, 此时会显示选项：)
-“I got the bowl!”
-(点击选项，bowl会出现在桌下，milk ->milk_inbowl。)
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+@Shove.
+<color=blue>Shove.</color>
+(stop @)
+(milkTimer)
+(end)
+(milkTimerFinish)
+(end)
+(milkWithBowl)
+I got the bowl!”
+(afterMilkBowl)
 Safe.
-(切换到猫房间之后：)
-(此处触发第三条开门的方法。这之后其余方法将不会被触发了。milk_inbowl出现在bowl的里面。Hungrymeow变成cheerful meow。Lockeddoor变成opened door。)
+(afterMilkBowlCatroom)
 Mmm...
 ...
 You hear something from the hallway.
-	(此时与bowl对话)
-	Yummy milk.
-	(此时与cat对话)
-	Cat looks happy.
-	You are relieved.
-(玄关)
+(end)
+(BowlwithMilk)
+Yummy milk.
+(end)
+(CatWithMilk)
+Cat looks happy.
+You are relieved.
+(end)
+ 
+(EntryWay)
 There the door is.
-(点击door)
+(end)
+(LockedDoor)
 Double checked: it’s locked.
-(点击pic)
-(此处只要点击一次，就会显示cat的心情图。默认是catpic_normal。 喂过牛奶后变成catpic_cheer。喂过rottenfood变成catpic_angry。)(permanent)
+(end)
+(Picture)
 That’s Cat.
-(点击rosetable)
+(end)
+(Rosetable)
 Magic roses still need water.
-(通关任意路线点击opened door, knight出现在door旁边)
+(end)
+(GetOutCottage)
 Knight gets out of the cottage.
-
+(end)

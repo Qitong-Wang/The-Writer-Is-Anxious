@@ -1,0 +1,325 @@
+#紧接romance剧情。巨大的zombie出现了。zombie我分开存的，拼一下就好。zombie出现的时候是从远到近，跳着逐渐靠近。
+#同时，在horror版块，底端会出现字幕。这个字幕代表着其他人所说的话，且会随着时间推进。在下一个剧情点被触发之后，当前未说完的话会被cut掉。当用这种机制的时候我会标注“滚动字幕”来表示。
+
+#说回zombie。zombie只有打头（z）会死。打其他部位（字母），该字母会被打消失，但是zombie的行动不会被影响。在zombie靠近到一定地步之后，如果player仍未打倒僵尸，princess会出手打倒僵尸。
+
+#zombie在相对较远的地方，滚动字幕：
+Princess: That's... so gross.
+Princess: What are they?
+Princess: Knight, we need to do something!
+
+#zombie在相对靠近的地方，滚动字幕：
+Princess: It's getting closer!
+Princess: Try to find its weakness!
+Princess: God bless everyone in our kingdom...
+
+#------
+#如果player成功击倒zombie，在空白画面中出现字幕：
+...Slash!
+You wave your sword without hestitation. In a second, the creature's head is crushed. 
+Blood spills everywhere.
+
+You gently turn your head back.
+
+	#仍然是romance的ui风格，princess的立绘不变
+Princess:
+...that was close.
+Thank you for protecting me, Knight. (Love+ 20)
+
+	#选项：
+It's my pleasure. ->A
+What shall we do next? ->B
+Is it dragon who created them? ->C
+
+	#A
+Princess:
+You are doing good.
+I'll tell my father everything at our return.
+But for now, let's focus on something else.
+
+	#B
+Princess:
+...I'd really like to get back to our kingdom and protect my people.
+But I think I'd better deal with something more complicated here.
+
+	#C
+Princess:
+W-why?
+What makes you think of that?
+	
+		#选项：
+It's said that he has the evilest power...
+It's just my insight.
+
+Princess:
+...
+
+Princess:
+Nevertheless, Dragon is dead. Right under your sword.
+But these creatures did not vanish with Dragon.
+
+#------
+#如果player没有击败zombie:
+...BOOM!
+On the enormous sound, the creature's head is crushed.
+Blood spills everywhere.
+
+You gently turn your head back.
+
+	#仍然是romance的ui风格，princess的立绘变成princess_shotgun
+Princess:
+...that was close. (Love-10)
+
+Princess:
+This gun?
+I just found it in the bushes there.
+
+	#选项：
+What is going on? ->A
+What shall we do next? ->B
+Is it dragon who created them? ->C
+
+	#此时立绘变回普通。
+	#A
+Princess:
+I don't know neither.
+But I had witnessed them once... at an earlier time.
+Listen to me, Knight, I want to do something...
+
+	#B
+Princess:
+...I'd really like to get back to our kingdom and protect my people.
+But I think I'd better deal with something more complicated here.
+
+	#C
+Princess:
+W-why?
+What makes you think of that?
+	
+		#选项：
+It's said that he has the evilest power...
+It's just my insight.
+
+Princess:
+...
+
+Princess:
+Nevertheless, Dragon is dead. Right under your sword.
+But these creatures did not vanish with Dragon.
+
+#分支结束，接下来是共同剧情
+#------
+
+Princess:		
+I want to discover the nest of these creatures. Then destroy it.
+That's the only way to protect my kingdom from their attack.
+(when love < 50) Will you come with me, Knight?
+(when love >= 50) I'd really like you to come with me. Will you, Knight?
+
+#选项：
+Sure. That sounds cool. -> A
+The only reason I'm here is to protect you from any danger, my princess. -> B
+
+#A:
+Princess:
+Thank you.
+
+#B:
+Princess: (blush)
+Thank you... (love + 10)
+
+#无姓名框和立绘，在对话框里
+Out of a sudden, you think you hear something. Thin in the air.
+Is that a man's voice? Or a boy's?
+You can't tell where it came from.
+
+Princess:
+...
+
+#选项：
+Did you hear that?
+I heard a voice.
+
+Princess:
+...
+Yes. I heard that.
+That might come from the cave not far away...
+There used to be the dragon's nest.
+
+#变成自行移动，这里我想的是第一人称，主角自动往前走，然后遇敌会停下来。Princess和其他人都是AI自动控制。Princess的图是princess_shotgun_small，自动面向镜头。如果要加的话，可以右手左右移动控制镜头方向（微调，大概在30度以内），但是走路方向还是不变的。这样可以保证玩家需要操作的地方很少。
+#UI方面，princess的头像和hp放左下角。knight的头像和hp放右下角。头像是ui_xx。血条做了一个简陋的是ui_hp。
+#hp满格应该是20，和之前dragon战的hp共享。此时每被僵尸挠一下-2。
+#搭建场景都用2d图像，然后控制图片面向镜头。
+
+#一开始往cave走。走到cave就可以胜利。中间会遇一次敌。
+#在没遇敌前：（随机滚动字幕）（随机即没有特定顺序）
+Princess: I'll cover you if anything goes wrong!
+Princess: We need to be quick and quiet.
+Princess: Hope my father would be safe...
+
+#遇敌之后：
+Princess: Crap! They're here!
+#以下为随机滚动字幕：
+Princess: Slash them on their head!
+Princess: Come on! You can do it!
+Princess: Don't let them near you!
+#当zombie过于靠近，被zombie挠了一下之后：
+Princess: No!
+Princess: Hold on, I got you!
+
+#结束战斗之后： （随机滚动字幕）
+Princess: That was pretty close.
+Princess: We'll be safe here.
+Princess: Dragon's smell will erase our traces.
+
+#进入cave。画面变黑。ui暂时消失。最上面是light_word。点击之后，light_yellow开始闪烁。在闪烁中可以看到字幕：
+You follow Princess into the cave.
+It is dark here. Dark -- but huge. You could tell according to your battle experience of years.
+Lights over your head are dim yellow. Occasionally you can see some bats hanged beside.
+#这里还想做一个bat出现然后用手按住屏幕滑动可以把bat 赶走。
+
+Suddenly, Princess stops, and pushes open a wooden door.
+You are surprised by what you see. It is a big room with weapons and bullets. Right at the corner, a man and a boy are tied by ropes.
+You quickly run to them and untie the ropes.
+#点击untie之后，rope逐渐变成一根线滑到画面左下角，变成rope.png。这个动画我之后会做。然后在下一次灯光闪烁的时候，table+bullets+gun/handgun+princess+man+capboy都会出现。
+
+#滚动字幕：
+Man: Thank god that you heard us... Thank you, young man, and the girl there - 
+Princess: My name is Princess. This is Knight. We are both from Country nearby this forest.
+Cap Boy: What happened to that big dragon?
+Princess: Dragon is slayed by this brave knight. You shall not worry any more.
+Man: For god's sake! You must be the hero in the country.
+Princess: However, the outside world is filled with those creepy green creatures...
+Cap Boy: Zombies.
+Man: ZomBEEs?
+Cap Boy: Just guess that's their name.
+Princess: Me and Knight decide to find out the origin of them.
+Cap Boy: In that case, I know a place that you might be interested.
+Princess: You really do?
+Cap Boy: Well. Those things are *born* there anyway. You wanna come or not?
+Princess: ... Yes, I will. And you will, too - right, Knight?
+Man: Wow. Then count me in too. I can't let a small girl go on an adventure on her own.
+Man: And - you should carry a gun, young man. That sword can't work well on these green things.
+
+#字幕滚动一次就结束，在任何时机都可以点击left离开洞穴。右下角放shiny的图片，一直在闪烁，点击的话dragonscale会出现。
+
+#出了cave之后，ui再次出现，princess,man,capboy在左下角，knight的ui在右下角。由于进了saferoom所以hp补满。
+#仍然是和之前一样的操作方式。在每一轮的攻击之中npc掉血是随机的。但要保持princess和boy在city地图前不会死。
+
+#forest 地图，主要是mist，tree和bush的组合。总遇敌一波。没有隐藏敌人。
+#剧情滚动字幕：（遇敌前）
+Man: Everything ready. What's the plan?
+Cap Boy: Follow my order.
+Cap Boy: Cross the forest first. And be quiet.
+
+#有一处是zombie身上着火，其余zombie围着跳的。遇到那个地方之后剧情：
+Princess: That's crazy...
+Man: Yea. They are sensitive to the smell.
+Princess: Maybe they are trying to save him.
+Cap Boy: Maybe we should go. Quietly.
+
+#这个地方如果主动攻击那些zombie，其余zombie也会过来攻击。
+
+#以下是通用语音条。随机播放即可
+#进战语音：
+Princess: They notice us!
+Man: Let the show begin!
+Cap Boy: Troubles.
+
+#受伤语音：
+Princess: Uh!
+Man: That bite is good.
+Cap Boy: Mmm...!
+
+#主角受伤语音：
+Princess: You got bitten!
+Man: Watch out!
+
+#主角成功击中语音：
+Princess: Yes! You did it!
+Man: Nice shot!
+
+#不能战斗语音：
+Princess: Sorry, father...
+Man: I need a break now...
+Cap Boy: They are... very strong.
+
+#到达barrenland地图。两侧均为barrenland，远处插着scare+crow和stop sign+pole。Stop sign根据远近会变化。一波遇敌。隐藏敌人两个。 scarecrow在靠近之后，scare会被撞碎，露出zombiecrow.png。另，在stopsign的另一侧有一个被打残了的zombie（zobi.png）。隐藏敌人可打可不打。
+
+#剧情滚动字幕：（遇敌前）
+Princess: It's so bleak...
+Cap Boy: Em-hmm. Welcome to limbo.
+Cap Boy: We need to turn right at that sign.
+
+#遇到scarecrow怪：
+Princess: Ah!!
+Man: No worries. It's stuck.
+Cap Boy: Keep focused.
+
+#击倒遇敌后过了一会：（如果和princess的关系值高于xx）
+Princess: *whisper* Knight.
+Princess: *whisper* When we get to the city... take care of yourself.
+Man: Something wrong back there?
+Princess: No. I just miss my family.
+Cap Boy: Lucky that you have a family to miss.
+
+#遇到在地上的zobi：
+Man: Gross...
+Princess: Is he dead?
+Cap Boy: Doesn't matter. Let's keep going.
+
+#到达City地图。city地图的组成：building+builins+uidis任意组合，smoke，streetlamp，telegraphpole，ruins，和safehouse。走到safehouse即胜利。共遇敌一波，打完之后出现最后boss——超大zombie，画面里根本看不到头。
+
+#剧情滚动字幕：（遇敌前）
+Princess: This place looks totally different from my country...
+Cap Boy: It's called City city.
+Cap Boy: You see the safe house over there?
+Princess: Yes.
+Cap Boy: That's our destination.
+Man: Alright guys, let's go on and kill them all!
+
+#最后boss出现：
+Cap Boy: Holy hell... *smile*
+Man：Damn it! I can't reach you two! Run!!!
+#与此同时zombie冲向princess和capboy。子弹时间（慢动作），两个人身边都有qte框（uiqte+savehim/saveher），只能选一个救。倒计时结束后没选择的话就两个都受伤。一击直接把hp削到1，然后剧情后不能战斗。
+
+#救boy：
+Princess: ...!!
+Giant Zombie: ...#..&!?
+Man: EAT THIS!!!
+Giant Zombie: O...&^h@#!
+#僵尸被击退到中间位置
+Cap Boy: Thanks.
+Man: Are you alright, little girl?
+Princess: Sorry... I might... need a break. (love - 20)
+
+#救princess：
+Cap Boy: Eh...!
+Giant Zombie: ...#..&!?
+Man: EAT THIS!!!
+Giant Zombie: O...&^h@#!
+#僵尸被击退到中间位置
+Princess: Thank you... Knight. (love + 20）
+Man: Are you alright, boy?
+Cap Boy: Nah... I better stay behind for a while.
+
+#救援之后：
+Giant Zombie: !!&^@!!
+#随机播放：
+Man: Shoot him! It might not crash him, but can blow it back!
+Man: Come on! We know you can do it!
+Man: We just need to blow off its head!
+#多次攻击会使zombie退后，露出头，然后打头就能打死他。在zombie退后时没打头的话它还会回到中间位置。没有一直攻击zombie的话，zombie会上前咬人。根据还能战斗的组成，会先咬man -> princess/boy -> 主角。主角被咬后即死亡。
+
+#成功打倒后：
+Giant Zombie:!!!!
+Giant Zombie:$%*.. fa$%e..$%r...
+#zombie碎掉
+Princess: Thank god it's gone...
+Man: What the heck is that?
+Cap Boy: It's... so strong...
+Cap Boy: Let's hurry up.
+
+#到safehouse 全白。
+..."Close the door!"
+#点击close the door，horror篇结束。

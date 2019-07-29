@@ -11,11 +11,7 @@ public class NormalSceneManager : MonoBehaviour
     public Text dialogueText;
     public GameObject dialogueObj;
     public bool trigger = true;
-    /// <summary>
-    /// When trigger is false, use resetTrigger to make trigger to true (by using GetMouseButtonUp)
-    /// </summary>
-    public bool resetTrigger = false;
-    
+  
     public GameObject triggerObj;
     public List<string> dialogueList;
     public TextAsset textAsset;
@@ -33,16 +29,11 @@ public class NormalSceneManager : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (trigger == true && Input.GetMouseButtonDown(0))
+        if (trigger == true && Input.GetMouseButtonUp(0))
         {
             NextStep();
         }
-        if (resetTrigger == true && Input.GetMouseButtonUp(0))
-        {
-            trigger = true;
-            resetTrigger = false;
-        }
-
+     
     }
     public virtual void ReadTextFile()
     {
@@ -51,12 +42,12 @@ public class NormalSceneManager : MonoBehaviour
     }
     public virtual void NextStep()
     {
-        
+       
     }
 
     public virtual void StepAction()
     {
-
+       
        
     }
     public virtual Text GetSuitableText()
@@ -78,15 +69,16 @@ public class NormalSceneManager : MonoBehaviour
         triggerObj.SetActive(true);
         int startIndex = dialogueList[step - 1].IndexOf(word);
         int endIndex = startIndex + word.Length + 1;
-        //print(startIndex);
+        print(startIndex);
+        print(endIndex);
         Vector3 startPosition = PrintPos(startIndex);
         Vector3 endPosition = PrintPos(endIndex);
         if (startPosition.x > endPosition.x)
         {
             startPosition = PrintPos(startIndex + 1); //Means it change the line at the beginning of the word.
         }
-        //new GameObject("point").transform.position = startPosition;
-        //new GameObject("poin2").transform.position = endPosition;
+        new GameObject("point").transform.position = startPosition;
+        new GameObject("poin2").transform.position = endPosition;
         float distance = endPosition.x - startPosition.x;
         triggerObj.SetActive(true);
         triggerObj.transform.position = new Vector3(startPosition.x + distance / 2, startPosition.y + distance / 2, 0);
@@ -123,6 +115,12 @@ public class NormalSceneManager : MonoBehaviour
         }
     }
 
+    public IEnumerator ResetTriggerTrue()
+    {
+        yield return new WaitForSeconds(0.1f);
+        trigger = true;
+        yield return null;
+    }
 
 
 

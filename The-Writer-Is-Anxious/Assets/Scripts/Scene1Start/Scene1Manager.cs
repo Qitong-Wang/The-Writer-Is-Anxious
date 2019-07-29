@@ -73,8 +73,8 @@ public class Scene1Manager : NormalSceneManager
             else
             {
                 cameraMoveToMemory = false;
-                resetTrigger = true;
-                trigger = true;
+                StartCoroutine("ResetTriggerTrue");
+               
                 NextStep();
                 fraction = 0;
                 }
@@ -90,8 +90,7 @@ public class Scene1Manager : NormalSceneManager
             else
             {
                 cameraMoveToNormal = false;
-                resetTrigger = true;
-                trigger = true;
+                StartCoroutine("ResetTriggerTrue");
                 memoryMask.SetActive(false);
                 NextStep();
             }
@@ -145,8 +144,7 @@ public class Scene1Manager : NormalSceneManager
         if (dialogueList[step].Contains("(stop @)"))
         {
             triggerObj.SetActive(false);
-            resetTrigger = false;
-            trigger = true;
+            StartCoroutine("ResetTriggerTrue");
             step++;
             NextStep();
         }

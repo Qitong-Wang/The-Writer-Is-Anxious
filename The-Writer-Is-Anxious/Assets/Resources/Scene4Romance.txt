@@ -1,0 +1,20 @@
+(Romance Open)
+(PrincessAppear)
+(Princess)
+...My dear savior. Is that you who saved my life from that horrible creature?
+Could I know your name?
+(option3 Name_1 Name_2 Name_3 )
+Knight.
+Please call me Knight, your majesty.
+Who are you?
+(Name_1)
+Knight...
+(end)
+(Name_2)
+Sure, Knight... (Blush, love+10)
+(end)
+(Name_3)
+Ah...
+My name is Princess, the Princess of Country.
+You must be the knight that my father sent to protect me.
+(end)
