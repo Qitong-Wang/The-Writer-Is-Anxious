@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 425111960}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -516,7 +516,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425111953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8, y: 3.93, z: 14.6}
+  m_LocalPosition: {x: -3.8, y: 3.93, z: 1.2}
   m_LocalScale: {x: 1, y: 8.062769, z: 1}
   m_Children:
   - {fileID: 1704955326}
@@ -552,6 +552,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 5
+  hpKnight: 1
+  hpPrincess: 1
+  imageKnightHP: {fileID: 705822095}
+  imagePrincessHP: {fileID: 1233564310}
 --- !u!65 &425111960
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1080,6 +1084,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1362280149}
   - component: {fileID: 1362280150}
+  - component: {fileID: 1362280151}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -1121,6 +1126,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 200, y: 8.76, z: 100}
   m_Center: {x: -0.80855656, y: -5.13, z: 0.30543518}
+--- !u!114 &1362280151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362280148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfc01afe60c06574fa46c464c224b878, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364658600
 GameObject:
   m_ObjectHideFlags: 0
@@ -1921,6 +1938,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1960938117}
   - component: {fileID: 1960938118}
+  - component: {fileID: 1960938119}
   m_Layer: 0
   m_Name: Damage
   m_TagString: Untagged
@@ -1955,3 +1973,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 70, y: 8.76, z: 35}
   m_Center: {x: -0.80855656, y: -5.13, z: 0.30543518}
+--- !u!114 &1960938119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960938116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7f9c23c1a858a7448cb488756b537ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageCD: 5

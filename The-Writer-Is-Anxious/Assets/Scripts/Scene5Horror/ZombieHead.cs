@@ -6,7 +6,7 @@ public class ZombieHead : MonoBehaviour
 {
     void OnMouseDown()
     {
-        
-        print(gameObject.name);
+        Destroy(gameObject.transform.parent.gameObject);
+   
     }
 }

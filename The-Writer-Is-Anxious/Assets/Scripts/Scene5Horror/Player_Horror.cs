@@ -7,10 +7,22 @@ using UnityEngine.UI;
 /// </summary>
 public class Player_Horror : MonoBehaviour
 {
+    /// <summary>
+    /// Test
+    /// </summary>
     public float currentSpeed;
-    public static Player_Horror instance;
-
     Rigidbody rigidBody;
+
+    public static Player_Horror instance;
+    /// <summary>
+    /// HP is from 0 to 1
+    /// </summary>
+    public float hpKnight;
+    public float hpPrincess;
+    public Image imageKnightHP;
+    public Image imagePrincessHP;
+
+    
 
     private void Awake()
     {
@@ -30,7 +42,7 @@ public class Player_Horror : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-
+        UpdateHP();
     }
 
     // Update is called once per frame
@@ -42,8 +54,36 @@ public class Player_Horror : MonoBehaviour
     {
 
     }
-
-
+    public void DealDamage()
+    {
+        int result = Random.Range(0, 4);
+        if (result == 0)//No damage
+        {
+            
+        }
+        else if (result == 1) //Damage to Knight
+        {
+            hpKnight -= 0.05f;
+        }
+        else if (result == 2) //Damage to Princess
+        {
+            hpPrincess -= 0.05f;
+        }
+        else if (result == 3) //Damage to Both
+        {
+            hpKnight -= 0.05f;
+            hpPrincess -= 0.05f;
+        }
+        UpdateHP();
+    }
+    public void UpdateHP()
+    {
+        imageKnightHP.fillAmount = hpKnight;
+        imagePrincessHP.fillAmount = hpPrincess;
+    }
+    /// <summary>
+    /// Test
+    /// </summary>
     public virtual void Move()
     {
         if (Input.GetAxis("Horizontal") > 0)
