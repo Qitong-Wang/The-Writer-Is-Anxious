@@ -19,6 +19,7 @@ public class ZombieDamage : MonoBehaviour
         if (touch == true && Time.time>= touchTime+damageCD)
         {
             Player_Horror.instance.DealDamage();
+            Player_Horror.instance.horrorDialogue.PrincessHurtDialogue();
             touchTime = Time.time;
         }
     }

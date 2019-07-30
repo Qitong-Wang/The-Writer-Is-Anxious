@@ -21,6 +21,7 @@ public class Player_Horror : MonoBehaviour
     public float hpPrincess;
     public Image imageKnightHP;
     public Image imagePrincessHP;
+    public HorrorDialogue horrorDialogue;
 
     
 

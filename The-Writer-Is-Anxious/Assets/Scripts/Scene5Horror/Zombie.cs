@@ -14,6 +14,14 @@ public class Zombie : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.LookAt(Player_Horror.instance.gameObject.transform);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Player_Horror.instance.horrorDialogue.EnemyAlarmDialogue();
+        }
     }
 }
