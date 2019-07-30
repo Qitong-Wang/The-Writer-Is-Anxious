@@ -1,0 +1,34 @@
+(Horror Open)
+...Slash!
+You wave your sword without hestitation. In a second, the creature's head is crushed. 
+Blood spills everywhere.
+You gently turn your head back.
+(#PrincessAppear)
+(#Princess)
+...that was close.
+(#BlushAppear)
+Thank you for protecting me, Knight.
+(option3 Protect_1 Protect_2 Protect_3 )
+It's my pleasure.
+What shall we do next?
+Is it dragon who created them?
+(Protect_1)
+(#ResetExpression)
+You are doing good.
+I'll tell my father everything at our return.
+But for now, let's focus on something else.
+(Jump PrincessStep2 )
+(Protect_2)
+(#ResetExpression)
+...I'd really like to get back to our kingdom and protect my people.
+But I think I'd better deal with something more complicated here.
+(Jump PrincessStep2 )
+(Protect_3)
+(#ResetExpression)
+W-why?
+What makes you think of that?
+(Jump PrincessStep2 )
+
+(PrincessStep2)
+END!!!
+(end)
