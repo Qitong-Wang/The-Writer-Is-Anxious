@@ -42,6 +42,7 @@ public class Scene52HorrorConversationManager : NormalSceneManager
     public int love = 0;
     public GameObject objPrincess;
     public GameObject objBlush;
+    public GameObject objPrincessShotgun;
 
     // Start is called before the first frame update
     void Start()
@@ -51,7 +52,8 @@ public class Scene52HorrorConversationManager : NormalSceneManager
         dialogueIndexDictionary = new Dictionary<string, int>();
         ReadTextFile();
         otherObjActive = false;
-        ReadDialogue("Horror Open");
+        //ReadDialogue("Horror Open");
+        ReadDialogue("HorrorLose Open");
 
     }
     public override void ReadTextFile()
@@ -142,7 +144,19 @@ public class Scene52HorrorConversationManager : NormalSceneManager
             step++;
             NextStep();
         }
-       
+        else if (dialogueList[step].Contains("(#PrincessShotgunAppear)"))
+        {
+            objPrincessShotgun.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#PrincessShotgunDisappear)"))
+        {
+            objPrincessShotgun.SetActive(false);
+            step++;
+            NextStep();
+        }
+
         else if (dialogueList[step].Contains("(#TagDisappear)"))
         {
             objNameTag.SetActive(false);
