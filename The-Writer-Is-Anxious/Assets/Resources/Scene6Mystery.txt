@@ -1,0 +1,32 @@
+(Mystery Open)
+(#PrincessAppear)
+(#Princess)
+Ha... ha...
+We're safe here, right?
+(#PrincessDisappear)
+(#CapBoyAppear)
+(#CapBoy)
+Yep. Just for now, though.
+(#CapBoyDisappear)
+(#ManAppear)
+(#Man)
+What is this place? A lab?
+Where is this white door connected to?
+(#ManDisappear)
+(#CapBoyAppear)
+(#CapBoy)
+Don't touch anything!
+(#CapBoyDisappear)
+(#ManAppear)
+(#Man)
+Wow. Okay-okay.(speechless)
+(#ManDisappear)
+(#CapBoyAppear)
+(#CapBoy)
+Hey, two of you over there. You want the origin, right? Come and check this out.
+(#CapBoyDisappear)
+(#PrincessAppear)
+(#Princess)
+Knight.
+Do you love me?
+(#PrincessDisappear)
