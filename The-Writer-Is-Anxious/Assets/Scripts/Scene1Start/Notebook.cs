@@ -24,6 +24,7 @@ public class Notebook : MonoBehaviour
     {
         if (moveLeft1 == true)
         {
+            scene1Manager.trigger = false;
             if (transform.position.x >left1Position.x+0.01f)
             {
                 transform.position = Vector3.Lerp(transform.position, left1Position, Time.deltaTime);
