@@ -249,7 +249,7 @@ public class Scene6Manager : NormalSceneManager
                 objMysteryDialogueTag.SetActive(true);
             }
             objTagText.SetActive(true);
-            nameTagText.text = "CapBOy";
+            nameTagText.text = "CapBoy";
             step++;
             NextStep();
         }
@@ -282,7 +282,7 @@ public class Scene6Manager : NormalSceneManager
         else if (dialogueList[step].Contains("(Jump"))
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);
-            step = dialogueIndexDictionary[optionNumbers[1]];
+    
             NextStep();
         }
         else if (dialogueList[step].Contains("(option3"))

@@ -288,7 +288,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3128772328073187654}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 795881417}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueText: {fileID: 165404250}
-  dialogueObj: {fileID: 0}
+  dialogueObj: {fileID: 795881417}
   trigger: 1
   triggerObj: {fileID: 0}
   dialogueList: []
@@ -634,6 +634,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &795881417 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3128772327907790622, guid: 0c51ed45d1036a845bb984f9c10e797e,
+    type: 3}
+  m_PrefabInstance: {fileID: 3128772328073187654}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1057503372 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3128772327082813898, guid: 0c51ed45d1036a845bb984f9c10e797e,
