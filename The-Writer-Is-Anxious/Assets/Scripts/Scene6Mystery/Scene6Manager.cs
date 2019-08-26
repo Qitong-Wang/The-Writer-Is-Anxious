@@ -10,9 +10,10 @@ public class Scene6Manager : NormalSceneManager
 {
 
     /// <summary>
-    /// Default is 0, at dialogueText. 1 is option1, 2 is option2
+    /// Default is 0, at dialogueText.
     /// </summary>
     int dialogueType = 0;
+    public bool romanceStyle = false;
     /// <summary>
     /// Key is the name of the tag. value is the index of line
     /// </summary>\
@@ -38,6 +39,9 @@ public class Scene6Manager : NormalSceneManager
     public int option2LineNumber;
     public int option3LineNumber;
 
+    //Mystery Style objects
+    public GameObject objMysteryDialogueTag;
+    public GameObject objMysteryDialogue;
     //Objects
     public int love = 0;
     public GameObject objPrincess;
@@ -123,9 +127,8 @@ public class Scene6Manager : NormalSceneManager
 
         else if (dialogueList[step].Contains("(Mystery Open)"))
         {
-            dialogueObj.SetActive(true);
-            objNameTag.SetActive(true);
-            dialogueObj.SetActive(false);
+            romanceStyle = false;
+            objMysteryDialogueTag.SetActive(true);
             otherObjActive = false;
             step++;
             NextStep();
@@ -169,7 +172,15 @@ public class Scene6Manager : NormalSceneManager
      
         else if (dialogueList[step].Contains("(#Princess)"))
         {
-            objNameTag.SetActive(true);
+            if (romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
             objTagText.SetActive(true);
             nameTagText.text = "Princess";
             step++;
@@ -177,7 +188,15 @@ public class Scene6Manager : NormalSceneManager
         }
         else if (dialogueList[step].Contains("(#Knight)"))
         {
-            objNameTag.SetActive(true);
+            if(romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
             objTagText.SetActive(true);
             nameTagText.text = "Knight";
             step++;
@@ -185,7 +204,15 @@ public class Scene6Manager : NormalSceneManager
         }
         else if (dialogueList[step].Contains("(#Man)"))
         {
-            objNameTag.SetActive(true);
+            if(romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
             objTagText.SetActive(true);
             nameTagText.text = "Man";
             step++;
@@ -193,13 +220,46 @@ public class Scene6Manager : NormalSceneManager
         }
         else if (dialogueList[step].Contains("(#CapBoy)"))
         {
-            objNameTag.SetActive(true);
+            if(romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
             objTagText.SetActive(true);
             nameTagText.text = "CapBOy";
             step++;
             NextStep();
         }
-
+        else if (dialogueList[step].Contains("(#RomanceStyle)"))
+        {
+            romanceStyle = true;
+            objMysteryDialogue.SetActive(false);
+            objMysteryDialogueTag.SetActive(false);
+            dialogueObj.SetActive(true);
+        }
+        else if (dialogueList[step].Contains("(#Love+10)"))
+        {
+            love += 10;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(CheckLove_1)"))
+        {
+            if (love >= 60)
+            {
+                step++;
+                NextStep();
+            }
+            else
+            {
+                step = dialogueIndexDictionary["MysteryStep1"];
+                NextStep();
+            }
+        }
         else if (dialogueList[step].Contains("(Jump"))
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);

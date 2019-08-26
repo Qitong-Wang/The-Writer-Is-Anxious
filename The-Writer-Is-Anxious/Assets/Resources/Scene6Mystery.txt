@@ -29,4 +29,28 @@ Hey, two of you over there. You want the origin, right? Come and check this out.
 (#Princess)
 Knight.
 Do you love me?
-(#PrincessDisappear)
+(option3 Love_1 Love_2 Love_3 )
+I do.
+...
+You are my best friend.
+(Love_1)
+(#Love+10)
+... Thank you.
+(CheckLove_1)
+And... please trust me.
+I never... never meant to harm anyone...
+I -
+(Jump MysteryStep1 )
+(Love_2)
+...
+No... Sorry. Forget it.
+Let's hurry - 
+(Jump MysteryStep1 )
+(Love_3)
+...
+Yes. You are my friend too.
+Okay! We need to hurry -
+(Jump MysteryStep1 )
+ 
+(MysteryStep1)
+啊啊啊啊!
