@@ -47,7 +47,7 @@ public class Scene6Manager : NormalSceneManager
     public GameObject objPrincess;
     public GameObject objMan;
     public GameObject objCapBoy;
-    public GameObject objKnight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -152,18 +152,7 @@ public class Scene6Manager : NormalSceneManager
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(#KnightAppear)"))
-        {
-            objKnight.SetActive(true);
-            step++;
-            NextStep();
-        }
-        else if (dialogueList[step].Contains("(#KnightDisappear)"))
-        {
-            objKnight.SetActive(false);
-            step++;
-            NextStep();
-        }
+       
         else if (dialogueList[step].Contains("(#ManAppear)"))
         {
             objMan.SetActive(true);
