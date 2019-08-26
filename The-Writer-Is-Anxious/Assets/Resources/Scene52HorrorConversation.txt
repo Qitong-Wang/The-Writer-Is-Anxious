@@ -27,8 +27,80 @@ But I think I'd better deal with something more complicated here.
 (#ResetExpression)
 W-why?
 What makes you think of that?
+(option3 Think_1 Think_2 Think_3 )
+It's said that he has the evilest power...
+It's just my insight.
+...
+(Think_1)
+111
 (Jump PrincessStep2 )
-
+(Think_2)
+222
+(Jump PrincessStep2 )
+(Think_3)
+333
+(Jump PrincessStep2 )
+ 
 (PrincessStep2)
-END!!!
+Nevertheless, Dragon is dead. Right under your sword.
+But these creatures did not vanish with Dragon.
+(end)
+ 
+(HorrorLose Open)
+...BOOM!
+On the enormous sound, the creature's head is crushed.
+Blood spills everywhere.
+You gently turn your head back.
+(#PrincessShotgunAppear)
+(#Princess)
+...that was close.
+This gun?
+I just found it in the bushes there.
+(option3 Gun_1 Gun_2 Gun_3 )
+What is going on?
+What shall we do next?
+Is it dragon who created them?
+(Gun_1)
+(#PrincessShotgunDisappear)
+(#PrincessAppear)
+I don't know neither.
+But I had witnessed them once... at an earlier time.
+Listen to me, Knight, I want to do something...
+(Jump Convergence1 )
+(Gun_2)
+(#PrincessShotgunDisappear)
+(#PrincessAppear)
+...I'd really like to get back to our kingdom and protect my people.
+But I think I'd better deal with something more complicated here.
+(Jump Convergence1 )
+(Gun_3)
+(#PrincessShotgunDisappear)
+(#PrincessAppear)
+W-why?
+What makes you think of that?
+(option3 Why_1 Why_2 Why_3 )
+It's said that he has the evilest power...
+It's just my insight.
+...
+(Why_1)
+111
+Nevertheless, Dragon is dead. Right under your sword.
+But these creatures did not vanish with Dragon.
+(Jump Convergence1 )
+(Why_2)
+222
+Nevertheless, Dragon is dead. Right under your sword.
+But these creatures did not vanish with Dragon.
+(Jump Convergence1 )
+(Why_3)
+333
+Nevertheless, Dragon is dead. Right under your sword.
+But these creatures did not vanish with Dragon.
+(Jump Convergence1 )
+ 
+(Convergence1)
+I want to discover the nest of these creatures. Then destroy it.
+That's the only way to protect my kingdom from their attack.
+(when love < 50) Will you come with me, Knight?
+(when love >= 50) I'd really like you to come with me. Will you, Knight?
 (end)

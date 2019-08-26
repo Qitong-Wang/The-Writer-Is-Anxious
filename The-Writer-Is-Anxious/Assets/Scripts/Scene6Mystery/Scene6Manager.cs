@@ -6,13 +6,14 @@ using System.IO;
 using System.Linq;
 
 
-public class Scene4Manager : NormalSceneManager
+public class Scene6Manager : NormalSceneManager
 {
 
     /// <summary>
-    /// Default is 0, at dialogueText. 1 is option1, 2 is option2
+    /// Default is 0, at dialogueText.
     /// </summary>
     int dialogueType = 0;
+    public bool romanceStyle = false;
     /// <summary>
     /// Key is the name of the tag. value is the index of line
     /// </summary>\
@@ -38,20 +39,24 @@ public class Scene4Manager : NormalSceneManager
     public int option2LineNumber;
     public int option3LineNumber;
 
+    //Mystery Style objects
+    public GameObject objMysteryDialogueTag;
+    public GameObject objMysteryDialogue;
     //Objects
     public int love = 0;
     public GameObject objPrincess;
-    public GameObject objBlush;
-    public GameObject objCG;
+    public GameObject objMan;
+    public GameObject objCapBoy;
+    public GameObject objKnight;
     // Start is called before the first frame update
     void Start()
     {
         dialogueList = new List<string>();
-        textAsset = Resources.Load("Scene4Romance") as TextAsset;
+        textAsset = Resources.Load("Scene6Mystery") as TextAsset;
         dialogueIndexDictionary = new Dictionary<string, int>();
         ReadTextFile();
         otherObjActive = false;
-        ReadDialogue("Romance Open");
+        ReadDialogue("Mystery Open");
 
     }
     public override void ReadTextFile()
@@ -91,7 +96,7 @@ public class Scene4Manager : NormalSceneManager
     {
         print(step);
         print(dialogueList[step]);
-       
+
         if (dialogueList[step][0] == '(')
         {
             StepAction();
@@ -113,25 +118,25 @@ public class Scene4Manager : NormalSceneManager
     public override void StepAction()
     {
 
-        
+
         if (dialogueList[step].Contains("(end)"))
         {
             dialogueObj.SetActive(false);
             otherObjActive = true;
             trigger = false;
         }
-
-        else if (dialogueList[step].Contains("(Romance Open)"))
+        if (dialogueList[step].Contains("(Think)"))
         {
-            dialogueObj.SetActive(true);
-            objNameTag.SetActive(true);
-            otherObjActive = false;
+            
+            string dialogueContent = dialogueList[step].Substring(7, dialogueList[step].Length - 7);
+            dialogueText.text = dialogueContent;
             step++;
-            NextStep();
         }
-        else if (dialogueList[step].Contains("(Father_2)"))
+        else if (dialogueList[step].Contains("(Mystery Open)"))
         {
-            love -= 20;
+            romanceStyle = false;
+            objMysteryDialogueTag.SetActive(true);
+            otherObjActive = false;
             step++;
             NextStep();
         }
@@ -147,28 +152,54 @@ public class Scene4Manager : NormalSceneManager
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(#CGAppear)"))
+        else if (dialogueList[step].Contains("(#KnightAppear)"))
         {
-            objCG.SetActive(true);
+            objKnight.SetActive(true);
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(#CGDisappear)"))
+        else if (dialogueList[step].Contains("(#KnightDisappear)"))
         {
-            objCG.SetActive(false);
+            objKnight.SetActive(false);
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(#TagDisappear)"))
+        else if (dialogueList[step].Contains("(#ManAppear)"))
         {
-            objNameTag.SetActive(false);
-            objTagText.SetActive(false);
+            objMan.SetActive(true);
             step++;
             NextStep();
         }
+        else if (dialogueList[step].Contains("(#ManDisappear)"))
+        {
+            objMan.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#CapBoyAppear)"))
+        {
+            objCapBoy.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#CapBoyDisappear)"))
+        {
+            objCapBoy.SetActive(false);
+            step++;
+            NextStep();
+        }
+     
         else if (dialogueList[step].Contains("(#Princess)"))
         {
-            objNameTag.SetActive(true);
+            if (romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
             objTagText.SetActive(true);
             nameTagText.text = "Princess";
             step++;
@@ -176,29 +207,82 @@ public class Scene4Manager : NormalSceneManager
         }
         else if (dialogueList[step].Contains("(#Knight)"))
         {
-            objNameTag.SetActive(true);
+            if(romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
             objTagText.SetActive(true);
             nameTagText.text = "Knight";
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(#ResetExpression)"))
+        else if (dialogueList[step].Contains("(#Man)"))
         {
-            objBlush.SetActive(false);
+            if(romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
+            objTagText.SetActive(true);
+            nameTagText.text = "Man";
             step++;
             NextStep();
         }
-        else if (dialogueList[step].Contains("(#BlushAppear)"))
+        else if (dialogueList[step].Contains("(#CapBoy)"))
         {
-            love += 10;
-            objBlush.SetActive(true);
+            if(romanceStyle == true)
+            {
+                objNameTag.SetActive(true);
+            }
+            else
+            {
+                objMysteryDialogue.SetActive(false);
+                objMysteryDialogueTag.SetActive(true);
+            }
+            objTagText.SetActive(true);
+            nameTagText.text = "CapBoy";
             step++;
             NextStep();
+        }
+        else if (dialogueList[step].Contains("(#RomanceStyle)"))
+        {
+            romanceStyle = true;
+            objMysteryDialogue.SetActive(false);
+            objMysteryDialogueTag.SetActive(false);
+            dialogueObj.SetActive(true);
+        }
+        else if (dialogueList[step].Contains("(#Love+10)"))
+        {
+            love += 10;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(CheckLove_1)"))
+        {
+            if (love >= 60)
+            {
+                step++;
+                NextStep();
+            }
+            else
+            {
+                step = dialogueIndexDictionary["MysteryStep1"];
+                NextStep();
+            }
         }
         else if (dialogueList[step].Contains("(Jump"))
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);
-            step = dialogueIndexDictionary[optionNumbers[1]];
+    
             NextStep();
         }
         else if (dialogueList[step].Contains("(option3"))

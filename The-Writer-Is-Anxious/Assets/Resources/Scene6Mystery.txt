@@ -1,0 +1,77 @@
+(Mystery Open)
+(#PrincessAppear)
+(#Princess)
+Ha... ha...
+We're safe here, right?
+(#PrincessDisappear)
+(#CapBoyAppear)
+(#CapBoy)
+Yep. Just for now, though.
+(#CapBoyDisappear)
+(#ManAppear)
+(#Man)
+What is this place? A lab?
+Where is this white door connected to?
+(#ManDisappear)
+(#CapBoyAppear)
+(#CapBoy)
+Don't touch anything!
+(#CapBoyDisappear)
+(#ManAppear)
+(#Man)
+Wow. Okay-okay.(speechless)
+(#ManDisappear)
+(#CapBoyAppear)
+(#CapBoy)
+Hey, two of you over there. You want the origin, right? Come and check this out.
+(#CapBoyDisappear)
+(#PrincessAppear)
+(#Princess)
+Knight.
+Do you love me?
+(option3 Love_1 Love_2 Love_3 )
+I do.
+...
+You are my best friend.
+(Love_1)
+(#Love+10)
+... Thank you.
+(CheckLove_1)
+And... please trust me.
+I never... never meant to harm anyone...
+I -
+(Jump MysteryStep1 )
+(Love_2)
+...
+No... Sorry. Forget it.
+Let's hurry - 
+(Jump MysteryStep1 )
+(Love_3)
+...
+Yes. You are my friend too.
+Okay! We need to hurry -
+(Jump MysteryStep1 )
+ 
+(MysteryStep1)
+(#PrincessAppear)
+(#Princess)
+I'm sorry...
+(#PrincessDisappear)
+(#ManAppear)
+(#Man)
+You said it was your fault. What happened?
+(#ManDisappear)
+(#PrincessAppear)
+(#Princess)
+When the smoke bursts out, I was freaked out. I didn't know what to do.
+Then I bumped into Cap Boy. He dragged me into this white door. He said it would be safe there.
+It was a garage behind that door. We talked a little about the strange smoke. 
+Suddenly these green creatures broke in and attacked him. Soon he knelt in the blood.
+I tried to help... But Cap Boy asked me to escape. I'm so sorry for what happened...
+(#PrincessDisappear)
+(#KnightAppear)
+(#Knight)
+(Think)(...)
+(Think)(It is still hard to believe that the boy, who always carried the baseball bat, who confidently led us here, died just now.)
+(Think)(But I did hear a gunfire...)
+(Think)(Is she really telling the truth? Or...)

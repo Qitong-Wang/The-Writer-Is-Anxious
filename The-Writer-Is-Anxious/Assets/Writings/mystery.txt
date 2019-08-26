@@ -1,0 +1,571 @@
+#接下来是一段剧情CG。此时的对话均为背景+人物立绘+对话框的形式。没有人物名字的旁白用dialogue,有的话用dialogue_name。
+#背景：table,bottle123, bullets,wall,door,cracks(放在墙上）,first-aid, frame（中间是portrait，点一下变成portrait_real）,fryingpan,gun,newspaper. 
+#人物有man+capboy+princess
+#注意！man的立绘图是man+两个gun_pic
+
+Princess: 
+Ha... ha... 
+
+Princess: 
+We're safe here, right?
+
+Cap Boy: 
+Yep. Just for now, though.
+
+Man: 
+What is this place? A lab?
+
+Man: 
+Where is this white door connected to?
+
+Cap Boy: 
+Don't touch anything!（画面振动）
+
+Man: (speechless)
+Wow. Okay-okay.
+
+Cap Boy: 
+Hey, two of you over there. You want the origin, right? Come and check this out.
+
+Princess: 
+Knight.
+
+#这时UI变为romance ui
+
+Princess:
+Do you love me?
+
+#选项
+I do. ->A
+... ->B
+You are my best friend. -> C
+
+#A
+Princess:
+... Thank you. (love + 10)
+
+#and if love > 60
+
+She cries.
+
+Princess:
+And... please trust me.
+I never... never meant to harm anyone...
+I -
+
+#B
+Princess:
+...
+
+Princess:
+No... Sorry. Forget it.
+Let's hurry -
+
+#C
+Princess:
+...
+
+Princess:
+Yes. You are my friend too.
+Okay! We need to hurry -
+
+#这时，很多smoke从小变大掩盖了整个屏幕。之后全屏都有不同透明度的smoke。
+
+Man: 
+What the - What is going on?(无立绘）
+
+#Bang字在背景右侧展现。
+#此时如果与公主好感度不足60：
+Knight:
+(Blood... all over my chest.
+Does it hurt?
+I can't feel anything.)
+#渐变黑色 再渐变回来 eye.png 此时背景多了princess的脚
+Knight:
+(Who is that?
+Is that...
+I can't... My vision... blurs...)
+#点击blurs达成romance be
+
+#如果与公主好感度到达60：
+Knight:
+(I can't see anything...)
+
+Knight:
+(What happens?
+Where is Princess?)
+
+#过了一会 浓烟渐渐散了（透明度0）
+Man:
+Fuck the smoke grenade!
+Who the fuck did that?
+
+Man:
+Wait...
+Where is that boy?
+
+Princess:
+... (scared)
+
+Knight:
+(I saw her sitting on the ground near the white door, eyes wandering to her front.)
+
+Knight:
+Princess?
+
+Princess:
+... (scared)
+
+Knight:
+(She gasps.)
+
+Princess:(tears)
+He's dead.
+It's all my fault...
+
+Man:
+What?!
+
+Knight:
+(We quickly ran to the white door.) 
+
+#渐变。弹出提示
+
+This CG contains violence and bloody scenes.
+#选项
+Continue.
+Watch violence-free version.
+Skip.
+
+#violence free就是把所有文字替换成马赛克
+#镜头像弹丸里发现尸体一样蛇皮走位一波。
+#场景：zombie123+boyandblood
+Man:
+They...
+They are eating him!
+
+Man:
+No...
+I can't see this anymore.
+
+#镜头回来。
+Princess: (tears)
+I'm sorry...
+I'm sorry...
+
+Man:
+You said it was your fault. What happened?
+
+Princess: (scared)
+When the smoke bursts out, I was freaked out. I didn't know what to do.
+Then I bumped into Cap Boy. He dragged me into this white door. He said it would be safe there.
+It was a garage behind that door. We talked a little about the strange smoke. Suddenly these green creatures broke in and attacked him. Soon he knelt in the blood.
+I tried to help... But Cap Boy asked me to escape. I'm so sorry for what happened...
+
+Knight:
+(...)
+
+Knight:
+(It is still hard to believe that the boy, who always carried the baseball bat, who confidently led us here, died just now.)
+
+Knight:
+(But I did hear a gunfire...)
+
+Knight:
+(Is she really telling the truth? Or...)
+
+#investigation starts标语。（还没做，忘了）
+#每次发现证据右面才会显示该证据。右面的menu出现，是当前证据+sidebar+evidence+triangle.
+#点击evidence出现证据框，是当前证据+evidencemenu。当前证据放在左面。点击back返回。
+
+#hint1: gunfire添加到线索栏。Gunfire: You heard a gunfire in the smoke. It was a huge noise. No one could miss it.
+#点击地上报纸获得hint2: news.
+That is a newspaper with research reporting that the surrounding areas of safe houses were proved to be safe and zombie-free.
+Reasons to this phenomenon remained a mystery.
+#点击white door获得hint3: Cap Boy
+He lied straight, face down to the ground. A lot of zombies surround him. It's even hard to recognize his face.
+He didn't seem to have brought any weapons with him.
+#地上会有很多dust，拖动一下就会消失。 右下角有很多dust，都移走之后发现hint4: blood stain.
+The blood is very fresh. Whose blood can it possibly be?
+#和man对话获得hint5: Immunity
+Man:
+Knight...
+I can't believe this is real.
+We were the best adventure buddies. He was like my little brother - brave, calm, smart... although I've only known him for two days.
+
+Man:
+Did I remember anything?
+Mmm...
+He seemed to be very familiar with those zoobees.
+
+Man:
+At the first time we met the zonbikes, he was bit by one of them. I freaked out - I thought he would become one of them.
+But he just let me calm down, and said that he was immune to their virus.
+Ahh... I miss those days we were together!
+
+#再和公主对话进入审问 
+Are you ready for the cross-examination?
+#选择yes进入审问。
+#cross examination标语
+Knight:
+Princess, would you mind repeating what happened again?
+
+#next, wait出现
+
+#之后公主会开始重复证词。主角的血量化作credibility。credibility变成0则进入mystery be。
+#右面menu出现current_credibility+heart.
+#证词分为4段，点击对话框跳到下一段证词。每一轮证词结束会掉credibility值。每段证词都可以选择ask,或者用证据反驳。点击证据会看到证据的介绍，然后会有按钮点击使用。使用过证据/ask之后，如果失败则进入下一段证词，如果成功触发testimony update则跳到新的testimony。
+
+#证词1
+Princess:
+So... when the smoke bursts out, I was freaked out. I didn't know what to do.
+
+	#ask
+Princess:
+Of course I was scared. I couldn't see anyone... or anything...
+
+	#gunfire
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#news
+Princess:
+Is it connected?
+(Credibility dropped!)
+	
+	#Cap Boy
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+#证词2
+Princess:
+Then I bumped into Cap Boy. He dragged me into this white door. He said it would be safe there.
+
+	#ask
+Princess:
+He sounded very familiar with this place...
+Indeed, there was no smoke behind that door too.
+
+	#gunfire
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#news
+Princess:
+Is it connected?
+(Credibility dropped!)
+	
+	#Cap Boy
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+#证词3
+Princess:
+It was a garage behind that door. We talked a little about the strange smoke. Suddenly these green creatures broke in and attacked him. Soon he knelt in the blood.
+	#ask
+Princess:
+This place must be old. The gate of the garage was very delicate...
+
+	#gunfire
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#news
+Knight:
+How were the zombies attracted to this place?
+According to this news, there should be no zombie around this house.
+
+Princess:
+Er... (scared)
+The gunfire. Yes! It was the gunfire. That's the reason those creatures were there.
+(Testimony updated!)
+	
+	#Cap Boy
+Princess:
+He was bit on the face... Then more came in...
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+#新证词3
+Princess:
+It was a garage behind that door. We talked a bit about the strange smoke, when suddenly we heard a gunfire. These green creatures are attracted to this noise. They broke in and attacked him. Soon he knelt in the blood.
+	#ask
+Princess:
+This place must be old. The gate of the garage was very delicate...
+
+	#gunfire
+Princess:
+Is there any problem?
+(Credibility dropped!)
+
+	#gunfire如果已经触发新证词4-2
+Knight:
+But I only remembered hearing one gunfire.
+
+Man:
+Yes. That's what I remembered too.
+
+Princess:
+Er...
+#进入证词5
+
+	#news
+Princess:
+So...?
+(Credibility dropped!)
+	
+	#Cap Boy
+Princess:
+He was bit on the face... Then more came in...
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+#证词4
+Princess:
+I tried to help... But Cap Boy asked me to escape. I'm so sorry for what happened...
+
+	#ask
+Princess:
+I really tried to help. But I didn't have a gun. Cap Boy brought a gun but he only managed to shoot once, and then he passed out...
+
+Knight:
+Can you add that into your testimony?
+
+Princess:
+Yes. I can.
+(Testimony updated!)
+
+	#gunfire
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#news
+I don't know what you mean.
+(Credibility dropped!)
+	
+	#Cap Boy
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+#新证词4
+Princess:
+I tried to help, but I didn't have a gun. Cap Boy brought a gun but he only managed to shoot once, and then he passed out... I'm so sorry for what happened...
+
+	#ask
+Princess:
+Those are what I remembered.
+
+	#gunfire
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#news
+I don't know what you mean.
+(Credibility dropped!)
+	
+	#Cap Boy
+Knight:
+But there is no gun found around Cap Boy's body.
+
+Princess:
+Ahh... (scared)
+Sorry. I remembered just now. He throwed the gun to me and I took the shot once. Then there were more zombies. So he asked me to escape...
+
+(Testimony updated!)
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+#新证词4-2
+Princess:
+I tried to help, but I didn't have a gun. Cap Boy throwed his gun to me and I took the shot once. Then there were more zombies. So he asked me to escape... I'm so sorry for what happened...
+
+	#ask
+Princess:
+Those are what I remembered.
+
+	#gunfire
+Princess:
+Is there any problem?
+(Credibility dropped!)
+
+	#gunfire 如果已解锁新证词3
+Knight:
+But I only remembered hearing one gunfire.
+
+Man:
+Yes. That's what I remembered too.
+
+Princess:
+Er... (scared)
+#进入证词5
+
+	#news
+I don't know what you mean.
+(Credibility dropped!)
+	
+	#Cap Boy
+Princess:
+That is what happened.
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+Princess:
+Is it connected?
+(Credibility dropped!)
+
+#一圈下来没有解决事件的话
+Princess:
+I'm telling the truth, Knight.
+Don't you trust me?
+
+(Credibility dropped!)
+
+Knight:
+(hint)
+#这个hint是根据当前状态给的提示。提示词有：
+Something is strange. I mean - this place is a safe house, right? (没有解锁新证词3）
+Did none of them bring a gun to the garage? It was that dangerous... (没有解锁新证词4）
+Wait. If it's really like what she stated, then why didn't we find anything there? (没有解锁4-2）
+She made a mistake. Her testimony has a big contradiction with my memory... (没解锁证词5）
+
+#证词5
+Princess:
+Alright. I will tell the truth. I took the gun and I shot at him... But it's only because he begged me to! He was bit badly and his body was getting infected quickly. So he asked me to kill him before he became a monster...
+
+	#ask
+Princess:
+I just don't want you to think I'm a killer.
+
+	#gunfire
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#news
+I don't know what you mean.
+(Credibility dropped!)
+	
+	#Cap Boy
+Princess:
+That is what happened.
+
+	#Blood stain
+Princess:
+I don't know what you mean.
+(Credibility dropped!)
+
+	#Immunity
+#净tm扯淡标语闪过 objection+objection_bg+objection_knight
+Knight:
+Cap Boy is immune to the zombie virus. There's no way he can get infected.
+
+Princess:
+...! (scared)
+
+Princess:
+Fine. I admit it.
+I killed him.
+
+#cross examination成功，线索栏消失。
+	#trust
+Knight:
+I trust you. Princess.
+
+Princess:
+...
+Thank you.
+	#此选项直接跳到mys be.
+
+#成功之后的故事：
+Man:
+Why would you do that?!
+Did you use that smoke to cover you?
+
+Princess:
+No... That's not me.
+
+Man:
+So what exactly happened?
+I thought we were the best buddies - us four! I thought - there was hope.
+Then suddenly everything changed. You've ruined EVERYTHING!
+
+Princess:
+I'm sorry. I have my reason.
+It's... right outside the door.
+
+#变回调查阶段，点击门进入modern reality
+#此时点击man：
+Man:
+Where is hope?
+
+#此时点击princess：
+Princess:
+...
+The door is open. Knight.
+You can find the answer to everything there.
