@@ -47,6 +47,7 @@ public class Scene6Manager : NormalSceneManager
     public GameObject objPrincess;
     public GameObject objMan;
     public GameObject objCapBoy;
+    public GameObject objKnight;
     // Start is called before the first frame update
     void Start()
     {
@@ -124,7 +125,13 @@ public class Scene6Manager : NormalSceneManager
             otherObjActive = true;
             trigger = false;
         }
-
+        if (dialogueList[step].Contains("(Think)"))
+        {
+            
+            string dialogueContent = dialogueList[step].Substring(7, dialogueList[step].Length - 7);
+            dialogueText.text = dialogueContent;
+            step++;
+        }
         else if (dialogueList[step].Contains("(Mystery Open)"))
         {
             romanceStyle = false;
@@ -142,6 +149,18 @@ public class Scene6Manager : NormalSceneManager
         else if (dialogueList[step].Contains("(#PrincessDisappear)"))
         {
             objPrincess.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#KnightAppear)"))
+        {
+            objKnight.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#KnightDisappear)"))
+        {
+            objKnight.SetActive(false);
             step++;
             NextStep();
         }

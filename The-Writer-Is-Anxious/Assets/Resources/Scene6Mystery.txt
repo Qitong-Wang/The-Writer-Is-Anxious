@@ -53,4 +53,25 @@ Okay! We need to hurry -
 (Jump MysteryStep1 )
  
 (MysteryStep1)
-啊啊啊啊!
+(#PrincessAppear)
+(#Princess)
+I'm sorry...
+(#PrincessDisappear)
+(#ManAppear)
+(#Man)
+You said it was your fault. What happened?
+(#ManDisappear)
+(#PrincessAppear)
+(#Princess)
+When the smoke bursts out, I was freaked out. I didn't know what to do.
+Then I bumped into Cap Boy. He dragged me into this white door. He said it would be safe there.
+It was a garage behind that door. We talked a little about the strange smoke. 
+Suddenly these green creatures broke in and attacked him. Soon he knelt in the blood.
+I tried to help... But Cap Boy asked me to escape. I'm so sorry for what happened...
+(#PrincessDisappear)
+(#KnightAppear)
+(#Knight)
+(Think)(...)
+(Think)(It is still hard to believe that the boy, who always carried the baseball bat, who confidently led us here, died just now.)
+(Think)(But I did hear a gunfire...)
+(Think)(Is she really telling the truth? Or...)

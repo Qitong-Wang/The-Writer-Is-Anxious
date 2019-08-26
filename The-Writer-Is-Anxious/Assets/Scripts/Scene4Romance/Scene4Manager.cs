@@ -120,7 +120,7 @@ public class Scene4Manager : NormalSceneManager
             otherObjActive = true;
             trigger = false;
         }
-      
+
         else if (dialogueList[step].Contains("(Romance Open)"))
         {
             dialogueObj.SetActive(true);
