@@ -148,7 +148,7 @@ The table doesn't seem very heavy...
 (milkTimerFinish)
 (end)
 (milkWithBowl)
-I got the bowl!”
+Use the bowl to catch the milk!
 (afterMilkBowl)
 Safe.
 (afterMilkBowlCatroom)
