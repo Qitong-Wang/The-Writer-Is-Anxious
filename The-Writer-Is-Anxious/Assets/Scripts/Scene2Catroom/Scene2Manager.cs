@@ -78,6 +78,7 @@ public class Scene2Manager : NormalSceneManager
     public SpriteRenderer catPicture;
     public Sprite catPicCheer;
     public Sprite catPicAngry;
+    public Sprite catPicNormal;
     public GameObject objKnight;
 
     
@@ -227,6 +228,7 @@ public class Scene2Manager : NormalSceneManager
             pickupBowl = false;
             meow.sprite = thankfulMeow;
             lockedDoor.sprite = openedDoor;
+            catPicture.sprite = catPicNormal;
             step++;
             NextStep();
         }
@@ -279,11 +281,12 @@ public class Scene2Manager : NormalSceneManager
             objMilkTimer.SetActive(false);
             if (pickupBowl == false)
             {
-                Destroy(objMilk);
+                
                 objMilkOnFloor.transform.parent = objKitchen.transform;
                 objMilkOnFloor.SetActive(true);
                 afterDropMilk = true;
             }
+            Destroy(objMilk);
             step++;
             NextStep();
         }
@@ -302,6 +305,7 @@ public class Scene2Manager : NormalSceneManager
             StartCoroutine("ResetTriggerTrue");
             objmilkInBowl.SetActive(true);
             pickupBowl = false;
+            Destroy(objMilk);
             objItemBowl.SetActive(false);
             afterMilkBowl = true;
             objEntryWay.SetActive(false);

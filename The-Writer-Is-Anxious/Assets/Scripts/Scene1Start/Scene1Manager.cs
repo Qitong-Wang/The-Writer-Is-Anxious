@@ -101,6 +101,7 @@ public class Scene1Manager : NormalSceneManager
    
     public override void NextStep()
     {
+       
         print(dialogueList[step]);
         if (dialogueList[step][0] == '@')
         {
@@ -253,7 +254,6 @@ public class Scene1Manager : NormalSceneManager
         }
         else if (dialogueList[step].Contains("(stare left)"))
         {
-
             trigger = false;
             objSadDialogue.SetActive(false);
             step++;

@@ -50,7 +50,6 @@ Eat some.
 Give some to Cat.
 (DoratosEat)
 ...
-...
 ...tasted good, just as you expected.
 (shelfbelow end)
 (end)
@@ -70,9 +69,7 @@ You hear something from the hallway.
 (ShelfBelowAfterDoratosCat)
 Look what you found! Doratos!
 Eat some.
-...
-...
-...tasted good, just as you expected.
+...\n...tasted good, just as you expected.
 (end)
 
 (BowlWithDoratos)
@@ -89,17 +86,15 @@ This seems to be the kitchen.
 Uh-oh.
 (end)
 (frigerUp)
-You would really like to know what is there.
-And you are really not tall enough.
+You would really like to know what is there.\nAnd you are really not tall enough.
 (end)
 (frigerUpDropMilk)
 Spilled milk does not make you any taller.
 (end)
 
 (frigerDown)
-Ew! Look at what you found.
-That's a smell you will never forget in your life.
 (RottonFoodAppear)
+Ew! Look at what you found.\nThat's a smell you will never forget in your life.
 (end)
 (frigerRottenFood)
 If you could, you would not like to smell this again.
@@ -153,7 +148,7 @@ The table doesn't seem very heavy...
 (milkTimerFinish)
 (end)
 (milkWithBowl)
-I got the bowl!”
+Use the bowl to catch the milk!
 (afterMilkBowl)
 Safe.
 (afterMilkBowlCatroom)

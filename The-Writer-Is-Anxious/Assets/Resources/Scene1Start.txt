@@ -9,17 +9,17 @@ I need to figure this out, the writer tells himself. The truth is that he has be
 (dialogue fades out) (I_table_ring.png) appears and animation. Click ring to continue.
 (division_line)( I_onphone)( I_onphone_dia)(Editor_onphone)(Editor_onphone_dia)
 (EditorDialogueStart)
-Editor: "The situation is not optimistic."
-Editor: "This is the last chance we can offer you to publish your work. So don't let it go."
+The situation is not optimistic.
+This is the last chance we can offer you to publish your work. So don't let it go.
 (EditorDialogueEnd)
 (IDialogueStart)
-I: “I know…”
+I know…
 (IDialogueEnd)
 (EditorDialogueStart)
-Editor: “…”
-Editor: “I used to be your fan.”
+…
+I used to be your fan.
 (EditorDialogueEnd)
-(I_sad appear)( I_sad_spotlight) on the left side (notebookshort) on the right side. Words appear on the right side using STxihei font.
+(I_sad appear)( I_sad_spotlight)
 (SadDialogueStart)
 But it's not the writer's fault.
 The stress of daily life and the anxiety to create great work have drained nearly all of his ideas.
@@ -33,4 +33,5 @@ He can only <color=blue>stare</color> at the paper in front of him.
 And <color=blue>stare</color> at it.
 (stop @)
 (stare left)
-Click stare -> 所有的图片左移。 Notebooklong.png接着notebookshort的边左移出来。字仍然显示在横线上。注意paper. 不要打出来， 使用paper1.png.
+  
+  
