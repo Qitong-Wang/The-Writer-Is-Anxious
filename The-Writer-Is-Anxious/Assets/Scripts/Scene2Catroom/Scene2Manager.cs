@@ -78,6 +78,7 @@ public class Scene2Manager : NormalSceneManager
     public SpriteRenderer catPicture;
     public Sprite catPicCheer;
     public Sprite catPicAngry;
+    public Sprite catPicNormal;
     public GameObject objKnight;
 
     
@@ -227,6 +228,7 @@ public class Scene2Manager : NormalSceneManager
             pickupBowl = false;
             meow.sprite = thankfulMeow;
             lockedDoor.sprite = openedDoor;
+            catPicture.sprite = catPicNormal;
             step++;
             NextStep();
         }
