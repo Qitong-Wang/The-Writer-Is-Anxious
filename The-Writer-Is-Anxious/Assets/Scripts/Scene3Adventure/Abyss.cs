@@ -22,5 +22,9 @@ public class Abyss : MonoBehaviour
         {
             collision.gameObject.GetComponent<Player>().GameOver();
         } 
+       if (collision.gameObject.tag == "MushRoom")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }
