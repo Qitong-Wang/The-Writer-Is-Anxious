@@ -96,6 +96,8 @@ MonoBehaviour:
   markType: 2
   player: {fileID: 0}
   alreadyCollide: 0
+  mushRoomPrefab: {fileID: 5110042035552135263, guid: 2adb69b9d85f1a4498384c6e66d3655a,
+    type: 3}
 --- !u!61 &5148466371485229274
 BoxCollider2D:
   m_ObjectHideFlags: 0

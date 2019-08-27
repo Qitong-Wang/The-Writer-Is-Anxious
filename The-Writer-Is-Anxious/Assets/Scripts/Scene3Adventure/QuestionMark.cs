@@ -10,6 +10,7 @@ public class QuestionMark : MonoBehaviour
     public int markType;
     public Player player;
     public bool alreadyCollide;
+    public GameObject mushRoomPrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +40,11 @@ public class QuestionMark : MonoBehaviour
                 }
                 else if (markType == 2)
                 {
-                    player.Immune();
+                    GameObject mushRoom;
+                    Vector2 summonPosition = new Vector2(transform.position.x, transform.position.y+0.9f);
+                    mushRoom = Instantiate(mushRoomPrefab, summonPosition, Quaternion.identity);
+                    mushRoom.GetComponent<Mushroom>().player = player;
+                    
                 }
                 gameObject.GetComponent<SpriteRenderer>().color = Color.black;
                 alreadyCollide = true;
