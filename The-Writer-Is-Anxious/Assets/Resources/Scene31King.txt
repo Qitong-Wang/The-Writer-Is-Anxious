@@ -1,4 +1,5 @@
 (King open)
+(KnightAppear)
 I shall await thy return with Princess, my brave Knight.
 (option Ask Leave )
 Ask where Princess went.
