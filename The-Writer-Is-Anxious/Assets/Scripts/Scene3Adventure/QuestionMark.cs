@@ -11,6 +11,7 @@ public class QuestionMark : MonoBehaviour
     public Player player;
     public bool alreadyCollide;
     public GameObject mushRoomPrefab;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,11 +29,12 @@ public class QuestionMark : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.tag);
+        
         if (collision.gameObject.tag == "PlayerHead")
         {
             if (alreadyCollide == false)
             {
+               
                 if (markType == 1)
                 {
                     player.coins += 10;
@@ -46,7 +48,7 @@ public class QuestionMark : MonoBehaviour
                     mushRoom.GetComponent<Mushroom>().player = player;
                     
                 }
-                gameObject.GetComponent<SpriteRenderer>().color = Color.black;
+                animator.SetTrigger("Hit");
                 alreadyCollide = true;
             }
 

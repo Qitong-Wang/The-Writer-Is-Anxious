@@ -31,9 +31,9 @@ public class Scene31Manager : NormalSceneManager
     public int option1LineNumber;
     public int option2LineNumber;
 
-
+    
     public bool askKing = false;
-
+    public SpriteRenderer knightSprite;
 
 
     // Start is called before the first frame update
@@ -121,6 +121,13 @@ public class Scene31Manager : NormalSceneManager
             otherObjActive = true;
             trigger = false;
         }
+        else if (dialogueList[step].Contains("(KnightAppear)"))
+        {
+            StartCoroutine(FadeTo(255, 20));
+            step++;
+            NextStep();
+
+        }
         else if (dialogueList[step].Contains("(Ask)"))
         {
             askKing = true;
@@ -184,7 +191,16 @@ public class Scene31Manager : NormalSceneManager
         }
     }
 
-
+    IEnumerator FadeTo(float aValue, float aTime)
+    {
+        float alpha = knightSprite.color.a;
+        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / aTime)
+        {
+            Color newColor = new Color(255, 255, 255, Mathf.Lerp(alpha, aValue, t));
+            knightSprite.color = newColor;
+            yield return null;
+        }
+    }
 
 
 }
