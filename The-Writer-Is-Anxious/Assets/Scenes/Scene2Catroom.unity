@@ -1497,7 +1497,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663146972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.844, y: 1.03, z: 0}
+  m_LocalPosition: {x: 5.59, y: 1.03, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 136031919}
@@ -1516,7 +1516,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0823278, y: 0.3607751}
+  m_Offset: {x: -0.21, y: 0.3607751}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2021,6 +2021,7 @@ GameObject:
   - component: {fileID: 864888026}
   - component: {fileID: 864888029}
   - component: {fileID: 864888028}
+  - component: {fileID: 864888030}
   m_Layer: 0
   m_Name: normalcat
   m_TagString: Untagged
@@ -2116,6 +2117,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scene2Manager: {fileID: 922944555}
+--- !u!95 &864888030
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864888025}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 11571dddd6fdaac409c58316b4a11943, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &904810575
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,6 +2993,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226225219}
   - component: {fileID: 1226225218}
+  - component: {fileID: 1226225220}
   m_Layer: 0
   m_Name: hungrymeow
   m_TagString: Untagged
@@ -3036,12 +3057,31 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226225217}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.76, y: 3.21, z: 0}
+  m_LocalPosition: {x: 2.63, y: 2.3, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 1107544207}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1226225220
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1226225217}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2354e81c9ca493c48b0ebc02592ee08d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1233142900
 GameObject:
   m_ObjectHideFlags: 0
@@ -3261,6 +3301,7 @@ GameObject:
   - component: {fileID: 1334948146}
   - component: {fileID: 1334948149}
   - component: {fileID: 1334948148}
+  - component: {fileID: 1334948150}
   m_Layer: 0
   m_Name: milk
   m_TagString: Untagged
@@ -3370,6 +3411,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scene2Manager: {fileID: 922944555}
   triggerName: Milk
+--- !u!95 &1334948150
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334948145}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 764b9539803ffae48877d74778bf4e84, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1386194958
 GameObject:
   m_ObjectHideFlags: 0
@@ -3665,7 +3725,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1481962394}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.844, y: 3.4344206, z: 0}
+  m_LocalPosition: {x: 5.59, y: 3.4344206, z: 0}
   m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 136031919}
@@ -3684,7 +3744,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.0823278, y: 0.3607751}
+  m_Offset: {x: -0.21, y: 0.3607751}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3722,6 +3782,7 @@ GameObject:
   - component: {fileID: 1511405678}
   - component: {fileID: 1511405680}
   - component: {fileID: 1511405681}
+  - component: {fileID: 1511405682}
   m_Layer: 0
   m_Name: normaltail
   m_TagString: Untagged
@@ -3818,6 +3879,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.7691457, y: 3.86262, z: 0.2}
   m_Center: {x: 0.07115841, y: 0.17789671, z: 0}
+--- !u!95 &1511405682
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511405677}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c75de040820b3414bb028d6aa68c5787, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1531270530
 GameObject:
   m_ObjectHideFlags: 0
