@@ -11,6 +11,7 @@ public class QuestionMark : MonoBehaviour
     public Player player;
     public bool alreadyCollide;
     public GameObject mushRoomPrefab;
+    public GameObject coinPrefab;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -35,12 +36,16 @@ public class QuestionMark : MonoBehaviour
             if (alreadyCollide == false)
             {
                
-                if (markType == 1)
+                if (markType == 1) //coin
                 {
-                    player.coins += 10;
-                    player.UpdateCoinText();
+                    
+                    GameObject coin;
+                    Vector2 summonPosition = new Vector2(transform.position.x, transform.position.y + 0.9f);
+                    coin = Instantiate(coinPrefab, summonPosition, Quaternion.identity);
+                    coin.GetComponent<Coin>().player = player;
+                    
                 }
-                else if (markType == 2)
+                else if (markType == 2) //immune
                 {
                     GameObject mushRoom;
                     Vector2 summonPosition = new Vector2(transform.position.x, transform.position.y+0.9f);
@@ -48,7 +53,7 @@ public class QuestionMark : MonoBehaviour
                     mushRoom.GetComponent<Mushroom>().player = player;
                     
                 }
-                animator.SetTrigger("Hit");
+                animator.SetTrigger("jump");
                 alreadyCollide = true;
             }
 

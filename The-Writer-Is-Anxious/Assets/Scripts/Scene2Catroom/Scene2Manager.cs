@@ -103,7 +103,8 @@ public class Scene2Manager : NormalSceneManager
             if (dialogueList[i][0] == '(')
             {
                
-                if(dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(stop @)") == false)
+                if(dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(stop @)") == false
+                   && dialogueList[i].Contains("(#") == false)
                 {
                     //Add the tag to the dictionary. 
                     dialogueIndexDictionary.Add(dialogueList[i].Substring(1,dialogueList[i].Length-3), i );
@@ -357,6 +358,12 @@ public class Scene2Manager : NormalSceneManager
         {
             objOption1.SetActive(false);
             objOption2.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#Shove)"))
+        {
+            objMilk.GetComponent<Animator>().SetTrigger("shake");
             step++;
             NextStep();
         }
