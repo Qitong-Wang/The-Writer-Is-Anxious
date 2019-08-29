@@ -48,6 +48,8 @@ public class Scene2Manager : NormalSceneManager
     public SpriteRenderer meow;
     public Sprite thankfulMeow;
     public bool afterRottenFoodCat = false;
+    public GameObject objCat;
+    public GameObject objTail;
     public SpriteRenderer cat;
     public Sprite shockedCat;
     public SpriteRenderer tail;
@@ -245,6 +247,7 @@ public class Scene2Manager : NormalSceneManager
             if (pickupBowl == true)
             {
                 ReadDialogue("RottenFoodWithBowl");
+                
             }
             else
             {
@@ -255,10 +258,12 @@ public class Scene2Manager : NormalSceneManager
         {
             objBowlWithRootenFood.transform.SetParent(objCatroom.transform);
             objBowlWithRootenFood.SetActive(true);
-            objKitchen.SetActive(false);
-            objCatroom.SetActive(true);
             cat.sprite = shockedCat;
             tail.sprite = shockedTail;
+            objKitchen.SetActive(false);
+            objCatroom.SetActive(true);
+            objCat.GetComponent<Animator>().SetTrigger("scared");
+            objTail.GetComponent<Animator>().SetTrigger("scared");
             Destroy(objMeow);
             pickupBowl = false;
             objItemBowl.SetActive(false);
