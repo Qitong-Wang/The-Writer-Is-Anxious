@@ -2330,6 +2330,8 @@ MonoBehaviour:
   meow: {fileID: 1226225218}
   thankfulMeow: {fileID: 21300000, guid: de51827fc1e54a34a9a3ad813ff3beb0, type: 3}
   afterRottenFoodCat: 0
+  objCat: {fileID: 864888025}
+  objTail: {fileID: 1511405677}
   cat: {fileID: 864888026}
   shockedCat: {fileID: 21300000, guid: 95d6e47bb51e4cf4aa8cc7d6c20e5480, type: 3}
   tail: {fileID: 1511405678}

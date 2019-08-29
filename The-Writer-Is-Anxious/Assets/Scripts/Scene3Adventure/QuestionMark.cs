@@ -43,6 +43,7 @@ public class QuestionMark : MonoBehaviour
                     Vector2 summonPosition = new Vector2(transform.position.x, transform.position.y + 0.9f);
                     coin = Instantiate(coinPrefab, summonPosition, Quaternion.identity);
                     coin.GetComponent<Coin>().player = player;
+                    coin.transform.SetParent(gameObject.transform);
                     
                 }
                 else if (markType == 2) //immune

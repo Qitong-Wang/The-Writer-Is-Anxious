@@ -7,6 +7,7 @@ public class Scene2Cat : MonoBehaviour
 {
 
     public Scene2Manager scene2Manager;
+    
     // Start is called before the first frame update
     void Start()
     {
