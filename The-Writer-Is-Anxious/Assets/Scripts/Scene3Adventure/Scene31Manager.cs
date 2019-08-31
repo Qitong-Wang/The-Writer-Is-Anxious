@@ -32,8 +32,10 @@ public class Scene31Manager : NormalSceneManager
     public int option2LineNumber;
 
     
-    public bool askKing = false;
+ 
     public SpriteRenderer knightSprite;
+    public GameObject objKingDialogue;
+    public bool getSword = false;
 
 
     // Start is called before the first frame update
@@ -55,7 +57,8 @@ public class Scene31Manager : NormalSceneManager
             if (dialogueList[i][0] == '(')
             {
 
-                if (dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(stop @)") == false)
+                if (dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(stop @)") == false
+                    && dialogueList[i].Contains("(Jump") == false)
                 {
                     //Add the tag to the dictionary. 
                     dialogueIndexDictionary.Add(dialogueList[i].Substring(1, dialogueList[i].Length - 3), i);
@@ -128,9 +131,25 @@ public class Scene31Manager : NormalSceneManager
             NextStep();
 
         }
-        else if (dialogueList[step].Contains("(Ask)"))
+       
+        else if (dialogueList[step].Contains("(Check)"))
         {
-            askKing = true;
+           if (getSword == true)
+            {
+                step = dialogueIndexDictionary["Ending"];
+                NextStep();
+            }
+            else
+            {
+                getSword = true;
+                step++;
+                NextStep();
+            }
+
+        }
+        else if (dialogueList[step].Contains("(SwordAnimation)"))
+        {
+           
             step++;
             NextStep();
 
@@ -150,6 +169,19 @@ public class Scene31Manager : NormalSceneManager
             step++;
 
         }
+        else if (dialogueList[step].Contains("(Jump"))
+        {
+            string[] optionNumbers = dialogueList[step].Split(" "[0]);
+            step = dialogueIndexDictionary[optionNumbers[1]];
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(NoKing)"))
+        {
+            objKingDialogue.SetActive(false);
+            step++;
+            NextStep();
+        }
+
         else if (dialogueList[step].Contains("(optionEnd)"))
         {
             objOption1.SetActive(false);

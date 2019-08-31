@@ -8,8 +8,19 @@ Leave.
 The princess Princess was taken away by the accursed Dragon out of the town.
 Long has he become the threat of our land.
 So I say unto thee - vanquish the evil monster hiding under the darkness, and bring Princess back to me.
-May the victory be with you, Knight!
-(end)
+(Jump Check )
 (Leave)
-告辞
-(end)
+(Jump Check )
+
+(Check)
+I take it that the scent of Magic Sword passes away...
+Where exactly is it you drop it?
+No matter what indeed the case was, you shall not worry now.
+(SwordAnimation)
+Now, take this.
+(Jump Ending )
+ 
+(Ending)
+May the victory be with you, Knight!
+(NoKing)
+You left.
