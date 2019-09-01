@@ -74,3 +74,4 @@ I tried to help... But Cap Boy asked me to escape. I'm so sorry for what happene
 (Think)(It is still hard to believe that the boy, who always carried the baseball bat, who confidently led us here, died just now.)
 (Think)(But I did hear a gunfire...)
 (Think)(Is she really telling the truth? Or...)
+(end)

@@ -126,10 +126,15 @@ public class Scene6Manager : NormalSceneManager
         if (dialogueList[step].Contains("(end)"))
         {
             dialogueObj.SetActive(false);
+            objDialogueText.SetActive(false);
+            objTagText.SetActive(false);
+            objNameTag.SetActive(false);
+            objMysteryDialogueTag.SetActive(false);
+            objMysteryDialogue.SetActive(false);
             otherObjActive = true;
             trigger = false;
         }
-        if (dialogueList[step].Contains("(Think)"))
+        else if (dialogueList[step].Contains("(Think)"))
         {
             
             string dialogueContent = dialogueList[step].Substring(7, dialogueList[step].Length - 7);
@@ -300,17 +305,9 @@ public class Scene6Manager : NormalSceneManager
             step++;
 
         }
-        /*
-        else if (dialogueList[step].Contains("(optionEnd)"))
-        {
-            objOptionBar.SetActive(false);
-            step++;
-            NextStep();
-        }
-        */
         else
         {
-
+            print("here");  
             step++;
             NextStep();
         }
