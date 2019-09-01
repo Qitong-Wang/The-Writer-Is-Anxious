@@ -27,6 +27,7 @@ public class Scene6Manager : NormalSceneManager
     public Text nameTagText;
     public GameObject objNameTag;
     public GameObject objTagText;
+    public GameObject objDialogueText;
     //Option
     public Text dialogueOption1;
     public Text dialogueOption2;
@@ -42,11 +43,14 @@ public class Scene6Manager : NormalSceneManager
     //Mystery Style objects
     public GameObject objMysteryDialogueTag;
     public GameObject objMysteryDialogue;
+
+    public bool[] evidenceUnlock = new bool[5]{ false, false, false, false, false };
     //Objects
     public int love = 0;
     public GameObject objPrincess;
     public GameObject objMan;
     public GameObject objCapBoy;
+
 
     // Start is called before the first frame update
     void Start()
@@ -136,6 +140,8 @@ public class Scene6Manager : NormalSceneManager
         {
             romanceStyle = false;
             objMysteryDialogueTag.SetActive(true);
+            objTagText.SetActive(true);
+            objDialogueText.SetActive(true);
             otherObjActive = false;
             step++;
             NextStep();
