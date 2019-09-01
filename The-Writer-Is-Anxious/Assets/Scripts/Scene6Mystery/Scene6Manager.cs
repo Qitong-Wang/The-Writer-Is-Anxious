@@ -50,7 +50,7 @@ public class Scene6Manager : NormalSceneManager
     public GameObject objPrincess;
     public GameObject objMan;
     public GameObject objCapBoy;
-
+    public GameObject objMainBG;
 
     // Start is called before the first frame update
     void Start()
@@ -259,6 +259,30 @@ public class Scene6Manager : NormalSceneManager
             objMysteryDialogue.SetActive(false);
             objMysteryDialogueTag.SetActive(false);
             dialogueObj.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#MysteryWithTag)"))
+        {
+            romanceStyle = false;
+            objMysteryDialogue.SetActive(false);
+            objMysteryDialogueTag.SetActive(true);
+            dialogueObj.SetActive(true);
+            objTagText.SetActive(true);
+            objDialogueText.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#MysteryWithoutTag)"))
+        {
+            romanceStyle = false;
+            objMysteryDialogue.SetActive(true);
+            objMysteryDialogueTag.SetActive(false);
+            dialogueObj.SetActive(true);
+            objTagText.SetActive(true);
+            objDialogueText.SetActive(true);
+            step++;
+            NextStep();
         }
         else if (dialogueList[step].Contains("(#Love+10)"))
         {
@@ -283,6 +307,12 @@ public class Scene6Manager : NormalSceneManager
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);
             step = dialogueIndexDictionary[optionNumbers[1]];
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#ShowBackground1)"))
+        {
+            objMainBG.SetActive(true);
+            step++;
             NextStep();
         }
         else if (dialogueList[step].Contains("(option3"))

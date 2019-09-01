@@ -74,4 +74,50 @@ I tried to help... But Cap Boy asked me to escape. I'm so sorry for what happene
 (Think)(It is still hard to believe that the boy, who always carried the baseball bat, who confidently led us here, died just now.)
 (Think)(But I did hear a gunfire...)
 (Think)(Is she really telling the truth? Or...)
+(#ShowBackground1)
 (end)
+ 
+(ObjGunfire)
+(#MysteryWithoutTag)
+You heard a gunfire in the smoke. It was a huge noise. No one could miss it.
+Evidence GUNFIRE unlock! You can check it in evidence book.
+(end)
+ 
+(ObjNews)
+(#MysteryWithoutTag)
+That is a newspaper with research reporting that the surrounding areas of safe houses were proved to be safe and zombie-free.
+Reasons to this phenomenon remained a mystery.
+Evidence NEWS unlock! You can check it in evidence book.
+(end)
+ 
+(ObjCapboy)
+(#MysteryWithoutTag)
+He lied straight, face down to the ground. A lot of zombies surround him. It's even hard to recognize his face.
+He didn't seem to have brought any weapons with him.
+Evidence CAPBOY unlock! You can check it in evidence book.
+(end)
+ 
+(ObjBloodStain)
+(#MysteryWithoutTag)
+The blood is very fresh. Whose blood can it possibly be?
+Evidence BLOODSTAIN unlock! You can check it in evidence book.
+(end)
+ 
+(ObjImmunity)
+(#MysteryWithTag)
+(#Man)
+Knight...
+I can't believe this is real.
+We were the best adventure buddies. 
+He was like my little brother - brave, calm, smart... although I've only known him for two days.
+Did I remember anything?
+Mmm...
+He seemed to be very familiar with those zoobees.
+At the first time we met the zonbikes, he was bit by one of them. I freaked out - I thought he would become one of them.
+But he just let me calm down, and said that he was immune to their virus.
+Ahh... I miss those days we were together!
+(#MysteryWithoutTag)
+As Man remembered, Cap Boy was bit once but didn’t transform. He said he was immune to the zombie virus.
+Evidence IMMUNITY unlock! You can check it in evidence book.
+(end)
+ 

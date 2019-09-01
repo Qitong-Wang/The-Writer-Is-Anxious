@@ -13,6 +13,7 @@ public class EvidenceNoteBook : MonoBehaviour
     /// </summary>
     public int evidenceIndex;
     public GameObject objEvidenceNoteBook;
+    public GameObject objEvidenceText;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,7 @@ public class EvidenceNoteBook : MonoBehaviour
                 break;
             case 5:
                 objEvidenceNoteBook.SetActive(false);
+                objEvidenceText.SetActive(false);
                 break;
         }
     }

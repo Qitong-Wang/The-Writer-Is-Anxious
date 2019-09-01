@@ -16,6 +16,7 @@ public class EvidenceBarControl : MonoBehaviour
     public GameObject objEvidenceBar;
     public GameObject objSceneEvidenceBar;
     public Text evidenceNoteBookText;
+    public GameObject objEvidenceBookText;
     
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class EvidenceBarControl : MonoBehaviour
                 break;
             case 2:
                 evidenceNoteBookText.text = "";
+                objEvidenceBookText.SetActive(true);
                 objEvidenceNoteBook.SetActive(true);
                 CheckEvidence();
                 break;
