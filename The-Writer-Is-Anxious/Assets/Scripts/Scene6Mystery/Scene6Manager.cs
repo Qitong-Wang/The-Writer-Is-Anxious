@@ -45,6 +45,7 @@ public class Scene6Manager : NormalSceneManager
     public GameObject objMysteryDialogue;
 
     public bool[] evidenceUnlock = new bool[5]{ false, false, false, false, false };
+    public int currentExamIndex = 1;
     //Objects
     public int love = 0;
     public GameObject objPrincess;
@@ -52,6 +53,11 @@ public class Scene6Manager : NormalSceneManager
     public GameObject objCapBoy;
     public GameObject objMainBG;
     public GameObject objSceneEvidence;
+    public GameObject objEvidenceBar;
+    public GameObject[] objExamEvidenceUnlock;
+    public GameObject objEvidenceBarCloseButton;
+    public GameObject objExamAction;
+    public GameObject objEvidenceAction;
 
     // Start is called before the first frame update
     void Start()
@@ -73,7 +79,7 @@ public class Scene6Manager : NormalSceneManager
             {
 
                 if (dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(#") == false
-                    && dialogueList[i].Contains("(Jump") == false)
+                    && dialogueList[i].Contains("(Jump") == false )
                 {
                     //Add the tag to the dictionary. 
                     dialogueIndexDictionary.Add(dialogueList[i].Substring(1, dialogueList[i].Length - 3), i);
@@ -280,7 +286,7 @@ public class Scene6Manager : NormalSceneManager
             objMysteryDialogue.SetActive(true);
             objMysteryDialogueTag.SetActive(false);
             dialogueObj.SetActive(true);
-            objTagText.SetActive(true);
+            objTagText.SetActive(false);
             objDialogueText.SetActive(true);
             step++;
             NextStep();
@@ -314,6 +320,43 @@ public class Scene6Manager : NormalSceneManager
         {
             objSceneEvidence.SetActive(true);
             objMainBG.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(Examination_"))
+        {
+            if (dialogueList[step].Contains("(Examination_1)")){
+                currentExamIndex = 1;
+            }
+            
+            otherObjActive = true;
+            trigger = false;
+            dialogueText.text = dialogueList[step+1];
+
+        }
+        else if (dialogueList[step].Contains("(#ShowExaminationAction)"))
+        {
+            objMainBG.SetActive(false);
+            objMysteryDialogueTag.SetActive(true);
+            objTagText.SetActive(true);
+            objDialogueText.SetActive(true);
+            objSceneEvidence.SetActive(false);
+            objEvidenceBar.SetActive(true);
+            objEvidenceBarCloseButton.SetActive(false);
+            dialogueObj.SetActive(true);
+            objEvidenceAction.SetActive(true);
+            for (int i = 0; i < evidenceUnlock.Length; i++)
+            {
+                if (evidenceUnlock[i] == true)
+                {
+                    objExamEvidenceUnlock[i].SetActive(true);
+                }
+                else
+                {
+                    objExamEvidenceUnlock[i].SetActive(false);
+                }
+            }
+            objExamAction.SetActive(true);
             step++;
             NextStep();
         }

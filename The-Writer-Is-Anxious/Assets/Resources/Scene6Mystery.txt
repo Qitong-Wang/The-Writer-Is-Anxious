@@ -132,14 +132,60 @@ Yes! I am Ready!
 (end)
 (Ready2)
 (end)
+(Ready3)
 (#ShowExaminationAction)
+(ExamBegin1)
 (#Princess)
-So... when the smoke bursts out, I was freaked out. I didn't know what to do.
 (Examination_1)
+So... when the smoke bursts out, I was freaked out. I didn't know what to do.
 
+ 
 (Answer_1_0)
+(#Princess)
 I don't know what you mean.
-(Credibility dropped!)
+(#MysteryWithoutTag)
+[Credibility dropped!]
 (#CredibilityDrop)
-
+(Jump ExamBegin2 )
+ 
+(Answer_1_1)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin2 )
+ 
+(Answer_1_2)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin2 )
+ 
+(Answer_1_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin2 )
+ 
+(Answer_1_4)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin2 )
+ 
+(Answer_1_5)
+Of course I was scared. I couldn't see anyone... or anything...
+(Jump ExamBegin1 )
+ 
+(Answer_1_6)
+(Jump ExamBegin2 )
+ 
+(ExamBegin2)
 #在scenemanager用一个变量记录examination的值。 按钮get scenemanager的examination值，加上自己的值去jump相应的answer. 

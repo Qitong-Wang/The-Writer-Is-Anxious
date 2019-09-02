@@ -29,7 +29,7 @@ public class NormalSceneManager : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (trigger == true && Input.GetMouseButtonUp(0))
+        if (trigger == true && Input.GetMouseButtonDown(0))
         {
             NextStep();
         }
@@ -117,7 +117,7 @@ public class NormalSceneManager : MonoBehaviour
 
     public IEnumerator ResetTriggerTrue()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         trigger = true;
         yield return null;
     }

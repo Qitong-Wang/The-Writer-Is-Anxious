@@ -12,6 +12,7 @@ public class EvidenceNoteBook : MonoBehaviour
     /// 0:Gunfire 1: News 2:Cap Boy 3: Blood 4: Immunity 5: (Back)
     /// </summary>
     public int evidenceIndex;
+    public Scene6Manager scene6Manager;
     public GameObject objEvidenceNoteBook;
     public GameObject objEvidenceText;
     // Start is called before the first frame update
@@ -26,29 +27,33 @@ public class EvidenceNoteBook : MonoBehaviour
         
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
-        switch (evidenceIndex)
+       if (scene6Manager.otherObjActive == true)
         {
-            case 0:
-                evidenceText.text = "You heard a gunfire in the smoke. It was a huge noise. No one could miss it.";
-                break;
-            case 1:
-                evidenceText.text = "That is a newspaper with research reporting that the surrounding areas of safe houses were proved to be safe and zombie-free. Reasons to this phenomenon remained a mystery.";
-                break;
-            case 2:
-                evidenceText.text = "He lied straight, face down to the ground. A lot of zombies surround him. It's even hard to recognize his face. He didn't seem to have brought any weapons with him.";
-                break;
-            case 3:
-                evidenceText.text = "The blood is very fresh. Whose blood can it possibly be?";
-                break;
-            case 4:
-                evidenceText.text = "As Man remembered, Cap Boy was bit once but didn’t transform. He said he was immune to the zombie virus.";
-                break;
-            case 5:
-                objEvidenceNoteBook.SetActive(false);
-                objEvidenceText.SetActive(false);
-                break;
+            switch (evidenceIndex)
+            {
+                case 0:
+                    evidenceText.text = "You heard a gunfire in the smoke. It was a huge noise. No one could miss it.";
+                    break;
+                case 1:
+                    evidenceText.text = "That is a newspaper with research reporting that the surrounding areas of safe houses were proved to be safe and zombie-free. Reasons to this phenomenon remained a mystery.";
+                    break;
+                case 2:
+                    evidenceText.text = "He lied straight, face down to the ground. A lot of zombies surround him. It's even hard to recognize his face. He didn't seem to have brought any weapons with him.";
+                    break;
+                case 3:
+                    evidenceText.text = "The blood is very fresh. Whose blood can it possibly be?";
+                    break;
+                case 4:
+                    evidenceText.text = "As Man remembered, Cap Boy was bit once but didn’t transform. He said he was immune to the zombie virus.";
+                    break;
+                case 5:
+                    objEvidenceNoteBook.SetActive(false);
+                    objEvidenceText.SetActive(false);
+                    break;
+            }
         }
+        
     }
 }
