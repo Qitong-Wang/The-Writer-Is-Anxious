@@ -51,6 +51,7 @@ public class Scene6Manager : NormalSceneManager
     public GameObject objMan;
     public GameObject objCapBoy;
     public GameObject objMainBG;
+    public GameObject objSceneEvidence;
 
     // Start is called before the first frame update
     void Start()
@@ -311,6 +312,7 @@ public class Scene6Manager : NormalSceneManager
         }
         else if (dialogueList[step].Contains("(#ShowBackground1)"))
         {
+            objSceneEvidence.SetActive(true);
             objMainBG.SetActive(true);
             step++;
             NextStep();

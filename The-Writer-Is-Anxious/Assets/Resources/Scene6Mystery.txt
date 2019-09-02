@@ -120,4 +120,26 @@ Ahh... I miss those days we were together!
 As Man remembered, Cap Boy was bit once but didn’t transform. He said he was immune to the zombie virus.
 Evidence IMMUNITY unlock! You can check it in evidence book.
 (end)
- 
+
+(objPrincess)
+(#MysteryWithoutTag)
+Are you ready for the cross-examination?
+(option3 Ready1 Ready2 Ready3 )
+Let me think...
+No! Give me more time!
+Yes! I am Ready!
+(Ready1)
+(end)
+(Ready2)
+(end)
+(#ShowExaminationAction)
+(#Princess)
+So... when the smoke bursts out, I was freaked out. I didn't know what to do.
+(Examination_1)
+
+(Answer_1_0)
+I don't know what you mean.
+(Credibility dropped!)
+(#CredibilityDrop)
+
+#在scenemanager用一个变量记录examination的值。 按钮get scenemanager的examination值，加上自己的值去jump相应的answer. 
