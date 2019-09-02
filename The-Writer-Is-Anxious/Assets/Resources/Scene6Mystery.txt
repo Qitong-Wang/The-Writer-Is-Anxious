@@ -188,4 +188,109 @@ Of course I was scared. I couldn't see anyone... or anything...
 (Jump ExamBegin2 )
  
 (ExamBegin2)
-#在scenemanager用一个变量记录examination的值。 按钮get scenemanager的examination值，加上自己的值去jump相应的answer. 
+(#Princess)
+(Examination_2)
+Then I bumped into Cap Boy. He dragged me into this white door. He said it would be safe there.
+ 
+(Answer_2_0)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin3 )
+ 
+(Answer_2_1)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin3 )
+ 
+(Answer_2_2)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin3 )
+ 
+(Answer_2_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin3 )
+ 
+(Answer_2_4)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin3 )
+ 
+(Answer_2_5)
+He sounded very familiar with this place...
+Indeed, there was no smoke behind that door too.
+(Jump ExamBegin2 )
+ 
+(Answer_2_6)
+(Jump ExamBegin3 )
+ 
+(ExamBegin3)
+(#Princess)
+It was a garage behind that door. We talked a little about the strange smoke. 
+(Examination_3)
+Suddenly these green creatures broke in and attacked him. Soon he knelt in the blood.
+ 
+(Answer_3_0)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin4 )
+ 
+(Answer_3_1)
+(#Knight)
+How were the zombies attracted to this place?
+According to this news, there should be no zombie around this house.
+(#Princess)
+Er... (scared)
+The gunfire. Yes! It was the gunfire. That's the reason those creatures were there.
+(#MysteryWithoutTag)
+[Testimony updated!]
+(#TestimonyUpdate2)
+(Jump ExamBegin4 )
+ 
+(Answer_3_2)
+(#Princess)
+He was bit on the face... Then more came in...
+(Jump ExamBegin4 )
+ 
+(Answer_3_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin4 )
+ 
+(Answer_3_4)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin4 )
+ 
+(Answer_3_5)
+This place must be old. The gate of the garage was very delicate...
+(Jump ExamBegin3 )
+ 
+(Answer_3_6)
+(Jump ExamBegin4 )
+ 

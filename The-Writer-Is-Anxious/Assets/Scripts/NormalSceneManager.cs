@@ -29,7 +29,7 @@ public class NormalSceneManager : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if (trigger == true && Input.GetMouseButtonDown(0))
+        if (trigger == true && Input.GetMouseButtonUp(0))
         {
             NextStep();
         }

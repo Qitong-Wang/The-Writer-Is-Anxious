@@ -328,7 +328,14 @@ public class Scene6Manager : NormalSceneManager
             if (dialogueList[step].Contains("(Examination_1)")){
                 currentExamIndex = 1;
             }
-            
+            else if (dialogueList[step].Contains("(Examination_2)"))
+            {
+                currentExamIndex = 2;
+            }
+            else if (dialogueList[step].Contains("(Examination_3)"))
+            {
+                currentExamIndex = 3;
+            }
             otherObjActive = true;
             trigger = false;
             dialogueText.text = dialogueList[step+1];
