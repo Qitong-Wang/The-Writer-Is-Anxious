@@ -49,6 +49,8 @@ public class Scene6Manager : NormalSceneManager
     public bool unlockExam31 = false;
     public bool unlockExam41 = false;
     public bool unlockExam42 = false;
+    public bool finishExam = false;
+    
     //Objects
     public int love = 0;
     public GameObject objPrincess;
@@ -61,6 +63,8 @@ public class Scene6Manager : NormalSceneManager
     public GameObject objEvidenceBarCloseButton;
     public GameObject objExamAction;
     public GameObject objEvidenceAction;
+    public GameObject objEvidenceBook;
+    public GameObject objObjection;
 
     // Start is called before the first frame update
     void Start()
@@ -355,6 +359,10 @@ public class Scene6Manager : NormalSceneManager
             {
                 currentExamIndex = 42;
             }
+            else if (dialogueList[step].Contains("(Examination_5)"))
+            {
+                currentExamIndex = 5;
+            }
             otherObjActive = true;
             trigger = false;
             dialogueText.text = dialogueList[step+1];
@@ -439,6 +447,29 @@ public class Scene6Manager : NormalSceneManager
         else if (dialogueList[step].Contains("(#TestimonyUpdate41)"))
         {
             unlockExam42 = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#ObjectionSign)"))
+        {
+            objEvidenceBook.SetActive(false);
+            finishExam = true;
+            objObjection.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#EvidenceBarDisappear)"))
+        {
+            objObjection.SetActive(false);
+            objEvidenceBook.SetActive(false);
+            objEvidenceBar.SetActive(false);
+            objEvidenceAction.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#ShowBG)"))
+        {
+            objMainBG.SetActive(true);
             step++;
             NextStep();
         }

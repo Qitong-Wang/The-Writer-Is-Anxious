@@ -40,13 +40,30 @@ public class MysteryObject : MonoBehaviour
                         break;
                     case ("ObjCapboy"):
                         scene6Manager.evidenceUnlock[2] = true;
+                        if (scene6Manager.finishExam == true)
+                        {
+                            triggerName = "ObjDoorFinish";
+                        }
                         break;
                     case ("ObjBloodStain"):
                         scene6Manager.evidenceUnlock[3] = true;
                         break;
                     case ("ObjImmunity"):
                         scene6Manager.evidenceUnlock[4] = true;
+                        if (scene6Manager.finishExam == true)
+                        {
+                            triggerName = "ObjManFinish";
+                        }
                         break;
+                    case ("objPrincess"):
+                        if (scene6Manager.finishExam == true)
+                        {
+                            triggerName = "ObjPrincessFinish";
+                        }
+                        break;
+                  
+                   
+                   
                 }
                 scene6Manager.ReadDialogue(triggerName);
                 scene6Manager.StartCoroutine("ResetTriggerTrue");

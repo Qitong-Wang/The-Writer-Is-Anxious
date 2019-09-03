@@ -614,18 +614,23 @@ Then suddenly everything changed. You've ruined EVERYTHING!
 (#Princess)
 I'm sorry. I have my reason.
 It's... right outside the door.
+(#ShowBG)
 (end)
  
 (ObjManFinish) 
 (#Man)
+(#ManAppear)
 Where is hope?
+(#ManDisappear)
 (end)
  
 (ObjPrincessFinish) 
 (#Princess)
+(#PrincessAppear)
 ...
 The door is open. Knight.
 You can find the answer to everything there.
+(#PrincessDisappear)
 (end)
  
 (ObjDoorFinish)
