@@ -462,8 +462,8 @@ public class Scene6Manager : NormalSceneManager
         {
             objObjection.SetActive(false);
             objEvidenceBook.SetActive(false);
+            objExamAction.SetActive(false);
             objEvidenceBar.SetActive(false);
-            objEvidenceAction.SetActive(false);
             step++;
             NextStep();
         }
@@ -532,8 +532,8 @@ public class Scene6Manager : NormalSceneManager
     public void ReadDialogue(string tagName)
     {
         otherObjActive = false;
-        step = dialogueIndexDictionary[tagName];
         print(tagName);
+        step = dialogueIndexDictionary[tagName];
         print(step);
         NextStep();
     }

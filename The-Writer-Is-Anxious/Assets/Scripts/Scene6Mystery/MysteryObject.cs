@@ -34,9 +34,17 @@ public class MysteryObject : MonoBehaviour
                 {
                     case ("ObjGunfire"):
                         scene6Manager.evidenceUnlock[0] = true;
+                        if (scene6Manager.finishExam == true)
+                        {
+                            return;
+                        }
                         break;
                     case ("ObjNews"):
                         scene6Manager.evidenceUnlock[1] = true;
+                        if (scene6Manager.finishExam == true)
+                        {
+                            return;
+                        }
                         break;
                     case ("ObjCapboy"):
                         scene6Manager.evidenceUnlock[2] = true;
@@ -47,6 +55,10 @@ public class MysteryObject : MonoBehaviour
                         break;
                     case ("ObjBloodStain"):
                         scene6Manager.evidenceUnlock[3] = true;
+                        if (scene6Manager.finishExam == true)
+                        {
+                            return;
+                        }
                         break;
                     case ("ObjImmunity"):
                         scene6Manager.evidenceUnlock[4] = true;

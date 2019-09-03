@@ -603,36 +603,44 @@ Fine. I admit it.
 I killed him.
 (#EvidenceBarDisappear)
 (#Man)
+(#ManAppear)
 Why would you do that?!
 Did you use that smoke to cover you?
+(#ManDisappear)
 (#Princess)
+(#PrincessAppear)
 No... That's not me.
+(#PrincessDisappear)
 (#Man)
+(#ManAppear)
 So what exactly happened?
 I thought we were the best buddies - us four! I thought - there was hope.
 Then suddenly everything changed. You've ruined EVERYTHING!
+(#ManDisappear)
 (#Princess)
+(#PrincessAppear)
 I'm sorry. I have my reason.
 It's... right outside the door.
+(#PrincessDisappear)
 (#ShowBG)
 (end)
  
-(ObjManFinish) 
+(ObjManFinish)
 (#Man)
-(#ManAppear)
+(#MysteryWithTag)
 Where is hope?
-(#ManDisappear)
 (end)
  
-(ObjPrincessFinish) 
+(ObjPrincessFinish)
 (#Princess)
-(#PrincessAppear)
+(#MysteryWithTag)
 ...
 The door is open. Knight.
 You can find the answer to everything there.
-(#PrincessDisappear)
 (end)
  
 (ObjDoorFinish)
+(#MysteryWithTag)
 (#Knight)
 告辞
+(end)
