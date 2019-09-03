@@ -27,6 +27,7 @@ public class Scene6Manager : NormalSceneManager
     public Text nameTagText;
     public GameObject objNameTag;
     public GameObject objTagText;
+    public GameObject objDialogueText;
     //Option
     public Text dialogueOption1;
     public Text dialogueOption2;
@@ -42,11 +43,28 @@ public class Scene6Manager : NormalSceneManager
     //Mystery Style objects
     public GameObject objMysteryDialogueTag;
     public GameObject objMysteryDialogue;
+
+    public bool[] evidenceUnlock = new bool[5]{ false, false, false, false, false };
+    public int currentExamIndex = 1;
+    public bool unlockExam31 = false;
+    public bool unlockExam41 = false;
+    public bool unlockExam42 = false;
+    public bool finishExam = false;
+    
     //Objects
     public int love = 0;
     public GameObject objPrincess;
     public GameObject objMan;
     public GameObject objCapBoy;
+    public GameObject objMainBG;
+    public GameObject objSceneEvidence;
+    public GameObject objEvidenceBar;
+    public GameObject[] objExamEvidenceUnlock;
+    public GameObject objEvidenceBarCloseButton;
+    public GameObject objExamAction;
+    public GameObject objEvidenceAction;
+    public GameObject objEvidenceBook;
+    public GameObject objObjection;
 
     // Start is called before the first frame update
     void Start()
@@ -68,7 +86,7 @@ public class Scene6Manager : NormalSceneManager
             {
 
                 if (dialogueList[i].Contains("end") == false && dialogueList[i].Contains("(#") == false
-                    && dialogueList[i].Contains("(Jump") == false)
+                    && dialogueList[i].Contains("(Jump") == false )
                 {
                     //Add the tag to the dictionary. 
                     dialogueIndexDictionary.Add(dialogueList[i].Substring(1, dialogueList[i].Length - 3), i);
@@ -122,10 +140,15 @@ public class Scene6Manager : NormalSceneManager
         if (dialogueList[step].Contains("(end)"))
         {
             dialogueObj.SetActive(false);
+            objDialogueText.SetActive(false);
+            objTagText.SetActive(false);
+            objNameTag.SetActive(false);
+            objMysteryDialogueTag.SetActive(false);
+            objMysteryDialogue.SetActive(false);
             otherObjActive = true;
             trigger = false;
         }
-        if (dialogueList[step].Contains("(Think)"))
+        else if (dialogueList[step].Contains("(Think)"))
         {
             
             string dialogueContent = dialogueList[step].Substring(7, dialogueList[step].Length - 7);
@@ -136,6 +159,8 @@ public class Scene6Manager : NormalSceneManager
         {
             romanceStyle = false;
             objMysteryDialogueTag.SetActive(true);
+            objTagText.SetActive(true);
+            objDialogueText.SetActive(true);
             otherObjActive = false;
             step++;
             NextStep();
@@ -248,6 +273,30 @@ public class Scene6Manager : NormalSceneManager
             objMysteryDialogue.SetActive(false);
             objMysteryDialogueTag.SetActive(false);
             dialogueObj.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#MysteryWithTag)"))
+        {
+            romanceStyle = false;
+            objMysteryDialogue.SetActive(false);
+            objMysteryDialogueTag.SetActive(true);
+            dialogueObj.SetActive(true);
+            objTagText.SetActive(true);
+            objDialogueText.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#MysteryWithoutTag)"))
+        {
+            romanceStyle = false;
+            objMysteryDialogue.SetActive(true);
+            objMysteryDialogueTag.SetActive(false);
+            dialogueObj.SetActive(true);
+            objTagText.SetActive(false);
+            objDialogueText.SetActive(true);
+            step++;
+            NextStep();
         }
         else if (dialogueList[step].Contains("(#Love+10)"))
         {
@@ -274,6 +323,182 @@ public class Scene6Manager : NormalSceneManager
             step = dialogueIndexDictionary[optionNumbers[1]];
             NextStep();
         }
+        else if (dialogueList[step].Contains("(#ShowBackground1)"))
+        {
+            objSceneEvidence.SetActive(true);
+            objMainBG.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(Examination_"))
+        {
+            if (dialogueList[step].Contains("(Examination_1)")){
+                currentExamIndex = 1;
+            }
+            else if (dialogueList[step].Contains("(Examination_2)"))
+            {
+                currentExamIndex = 2;
+            }
+            else if (dialogueList[step].Contains("(Examination_3)"))
+            {
+                currentExamIndex = 3;
+            }
+            else if (dialogueList[step].Contains("(Examination_31)"))
+            {
+                currentExamIndex = 31;
+            }
+            else if (dialogueList[step].Contains("(Examination_4)"))
+            {
+                currentExamIndex = 4;
+            }
+            else if (dialogueList[step].Contains("(Examination_41)"))
+            {
+                currentExamIndex = 41;
+            }
+            else if (dialogueList[step].Contains("(Examination_42)"))
+            {
+                currentExamIndex = 42;
+            }
+            else if (dialogueList[step].Contains("(Examination_5)"))
+            {
+                currentExamIndex = 5;
+            }
+            otherObjActive = true;
+            trigger = false;
+            dialogueText.text = dialogueList[step+1];
+
+        }
+        else if (dialogueList[step].Contains("(ExamBegin3)"))
+        {
+            if (unlockExam31 == true)
+            {
+                ReadDialogue("ExamBegin31");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(ExamBegin4)"))
+        {
+            if (unlockExam41 == true && unlockExam42 == true)
+            {
+                ReadDialogue("ExamBegin42");
+            }
+            else if (unlockExam41 == true && unlockExam42 == false)
+            {
+                ReadDialogue("ExamBegin41");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(ExamBegin41)"))
+        {
+            if (unlockExam42 == true)
+            {
+                ReadDialogue("ExamBegin42");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(CheckCondition31)"))
+        {
+            if (unlockExam42 == true)
+            {
+                ReadDialogue("SatisfyCondition31");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(CheckCondition42)"))
+        {
+            if (unlockExam31 == true)
+            {
+                ReadDialogue("SatisfyCondition42");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(#TestimonyUpdate3)"))
+        {
+            unlockExam31 = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#TestimonyUpdate4)"))
+        {
+            unlockExam41 = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#TestimonyUpdate41)"))
+        {
+            unlockExam42 = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#ObjectionSign)"))
+        {
+            objEvidenceBook.SetActive(false);
+            finishExam = true;
+            objObjection.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#EvidenceBarDisappear)"))
+        {
+            objObjection.SetActive(false);
+            objEvidenceBook.SetActive(false);
+            objExamAction.SetActive(false);
+            objEvidenceBar.SetActive(false);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#ShowBG)"))
+        {
+            objMainBG.SetActive(true);
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#ShowExaminationAction)"))
+        {
+            objMainBG.SetActive(false);
+            objMysteryDialogueTag.SetActive(true);
+            objTagText.SetActive(true);
+            objDialogueText.SetActive(true);
+            objSceneEvidence.SetActive(false);
+            objEvidenceBar.SetActive(true);
+            objEvidenceBarCloseButton.SetActive(false);
+            dialogueObj.SetActive(true);
+            objEvidenceAction.SetActive(true);
+            for (int i = 0; i < evidenceUnlock.Length; i++)
+            {
+                if (evidenceUnlock[i] == true)
+                {
+                    objExamEvidenceUnlock[i].SetActive(true);
+                }
+                else
+                {
+                    objExamEvidenceUnlock[i].SetActive(false);
+                }
+            }
+            objExamAction.SetActive(true);
+            step++;
+            NextStep();
+        }
         else if (dialogueList[step].Contains("(option3"))
         {
             string[] optionNumbers = dialogueList[step].Split(" "[0]);
@@ -294,17 +519,9 @@ public class Scene6Manager : NormalSceneManager
             step++;
 
         }
-        /*
-        else if (dialogueList[step].Contains("(optionEnd)"))
-        {
-            objOptionBar.SetActive(false);
-            step++;
-            NextStep();
-        }
-        */
         else
         {
-
+            print("here");  
             step++;
             NextStep();
         }
@@ -315,8 +532,8 @@ public class Scene6Manager : NormalSceneManager
     public void ReadDialogue(string tagName)
     {
         otherObjActive = false;
-        step = dialogueIndexDictionary[tagName];
         print(tagName);
+        step = dialogueIndexDictionary[tagName];
         print(step);
         NextStep();
     }

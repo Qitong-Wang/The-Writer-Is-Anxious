@@ -188,6 +188,8 @@ He didn't seem to have brought any weapons with him.
 #地上会有很多dust，拖动一下就会消失。 右下角有很多dust，都移走之后发现hint4: blood stain.
 The blood is very fresh. Whose blood can it possibly be?
 #和man对话获得hint5: Immunity
+Immunity: As Man remembered, Cap Boy was bit once but didn’t transform. He said he was immune to the zombie virus.
+
 Man:
 Knight...
 I can't believe this is real.

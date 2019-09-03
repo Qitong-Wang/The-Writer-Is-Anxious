@@ -1,0 +1,1 @@
+1. 所有的对话是GetMouseButtonUp. Object是OnMouseUp
