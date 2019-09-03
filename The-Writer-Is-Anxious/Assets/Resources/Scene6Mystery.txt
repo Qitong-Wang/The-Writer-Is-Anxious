@@ -263,8 +263,8 @@ Er... (scared)
 The gunfire. Yes! It was the gunfire. That's the reason those creatures were there.
 (#MysteryWithoutTag)
 [Testimony updated!]
-(#TestimonyUpdate2)
-(Jump ExamBegin4 )
+(#TestimonyUpdate3)
+(Jump ExamBegin31 )
  
 (Answer_3_2)
 (#Princess)
@@ -294,3 +294,340 @@ This place must be old. The gate of the garage was very delicate...
 (Answer_3_6)
 (Jump ExamBegin4 )
  
+(ExamBegin31)
+(#Princess)
+It was a garage behind that door. We talked a bit about the strange smoke, when suddenly we heard a gunfire. 
+(Examination_31)
+These green creatures are attracted to this noise. They broke in and attacked him. Soon he knelt in the blood.
+ 
+(Answer_31_0)
+(CheckCondition31)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin4 )
+(SatisfyCondition31)
+(#Knight)
+But I only remembered hearing one gunfire.
+(#Man)
+Yes. That's what I remembered too.
+(#Princess)
+Er... (scared)
+(Jump ExamBegin5 )
+ 
+(Answer_31_1)
+(#Princess)
+So...?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin4 )
+ 
+(Answer_31_2)
+(#Princess)
+He was bit on the face... Then more came in...
+(Jump ExamBegin4 )
+ 
+(Answer_31_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin4 )
+ 
+(Answer_31_4)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin4 )
+ 
+(Answer_31_5)
+This place must be old. The gate of the garage was very delicate...
+(Jump ExamBegin31 )
+ 
+(Answer_31_6)
+(Jump ExamBegin4 )
+ 
+(ExamBegin4)
+(#Princess)
+(Examination_4)
+I tried to help... But Cap Boy asked me to escape. I'm so sorry for what happened...
+ 
+(Answer_4_0)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_4_1)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_4_2)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_4_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_4_4)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_4_5)
+I really tried to help. But I didn't have a gun. 
+Cap Boy brought a gun but he only managed to shoot once, and then he passed out...
+(#Knight)
+Can you add that into your testimony?
+(#Princess)
+Yes. I can.
+(#MysteryWithoutTag)
+[Testimony updated!]
+(#TestimonyUpdate4)
+(Jump ExamBegin41 )
+ 
+(Answer_4_6)
+(Jump Hint )
+ 
+(ExamBegin41)
+(#Princess)
+I tried to help, but I didn't have a gun.
+(Examination_41)
+Cap Boy brought a gun but he only managed to shoot once, and then he passed out... I'm so sorry for what happened...
+ 
+(Answer_41_0)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_41_1)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_41_2)
+(#Knight)
+But there is no gun found around Cap Boy's body.
+(#Princess)
+Ahh... (scared)
+Sorry. I remembered just now. He throwed the gun to me and I took the shot once. 
+Then there were more zombies. So he asked me to escape...
+(#MysteryWithoutTag)
+[Testimony updated!]
+(#TestimonyUpdate41)
+(Jump ExamBegin42 )
+ 
+(Answer_41_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_41_4)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_41_5)
+Those are what I remembered.
+(Jump ExamBegin41 )
+ 
+(Answer_41_6)
+(Jump Hint )
+
+(ExamBegin42)
+(#Princess)
+I tried to help, but I didn't have a gun. Cap Boy throwed his gun to me and I took the shot once.
+(Examination_42)
+Then there were more zombies. So he asked me to escape... I'm so sorry for what happened...
+ 
+(Answer_42_0)
+(CheckCondition42)
+Is there any problem?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+(SatisfyCondition42)
+(#Knight)
+But I only remembered hearing one gunfire.
+(#Man)
+Yes. That's what I remembered too.
+(#Princess)
+Er... (scared)
+(Jump ExamBegin5 )
+ 
+(Answer_42_1)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_42_2)
+That is what happened.
+(Jump Hint )
+ 
+(Answer_42_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_42_4)
+(#Princess)
+Is it connected?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump Hint )
+ 
+(Answer_42_5)
+Those are what I remembered.
+(Jump ExamBegin42 )
+ 
+(Answer_42_6)
+(Jump Hint )
+
+(Hint)
+(#Princess)
+I'm telling the truth, Knight.
+Don't you trust me?
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(#Knight)
+(CheckHint)
+(Hint31)
+Something is strange. I mean - this place is a safe house, right?
+(Jump ExamBegin1 )
+(Hint41)
+Did none of them bring a gun to the garage? It was that dangerous...
+(Jump ExamBegin1 )
+(Hint42)
+Wait. If it's really like what she stated, then why didn't we find anything there?
+(Jump ExamBegin1 )
+(Hint5)
+She made a mistake. Her testimony has a big contradiction with my memory... 
+(Jump ExamBegin1 )
+
+(ExamBegin5)
+(#Princess)
+Alright. I will tell the truth. I took the gun and I shot at him... 
+But it's only because he begged me to! He was bit badly and his body was getting infected quickly. 
+(Examination_5)
+So he asked me to kill him before he became a monster...
+  
+(Answer_5_0)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin5 )
+ 
+(Answer_5_1)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin5 )
+ 
+(Answer_5_2)
+That is what happened.
+(Jump ExamBegin5 )
+ 
+(Answer_5_3)
+(#Princess)
+I don't know what you mean.
+(#MysteryWithoutTag)
+[Credibility dropped!]
+(#CredibilityDrop)
+(Jump ExamBegin5 )
+ 
+(Answer_5_4)
+(Jump FinishExam )
+ 
+(Answer_5_5)
+I just don't want you to think I'm a killer.
+(Jump ExamBegin5 )
+ 
+(Answer_5_6)
+(Jump ExamBegin5 )
+ 
+(FinishExam)
+(#ObjectionSign)
+(#Knight)
+Cap Boy is immune to the zombie virus. There's no way he can get infected.
+(#Princess)
+...! (scared)
+Fine. I admit it.
+I killed him.
+(#EvidenceBarDisappear)
+(#Man)
+Why would you do that?!
+Did you use that smoke to cover you?
+(#Princess)
+No... That's not me.
+(#Man)
+So what exactly happened?
+I thought we were the best buddies - us four! I thought - there was hope.
+Then suddenly everything changed. You've ruined EVERYTHING!
+(#Princess)
+I'm sorry. I have my reason.
+It's... right outside the door.
+(end)
+ 
+(ObjManFinish) 
+(#Man)
+Where is hope?
+(end)
+ 
+(ObjPrincessFinish) 
+(#Princess)
+...
+The door is open. Knight.
+You can find the answer to everything there.
+(end)
+ 
+(ObjDoorFinish)
+(#Knight)
+告辞

@@ -46,6 +46,9 @@ public class Scene6Manager : NormalSceneManager
 
     public bool[] evidenceUnlock = new bool[5]{ false, false, false, false, false };
     public int currentExamIndex = 1;
+    public bool unlockExam31 = false;
+    public bool unlockExam41 = false;
+    public bool unlockExam42 = false;
     //Objects
     public int love = 0;
     public GameObject objPrincess;
@@ -336,10 +339,108 @@ public class Scene6Manager : NormalSceneManager
             {
                 currentExamIndex = 3;
             }
+            else if (dialogueList[step].Contains("(Examination_31)"))
+            {
+                currentExamIndex = 31;
+            }
+            else if (dialogueList[step].Contains("(Examination_4)"))
+            {
+                currentExamIndex = 4;
+            }
+            else if (dialogueList[step].Contains("(Examination_41)"))
+            {
+                currentExamIndex = 41;
+            }
+            else if (dialogueList[step].Contains("(Examination_42)"))
+            {
+                currentExamIndex = 42;
+            }
             otherObjActive = true;
             trigger = false;
             dialogueText.text = dialogueList[step+1];
 
+        }
+        else if (dialogueList[step].Contains("(ExamBegin3)"))
+        {
+            if (unlockExam31 == true)
+            {
+                ReadDialogue("ExamBegin31");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(ExamBegin4)"))
+        {
+            if (unlockExam41 == true && unlockExam42 == true)
+            {
+                ReadDialogue("ExamBegin42");
+            }
+            else if (unlockExam41 == true && unlockExam42 == false)
+            {
+                ReadDialogue("ExamBegin41");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(ExamBegin41)"))
+        {
+            if (unlockExam42 == true)
+            {
+                ReadDialogue("ExamBegin42");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(CheckCondition31)"))
+        {
+            if (unlockExam42 == true)
+            {
+                ReadDialogue("SatisfyCondition31");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(CheckCondition42)"))
+        {
+            if (unlockExam31 == true)
+            {
+                ReadDialogue("SatisfyCondition42");
+            }
+            else
+            {
+                step++;
+                NextStep();
+            }
+        }
+        else if (dialogueList[step].Contains("(#TestimonyUpdate3)"))
+        {
+            unlockExam31 = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#TestimonyUpdate4)"))
+        {
+            unlockExam41 = true;
+            step++;
+            NextStep();
+        }
+        else if (dialogueList[step].Contains("(#TestimonyUpdate41)"))
+        {
+            unlockExam42 = true;
+            step++;
+            NextStep();
         }
         else if (dialogueList[step].Contains("(#ShowExaminationAction)"))
         {
