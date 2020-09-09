@@ -4,75 +4,116 @@ using UnityEngine;
 
 public class GlobalManager : MonoBehaviour
 {
-    public static GlobalManager instance;
-    public SaveData saveData;
-    public SaveDataMemory saveDataMemory;
-    public SaveManager saveManager;
+    public bool waitingTap = false;
+    public bool rayTap = false;
+    public bool rayInspect = false;
+    public int state;
+    public TextManager tm;
 
-    private void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else if (instance != this)
-        {
-            
-            Destroy(gameObject);
-        }
-        
-        DontDestroyOnLoad(gameObject);
-       
+    public SaveManager sm;
 
-    }
+    public GameObject fadeWhite;
+    public GameObject fadeBlack;
+
+    //for scene cat
+    private bool catStart = false;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        //For Debug. Create a null data
-  
-        saveData = new SaveData
-        {
-            life = 3,
-            name = new bool[2]
-            {
-                false,false
-            },
+        state = 0;
+        tm = FindObjectOfType<TextManager>();
+        sm = FindObjectOfType<SaveManager>();
+        fadeWhite = GameObject.Find("FadeWhite");
+        fadeBlack = GameObject.Find("FadeBlack");
+    }
 
-        };
-        
-       /*
-        saveDataMemory = new SaveDataMemory
+    // Update is called once per frame
+    void Update()
+    {
+        if (rayInspect)
         {
-            unlockStory = new bool[2]
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+                if (hit.collider && hit.collider.gameObject.GetComponent<Interactable>())
                 {
-            false,false
-            },
-        };
-        */
-      
+                    Inspect(hit.collider.gameObject.GetComponent<Interactable>());
+                }
+            }
+            return;
+        }
+        if (rayTap)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+                if (hit.collider && hit.collider.gameObject.tag == "current")
+                {
+                    hit.collider.gameObject.tag = "Untagged";
+                    rayTap = false;
+                    state++;
+                    StateCheck();
+                    tm.ClearText();
+                    
+
+                }
+            }
+            return;
+        }
+        if (!waitingTap)
+            return;
+        if (Input.GetMouseButtonDown(0))
+        {
+            //print("tya");
+            waitingTap = false;
+            
+            if (catStart)
+            {
+                StartCoroutine(tm.ClearTextCat());
+                catStart = false;
+                return;
+            }
+            state++;
+            StateCheck();
+            tm.ClearText();
+        }
     }
 
-    public void InitializeSaveData()
+    public void TapToContinue(bool ray = false)
     {
-        saveData = new SaveData
+        if (ray)
         {
-            life = 3,
-            name = new bool[2]
-            {
-                    false,false
-            },
+            rayTap = true;
+            return;
+        }
+        waitingTap = true;
+    }
 
-        };
-    }
-    public void InitializeSaveDataMemory()
+    public void TapContinueCat()
     {
-        saveDataMemory = new SaveDataMemory
-        {
-            unlockStory = new bool[2]
-            {
-                false,false
-            },
-        };
+        waitingTap = true;
+        catStart = true;
+        
     }
-   
+
+    public void TapInspect()
+    {
+        rayInspect = true;
+    }
+
+    public void TapWait()
+    {
+
+    }
+    public virtual void StateCheck()
+    {
+
+    }
+
+    public virtual void Inspect(Interactable i)
+    {
+
+    }
 }

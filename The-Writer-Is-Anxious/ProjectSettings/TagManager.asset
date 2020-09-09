@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerHead
   - MushRoom
+  - current
   layers:
   - Default
   - TransparentFX
