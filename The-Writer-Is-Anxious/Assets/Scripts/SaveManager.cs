@@ -7,6 +7,9 @@ public class SaveManager : MonoBehaviour
     [TextArea]
     public string currentArticle;
     public int state;
+
+    public string catRoom;
+
     private void Awake()
     {
         currentArticle = "";

@@ -312,7 +312,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &95572869
 RectTransform:
   m_ObjectHideFlags: 0
@@ -927,6 +927,7 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: A vase! But uh - you can't get it.
 --- !u!61 &424536903
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1056,9 +1057,7 @@ MonoBehaviour:
   - {fileID: 0}
   GM: {fileID: 1231626697}
   dialogues:
-  - 'Once upon a time,
-
-'
+  - Once upon a time,
   - there was a knight named Knight trapped in a cottage with a cat named Cat.
   - She was cute and smart, covered with beautiful, short dark blue fur.
   - 'But she was capricious and needy right now,
@@ -1067,15 +1066,7 @@ MonoBehaviour:
     if he fed her.'
   - In a word, Knight needs to look for a way to feed Cat. His journey has just begun.
     He can't be trapped here forever...
-  - The situation is not optimistic.
-  - This is the last chance we can offer you to publish your work. Don't let it go.
-  - ...
-  - I used to be your fan.
-  - "It is already 10pm. \r\nBut the writer doesn\u2019t have a slight hint of what
-    he should write.\r\nMaybe doing something else can help trigger some inspiration...\r\n"
-  - Right! The books! Always the best solution, aren't they?
-  - The writer goes to the bookshelf, and picks up a...
-  - He gradually opens the book, and starts to read it...
+  - Knight gets out of the cottage.
   dIndex: 0
   finished: 0
 --- !u!4 &473249486
@@ -1169,7 +1160,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 100
   m_Sprite: {fileID: 21300000, guid: e012d02393e7d2c4c8a2ee682912829e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1193,6 +1184,83 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &553472419
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 553472422}
+  - component: {fileID: 553472421}
+  - component: {fileID: 553472420}
+  m_Layer: 5
+  m_Name: CountDown
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &553472420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553472419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 100
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 100
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &553472421
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553472419}
+  m_CullTransparentMesh: 0
+--- !u!224 &553472422
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 553472419}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1095185490}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1023, y: 643}
+  m_SizeDelta: {x: 160, y: 197.63}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &580169376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1353,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 580169376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c418d918637dd68438f1153c939f461e, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c9ba7254906b7a49bdd5a8067ecdb4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   intro: "That\u2019s Cat."
@@ -1298,6 +1366,10 @@ MonoBehaviour:
   changedImage: {fileID: 21300000, guid: 2ef45f6fefcb2434c83e58ece5fc1fe8, type: 3}
   hasChoice: 0
   choices: []
+  milkText: 
+  doratoPic: {fileID: 21300000, guid: 2ef45f6fefcb2434c83e58ece5fc1fe8, type: 3}
+  rottenPic: {fileID: 21300000, guid: 1b9b87a9f63353547b298b76ec0822d0, type: 3}
+  milkPic: {fileID: 21300000, guid: 77f7e2e71827ac5469e59ce4edfee273, type: 3}
 --- !u!61 &580169380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1402,6 +1474,87 @@ SpriteRenderer:
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 13.08, y: 15.91}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &686858878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 686858879}
+  - component: {fileID: 686858880}
+  m_Layer: 0
+  m_Name: dorato_inbowl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &686858879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686858878}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.42, y: 1.09, z: 0}
+  m_LocalScale: {x: 1.312062, y: 1.312062, z: 1.312062}
+  m_Children: []
+  m_Father: {fileID: 1003574310}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &686858880
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686858878}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: eba881c7712a9894b94a599e51b6f516, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 3.77, y: 3.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1545,6 +1698,7 @@ MonoBehaviour:
   - intro: Leave it there.
     order: text
     newText: You close the drawer.
+  milkText: There lies the owner's diary and a bunch of other stuffs. Nothing useful.
 --- !u!1 &763568237
 GameObject:
   m_ObjectHideFlags: 0
@@ -1563,7 +1717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &763568238
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1687,7 +1841,7 @@ GameObject:
   - component: {fileID: 771369228}
   - component: {fileID: 771369227}
   m_Layer: 0
-  m_Name: friger_s
+  m_Name: friger_upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1780,6 +1934,8 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: "You would really like to know what is there.\r\nAnd you are really not
+    tall enough.\r"
 --- !u!61 &771369228
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2078,8 +2234,10 @@ MonoBehaviour:
     order: death
     newText: "...\r\nYou do not feel very good.\r\nYour eyesight starts to blur...\r"
   - intro: Give some to Cat.
-    order: door
+    order: rotten
     newText: 
+  milkText: "Ew! Look at what you found.\r\nThat's a smell you will never forget
+    in your life.\r"
 --- !u!61 &872432902
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2288,6 +2446,7 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: Ah-uh. That would not be a wise move. At least not now.
 --- !u!61 &933033378
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2314,6 +2473,87 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.1423006, y: 4.93}
   m_EdgeRadius: 0
+--- !u!1 &942048129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 942048131}
+  - component: {fileID: 942048130}
+  m_Layer: 0
+  m_Name: knight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!212 &942048130
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942048129}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 0e2ace1fed028d244baaa1c84cd75c11, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.46, y: 5.79}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &942048131
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 942048129}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -17.57, y: 0.45, z: 0}
+  m_LocalScale: {x: 0.504872, y: 0.504872, z: 0.504872}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &958234389 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1398088885551497411, guid: 2deab7740423bde46b94857cf8f977e0,
@@ -2442,6 +2682,7 @@ GameObject:
   - component: {fileID: 1003574311}
   - component: {fileID: 1003574313}
   - component: {fileID: 1003574312}
+  - component: {fileID: 1003574314}
   m_Layer: 0
   m_Name: bowl
   m_TagString: Untagged
@@ -2459,7 +2700,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.44, y: -0.65, z: 0}
   m_LocalScale: {x: 0.32163113, y: 0.32163113, z: 0.32163113}
-  m_Children: []
+  m_Children:
+  - {fileID: 686858879}
+  - {fileID: 1009587387}
+  - {fileID: 1671211853}
   m_Father: {fileID: 239422317}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2522,7 +2766,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1003574309}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c418d918637dd68438f1153c939f461e, type: 3}
+  m_Script: {fileID: 11500000, guid: e4d5a92defa02894b9764a49071214e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   intro: This is an empty bowl...
@@ -2535,6 +2779,8 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: 
+  cat: {fileID: 0}
 --- !u!61 &1003574313
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2561,6 +2807,126 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.16, y: 4.71}
   m_EdgeRadius: 0
+--- !u!95 &1003574314
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003574309}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 300cee6c0404b6a46a5934631590a9f1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1009587386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009587387}
+  - component: {fileID: 1009587388}
+  - component: {fileID: 1009587389}
+  m_Layer: 0
+  m_Name: rottenfood_inbowl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1009587387
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009587386}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.26, y: 2.0209486, z: 0}
+  m_LocalScale: {x: 1.0041006, y: 1.0041006, z: 1.0041006}
+  m_Children: []
+  m_Father: {fileID: 1003574310}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1009587388
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009587386}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: e25f713902898a344b9158bee5a68de1, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 4.77, y: 4.86}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &1009587389
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009587386}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1b825041cca81d948bb65fb68e92c718, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1024318228
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,6 +2939,7 @@ GameObject:
   - component: {fileID: 1024318230}
   - component: {fileID: 1024318232}
   - component: {fileID: 1024318231}
+  - component: {fileID: 1024318233}
   m_Layer: 0
   m_Name: normalcat
   m_TagString: Untagged
@@ -2592,6 +2959,9 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.4883}
   m_Children:
   - {fileID: 933033375}
+  - {fileID: 1515440977}
+  - {fileID: 1824712867}
+  - {fileID: 1843055615}
   m_Father: {fileID: 239422317}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2667,6 +3037,7 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: "Meow\u2026"
 --- !u!61 &1024318232
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2693,6 +3064,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.412751, y: 7.9605236}
   m_EdgeRadius: 0
+--- !u!95 &1024318233
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024318228}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1bee0164dd862e247811244ba093e78e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1095185489
 GameObject:
   m_ObjectHideFlags: 0
@@ -2726,6 +3116,7 @@ RectTransform:
   - {fileID: 1199202562}
   - {fileID: 1108420281}
   - {fileID: 1561313683}
+  - {fileID: 553472422}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2804,8 +3195,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1095759011}
   - component: {fileID: 1095759012}
-  - component: {fileID: 1095759014}
   - component: {fileID: 1095759013}
+  - component: {fileID: 1095759014}
   m_Layer: 0
   m_Name: lockeddoor
   m_TagString: Untagged
@@ -2912,7 +3303,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1095759010}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c418d918637dd68438f1153c939f461e, type: 3}
+  m_Script: {fileID: 11500000, guid: 1803a65c52c2f8d41901e8f2bdeb8f1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   intro: "Double checked: it\u2019s locked."
@@ -2925,6 +3316,8 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: The door is locked.
+  opendoor: {fileID: 21300000, guid: ee45a1f52431a0443a92569b675e39f0, type: 3}
 --- !u!1 &1108420280
 GameObject:
   m_ObjectHideFlags: 0
@@ -3111,6 +3504,7 @@ GameObject:
   - component: {fileID: 1200210965}
   - component: {fileID: 1200210967}
   - component: {fileID: 1200210966}
+  - component: {fileID: 1200210968}
   m_Layer: 0
   m_Name: milk
   m_TagString: Untagged
@@ -3126,7 +3520,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200210963}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.23, z: 0}
+  m_LocalPosition: {x: 0.2, y: 3.19, z: 0}
   m_LocalScale: {x: 0.42387, y: 0.42387, z: 0.42387}
   m_Children: []
   m_Father: {fileID: 1924666502}
@@ -3195,7 +3589,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.13059554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3206,7 +3600,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.38, y: 6.01}
+  m_Size: {x: 2.38, y: 1.6500847}
   m_EdgeRadius: 0
 --- !u!114 &1200210967
 MonoBehaviour:
@@ -3230,6 +3624,26 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: It's falling!!!
+--- !u!95 &1200210968
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1200210963}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f88453b20e4073f4bbd439fbd8d471df, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1231626697
 GameObject:
   m_ObjectHideFlags: 0
@@ -3287,6 +3701,19 @@ MonoBehaviour:
   choicePanel: {fileID: 1561313680}
   currentObject: {fileID: 0}
   room: 0
+  doorOpened: 0
+  bowl: {fileID: 1003574309}
+  door: {fileID: 1095759010}
+  catpic: {fileID: 580169379}
+  cat: {fileID: 1024318228}
+  hearSome: "Mmm...\r\n...\r\nYou hear something from the hallway.\r"
+  milkFallingText: "The milk box is falling!! \nIt seems like you only have 10 seconds
+    left...\r\n"
+  milkCountDown: 0
+  countUI: {fileID: 553472420}
+  milk: {fileID: 1200210963}
+  table: {fileID: 1500260139}
+  knight: {fileID: 942048129}
 --- !u!1 &1341716511
 GameObject:
   m_ObjectHideFlags: 0
@@ -3392,6 +3819,7 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: Oops! You cannot reach that high.
 --- !u!61 &1341716515
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3754,10 +4182,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1500260139}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c418d918637dd68438f1153c939f461e, type: 3}
+  m_Script: {fileID: 11500000, guid: ff0391cc6e6580f4ea202b09a31a0f03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  intro: The table doesn't seem very heavy...
+  intro: The table doesn't look very heavy...
   normal: 0
   book: 0
   window: 0
@@ -3765,8 +4193,13 @@ MonoBehaviour:
   right: 0
   originalImage: {fileID: 21300000, guid: 510019743bedcf642ab77e358b2943e9, type: 3}
   changedImage: {fileID: 0}
-  hasChoice: 0
-  choices: []
+  hasChoice: 1
+  choices:
+  - intro: Shove
+    order: push
+    newText: 
+  milkText: You need to find something to catch it.
+  GM: {fileID: 1231626699}
 --- !u!61 &1500260143
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3793,6 +4226,87 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.5747204, y: 6.3287764}
   m_EdgeRadius: 0
+--- !u!1 &1515440976
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515440977}
+  - component: {fileID: 1515440978}
+  m_Layer: 0
+  m_Name: hungrymeow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1515440977
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515440976}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.52, y: 1.73, z: 0}
+  m_LocalScale: {x: 0.72954726, y: 0.72954726, z: 0.89643335}
+  m_Children: []
+  m_Father: {fileID: 1024318229}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1515440978
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515440976}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: de51827fc1e54a34a9a3ad813ff3beb0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 7.89, y: 3.61}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1561313680
 GameObject:
   m_ObjectHideFlags: 0
@@ -3901,6 +4415,249 @@ Transform:
   m_Father: {fileID: 179532731}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1671211852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671211853}
+  - component: {fileID: 1671211854}
+  m_Layer: 0
+  m_Name: milk_inbowl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1671211853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671211852}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.38, y: 0.8, z: 0}
+  m_LocalScale: {x: 1.0138817, y: 1.0138817, z: 1.0138817}
+  m_Children: []
+  m_Father: {fileID: 1003574310}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1671211854
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671211852}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4a7984afd5d36d24b996b70735527cce, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.52, y: 3.13}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &1824712866
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1824712867}
+  - component: {fileID: 1824712868}
+  m_Layer: 0
+  m_Name: thankfulmeow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1824712867
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824712866}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.816666, y: -1.9166664, z: 0}
+  m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 2.0479214}
+  m_Children: []
+  m_Father: {fileID: 1024318229}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1824712868
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824712866}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: de51827fc1e54a34a9a3ad813ff3beb0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 5.4, y: 3.21}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &1843055614
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1843055615}
+  - component: {fileID: 1843055616}
+  m_Layer: 0
+  m_Name: cheerfulmeow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1843055615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843055614}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.816666, y: -1.9166664, z: 0}
+  m_LocalScale: {x: 1.6666665, y: 1.6666665, z: 2.0479214}
+  m_Children: []
+  m_Father: {fileID: 1024318229}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1843055616
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1843055614}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: da121427f2dc7f44db5a385bce678562, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 10.48, y: 3.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &1924666501
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,6 +4822,7 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: 
 --- !u!1 &1996129884
 GameObject:
   m_ObjectHideFlags: 0
@@ -4292,7 +5050,7 @@ MonoBehaviour:
     order: text
     newText: "...\r\n...\r\n...tasted good, just as you expected.\r"
   - intro: Give some to Cat.
-    order: door
+    order: dorato
     newText: 'Mmm...
 
       ...
@@ -4300,6 +5058,9 @@ MonoBehaviour:
       You hear something from the hallway.
 
 '
+  milkText: 'Look what you found! Doratos!
+
+    Maybe you''ll check back later...'
 --- !u!61 &2016820033
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4457,6 +5218,7 @@ MonoBehaviour:
   changedImage: {fileID: 0}
   hasChoice: 0
   choices: []
+  milkText: 
 --- !u!1001 &2113948790
 PrefabInstance:
   m_ObjectHideFlags: 0

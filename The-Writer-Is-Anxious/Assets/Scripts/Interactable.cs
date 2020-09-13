@@ -27,7 +27,8 @@ public class Interactable : MonoBehaviour
     public Sprite changedImage;
     public bool hasChoice = false;
     public List<CatChoices> choices;
-
+    [TextArea]
+    public string milkText;
 
     // Start is called before the first frame update
     void Start()
@@ -39,5 +40,10 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public virtual void Use()
+    {
+
     }
 }
