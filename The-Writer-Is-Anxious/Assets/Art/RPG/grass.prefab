@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2572309752042844046}
   - component: {fileID: 7043830426572693882}
   - component: {fileID: 2960332757351319238}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: grass
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,13 +89,13 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7302393468975781737}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.26265717}
+  m_Offset: {x: -0.08228457, y: -0.26265717}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -106,5 +106,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.81, y: 1.9146857}
+  m_Size: {x: 5.6214504, y: 1.9146857}
   m_EdgeRadius: 0

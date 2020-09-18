@@ -28,7 +28,7 @@ public class GlobalManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         if (rayInspect)
         {
@@ -81,7 +81,7 @@ public class GlobalManager : MonoBehaviour
         }
     }
 
-    public void TapToContinue(bool ray = false)
+    public virtual void TapToContinue(bool ray = false)
     {
         if (ray)
         {
@@ -113,6 +113,11 @@ public class GlobalManager : MonoBehaviour
     }
 
     public virtual void Inspect(Interactable i)
+    {
+
+    }
+
+    public virtual void TapFinish()
     {
 
     }

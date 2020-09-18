@@ -8,7 +8,7 @@ public class Coin : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -17,10 +17,14 @@ public class Coin : MonoBehaviour
 
     }
 
-    public void FinishAnimation()
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        player.coins += 10;
-        player.UpdateCoinText();
-        Destroy(gameObject);
+        if (col.tag == "Player")
+        {
+            player.coins += 10;
+            player.UpdateCoinText();
+            Destroy(gameObject);
+        }
+        
     }
 }

@@ -20,7 +20,10 @@ public class Abyss : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Player>().GameOver();
+            collision.gameObject.GetComponent<Player>().StopPlayer();
+            //FindObjectOfType<CameraFollow>().pause = true;
+            StartCoroutine(collision.gameObject.GetComponent<Player>().Restart());
+            collision.gameObject.GetComponent<Player>().DecreaseHP();
         }
         if (collision.gameObject.tag == "MushRoom")
         {

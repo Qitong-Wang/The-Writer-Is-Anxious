@@ -1,15 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class OldLady : MonoBehaviour
+public class OldLady : InteractableRPG
 {
-    public Scene3Manager scene3Manager;
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
+    [TextArea]
+    public string content;
 
     // Update is called once per frame
     void Update()
@@ -17,15 +15,11 @@ public class OldLady : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void Interact()
     {
-        print(collision.gameObject);
-        if (collision.gameObject.tag == "Player")
-        {
-            scene3Manager.ReadDialogue("OldLady");
-            scene3Manager.trigger = true;
-
-        }
+        base.Interact();
+        tm.textBoxes[0].GetComponent<Text>().text = content;
+        gm.TapFinish();
     }
 
 }

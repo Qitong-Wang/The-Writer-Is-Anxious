@@ -1,46 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Mushroom : MonoBehaviour
 {
     public Player player;
-    public float speed;
-    public Rigidbody2D rg;
-    /// <summary>
-    /// After the appear animaiton. 
-    /// </summary>
-    bool beginMoving = false;
+    [TextArea]
+    public string content;
     // Start is called before the first frame update
     void Start()
     {
-
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (beginMoving == true)
-        {
 
-            rg.velocity = new Vector2(2, 0);
-        }
     }
 
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnTriggerEnter2D(Collider2D col)
     {
-        if (beginMoving == true && collision.gameObject.tag == "Player")
+        if (col.tag == "Player")
         {
-
-            player.Immune();
+            player.StopPlayer();
+            FindObjectOfType<TextManager>().textBoxes[0].GetComponent<Text>().text = content;
+            GameObject.Find("ChoicePanel").transform.GetChild(2).gameObject.SetActive(false);
+            FindObjectOfType<SceneThird>().TapToContinue();
             Destroy(gameObject);
         }
-    }
 
-    public void BeginMoving()
-    {
-        beginMoving = true;
-        rg.bodyType = RigidbodyType2D.Dynamic;
     }
 }
