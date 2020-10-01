@@ -21,6 +21,7 @@ public class Weakness : MonoBehaviour
             if (hit.collider && hit.collider.gameObject.transform == this.transform)
             {
                 gm.weakness = true;
+                this.gameObject.SetActive(false);
             }
         }
     }

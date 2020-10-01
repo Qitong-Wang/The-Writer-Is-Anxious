@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneStart : GlobalManager
 {
@@ -34,6 +35,8 @@ public class SceneStart : GlobalManager
     public GameObject myRoom;
 
     public GameObject bookShelf;
+
+    public GameObject startButton;
     // Start is called before the first frame update
     void Start()
     {
@@ -142,13 +145,23 @@ public class SceneStart : GlobalManager
         else if (state == 25)
         {
             StartCoroutine(OpenBook());
+        } else if (state == 26)
+        {
+            SceneManager.LoadScene("SceneFantasy");
         }
     }
 
     IEnumerator TitleAppear()
     {
         yield return new WaitForSeconds(1.5f);
-        TapToContinue();
+        startButton.SetActive(true);
+        //TapToContinue();
+    }
+    public void GameStart()
+    {
+        state++;
+        StateCheck();
+        startButton.SetActive(false);
     }
 
     IEnumerator BiggerI()

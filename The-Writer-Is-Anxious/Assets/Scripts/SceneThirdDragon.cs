@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneThirdDragon : GlobalManager
 {
@@ -34,6 +35,8 @@ public class SceneThirdDragon : GlobalManager
     public string hurtTxt;
     [TextArea]
     public string weakFailTxt;
+
+    public bool death;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +49,10 @@ public class SceneThirdDragon : GlobalManager
         health = GameObject.Find("Health");
 
         player = FindObjectOfType<Player>();
-        player.hp = 3; // =save
-
+        player.hp = sm.hp; // =save
+        player.coins = sm.coin;
+        player.UpdateCoinText();
+        player.UpdateHPText();
         StartCoroutine(SceneStart());
     }
 
@@ -88,7 +93,26 @@ public class SceneThirdDragon : GlobalManager
             tm.ClearText();
         }
     }
+    public void Death()
+    {
+        endFight = true;
+        dragon.GetComponent<Animator>().SetTrigger("Finish");
+        fires.transform.GetChild(0).gameObject.SetActive(false);
+        fires.transform.GetChild(1).gameObject.SetActive(false);
+        fires.transform.GetChild(2).gameObject.SetActive(false);
+        death = true;
+        choiceA.SetActive(false);
+        choiceB.SetActive(false);
+        StartCoroutine(tm.ShowText("...You don't feel good. Your eyesight starts to blur...", 0));
+    }
 
+    IEnumerator DeathEnding()
+    {
+        fadeWhite.GetComponent<Animator>().SetTrigger("In");
+        yield return new WaitForSeconds(1f);
+        sm.dragonWord = "But the hero was killed by Dragon.";
+        SceneManager.LoadScene("SceneEnd");
+    }
     public override void TapToContinue(bool ray = false)
     {
         waitingTap = true;
@@ -96,6 +120,7 @@ public class SceneThirdDragon : GlobalManager
 
     IEnumerator SceneStart()
     {
+        sound.Play(2);
         player.StopPlayer();
         yield return new WaitForSeconds(0.5f);
         Wait();
@@ -105,13 +130,23 @@ public class SceneThirdDragon : GlobalManager
     {
         if (state == 1)
         {
-            Debug.Log("next scene");
+            if (death)
+            {
+                StartCoroutine(DeathEnding());
+                return;
+            }
+            sm.dragonWord = "After an intense fight, the hero slayed the dragon and saved the princess.";
+            sm.hp = player.hp;
+            sm.saveP++;
+            sound.Stop();
+            SceneManager.LoadScene("SceneRomance");
         }
     }
 
     private void Wait()
     {
-        
+        if (death)
+            return;
         tm.textBoxes[0].GetComponent<Text>().text = waitTxt;
         choiceA.SetActive(true);
         choiceA.GetComponentInChildren<Text>().text = "Attack";
@@ -120,6 +155,8 @@ public class SceneThirdDragon : GlobalManager
 
     public void ChooseAttack()
     {
+        if (death)
+            return;
         choiceA.SetActive(false);
         choiceA.GetComponentInChildren<Text>().text = "";
         choiceA.GetComponent<Button>().onClick.RemoveListener(ChooseAttack);
@@ -128,6 +165,8 @@ public class SceneThirdDragon : GlobalManager
 
     private IEnumerator Attack()
     {
+        if (death)
+            yield break;
         dragon.GetComponent<Animator>().SetTrigger("Hurt");
         tm.textBoxes[0].GetComponent<Text>().text = atkTxt;
         yield return new WaitForSeconds(2f);
@@ -137,6 +176,8 @@ public class SceneThirdDragon : GlobalManager
 
     private IEnumerator DragonAtk()
     {
+        if (death)
+            yield break;
         tm.textBoxes[0].GetComponent<Text>().text = dragonatkTxt;
         round++;
         fireGone = false;
@@ -170,6 +211,8 @@ public class SceneThirdDragon : GlobalManager
 
     private IEnumerator Hurt()
     {
+        if (death)
+            yield break;
         dragon.GetComponent<Animator>().SetTrigger("Finish");
         fires.transform.GetChild(0).gameObject.SetActive(false);
         fires.transform.GetChild(1).gameObject.SetActive(false);
@@ -183,6 +226,8 @@ public class SceneThirdDragon : GlobalManager
 
     private IEnumerator Avoid()
     {
+        if (death)
+            yield break;
         dragon.GetComponent<Animator>().SetTrigger("Finish");
         tm.textBoxes[0].GetComponent<Text>().text = avoidTxt;
         yield return new WaitForSeconds(2f);
@@ -191,6 +236,8 @@ public class SceneThirdDragon : GlobalManager
 
     private IEnumerator Kill()
     {
+        if (death)
+            yield break;
         fires.transform.GetChild(0).gameObject.SetActive(false);
         fires.transform.GetChild(1).gameObject.SetActive(false);
         fires.transform.GetChild(2).gameObject.SetActive(false);

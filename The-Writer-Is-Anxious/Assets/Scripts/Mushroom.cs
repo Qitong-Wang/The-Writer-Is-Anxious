@@ -27,7 +27,7 @@ public class Mushroom : MonoBehaviour
             player.StopPlayer();
             FindObjectOfType<TextManager>().textBoxes[0].GetComponent<Text>().text = content;
             GameObject.Find("ChoicePanel").transform.GetChild(2).gameObject.SetActive(false);
-            FindObjectOfType<SceneThird>().TapToContinue();
+            FindObjectOfType<SceneThird>().TapFinish();
             Destroy(gameObject);
         }
 

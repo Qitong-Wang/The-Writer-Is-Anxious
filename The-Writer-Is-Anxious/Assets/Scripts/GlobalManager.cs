@@ -11,6 +11,7 @@ public class GlobalManager : MonoBehaviour
     public TextManager tm;
 
     public SaveManager sm;
+    public SoundManager sound;
 
     public GameObject fadeWhite;
     public GameObject fadeBlack;
@@ -23,6 +24,7 @@ public class GlobalManager : MonoBehaviour
         state = 0;
         tm = FindObjectOfType<TextManager>();
         sm = FindObjectOfType<SaveManager>();
+        sound = FindObjectOfType<SoundManager>();
         fadeWhite = GameObject.Find("FadeWhite");
         fadeBlack = GameObject.Find("FadeBlack");
     }

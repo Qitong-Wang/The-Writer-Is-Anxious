@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         UpdateCoinText();
         //UpdateHPText();
-        hp = 3;
         buttons = GameObject.Find("Buttons");
         if (GameObject.Find("StartPosition"))
             startPos = GameObject.Find("StartPosition").transform.GetChild(0);
@@ -66,6 +65,10 @@ public class Player : MonoBehaviour
 
     public void ActivatePlayer()
     {
+        if (FindObjectOfType<SceneThird>().death)
+        {
+            return;
+        }
         stop = false;
         buttons.SetActive(true);
     }
@@ -125,6 +128,11 @@ public class Player : MonoBehaviour
         {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
         }
+
+        if (Input.GetKeyDown("space"))
+        {
+            SendJump();
+        }
     }
 
     public void PressLeft()
@@ -180,6 +188,19 @@ public class Player : MonoBehaviour
     }
     public void GameOver()
     {
+        if (FindObjectOfType<SceneThird>())
+        {
+            stop = true;
+            FindObjectOfType<SceneThird>().death = true;
+            FindObjectOfType<SceneThird>().state++;
+            FindObjectOfType<SceneThird>().StateCheck();
+        }
+        else
+        {
+            FindObjectOfType<SceneThirdDragon>().Death();
+        }
+        
+
         //gameOverCanvas.SetActive(true);
         //gameOverManager.PauseGame();
     }
@@ -195,21 +216,43 @@ public class Player : MonoBehaviour
     }
     public void UpdateHPText()
     {
-        if (hp == 3)
+        if (hp == 5)
         {
             hpObject.transform.GetChild(0).gameObject.SetActive(true);
             hpObject.transform.GetChild(1).gameObject.SetActive(true);
             hpObject.transform.GetChild(2).gameObject.SetActive(true);
+            hpObject.transform.GetChild(3).gameObject.SetActive(true);
+            hpObject.transform.GetChild(4).gameObject.SetActive(true);
+        }
+        else if (hp == 4)
+        {
+            hpObject.transform.GetChild(0).gameObject.SetActive(true);
+            hpObject.transform.GetChild(1).gameObject.SetActive(true);
+            hpObject.transform.GetChild(2).gameObject.SetActive(true);
+            hpObject.transform.GetChild(3).gameObject.SetActive(true);
+            hpObject.transform.GetChild(4).gameObject.SetActive(false);
+        }
+        else if (hp == 3)
+        {
+            hpObject.transform.GetChild(0).gameObject.SetActive(true);
+            hpObject.transform.GetChild(1).gameObject.SetActive(true);
+            hpObject.transform.GetChild(2).gameObject.SetActive(true);
+            hpObject.transform.GetChild(3).gameObject.SetActive(false);
+            hpObject.transform.GetChild(4).gameObject.SetActive(false);
         } else if (hp == 2)
         {
             hpObject.transform.GetChild(0).gameObject.SetActive(true);
             hpObject.transform.GetChild(1).gameObject.SetActive(true);
             hpObject.transform.GetChild(2).gameObject.SetActive(false);
+            hpObject.transform.GetChild(3).gameObject.SetActive(false);
+            hpObject.transform.GetChild(4).gameObject.SetActive(false);
         } else if (hp == 1)
         {
             hpObject.transform.GetChild(0).gameObject.SetActive(true);
             hpObject.transform.GetChild(1).gameObject.SetActive(false);
             hpObject.transform.GetChild(2).gameObject.SetActive(false);
+            hpObject.transform.GetChild(3).gameObject.SetActive(false);
+            hpObject.transform.GetChild(4).gameObject.SetActive(false);
         }
         //hpText.text = "HP:" + hp;
     }
@@ -217,6 +260,7 @@ public class Player : MonoBehaviour
     {
         if (immune == false)
         {
+            FindObjectOfType<SaveManager>().noHurt = false;
             hp -= 1;
             UpdateHPText();
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneThird : GlobalManager
 {
@@ -10,15 +11,17 @@ public class SceneThird : GlobalManager
     public GameObject choiceA;
     public GameObject choiceB;
 
+    public bool death;
     private bool checkstate;
     void Start()
     {
+        sm.adventure = true;
         choiceA = GameObject.Find("ChoicePanel").transform.GetChild(0).gameObject;
         choiceB = GameObject.Find("ChoicePanel").transform.GetChild(1).gameObject;
         interactButton = GameObject.Find("ChoicePanel").transform.GetChild(2).gameObject;
 
         player = FindObjectOfType<Player>();
-        player.hp = 3;
+        player.hp = 5;
         player.coins = 0;
         StartCoroutine(SceneStart());
     }
@@ -55,12 +58,38 @@ public class SceneThird : GlobalManager
             StartAdventure();
         } else if (state == 3)
         {
+            if (death)
+            {
+                StartCoroutine(Death());
+                return;
+            }
             StartCoroutine(BeforeFight());
         } else if (state == 4)
         {
+            if (death)
+            {
+                StartCoroutine(DeathEnding());
+                return;
+            }
             StartFight();
         }
     }
+
+    IEnumerator Death()
+    {
+        StartCoroutine(tm.ShowText("...You don't feel good. Your eyesight starts to blur...", 0));
+        yield return null;
+    }
+
+    IEnumerator DeathEnding()
+    {
+        fadeWhite.GetComponent<Animator>().SetTrigger("In");
+        yield return new WaitForSeconds(1f);
+        sm.adventureWord = "The hero died on the way.";
+        SceneManager.LoadScene("SceneEnd");
+    }
+
+
     IEnumerator Next()
     {
         yield return new WaitForSeconds(1f);
@@ -69,7 +98,8 @@ public class SceneThird : GlobalManager
 
     IEnumerator SceneStart()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+        sound.Play(1);
         player.StopPlayer();
         interactButton.SetActive(false);
         StartCoroutine(tm.ShowText());
@@ -84,6 +114,7 @@ public class SceneThird : GlobalManager
     IEnumerator BeforeFight()
     {
         player.StopPlayer();
+        sound.Stop();
         yield return new WaitForSeconds(1f);
         StartCoroutine(tm.ShowText());
        
@@ -91,7 +122,10 @@ public class SceneThird : GlobalManager
 
     void StartFight()
     {
-        //scenetransfer;
+        sm.adventureWord = "The hero made it to the dragon's place.";
+        sm.coin = player.coins;
+        sm.hp = player.hp;
+        SceneManager.LoadScene("SceneRPGDragon");
     }
     public override void TapToContinue(bool ray = false)
     {

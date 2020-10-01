@@ -6,24 +6,27 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/oldscene/TitleScene.unity
-    guid: 4758a6a2b0d6a86469d04ffac461858e
+    path: Assets/Scenes/newscene/SceneStart.unity
+    guid: cf0f71fb7ca9ce443bb49e0ffd80acc1
   - enabled: 1
-    path: Assets/Scenes/oldscene/Scene1Start.unity
-    guid: 28c1b0e0b738e5f49abb8640cd543077
+    path: Assets/Scenes/newscene/SceneFantasy.unity
+    guid: a2aa89435049d7e42827f19d586990c4
   - enabled: 1
-    path: Assets/Scenes/oldscene/BookShelf.unity
-    guid: d798bad0bd3014e4e9ad725fd4f196bf
+    path: Assets/Scenes/newscene/SceneRPG.unity
+    guid: 37d5b57965477dc4fb24d5120633585d
   - enabled: 1
-    path: Assets/Scenes/oldscene/Scene2Catroom.unity
-    guid: 1f73dd22918795f4397e15e044dd543b
+    path: Assets/Scenes/newscene/SceneRPGDragon.unity
+    guid: eb6c554bb14f8054cbe2c4ec48b974e8
   - enabled: 1
-    path: Assets/Scenes/oldscene/Scene3Adventure.unity
-    guid: 52732175a8aa5034390d940ffde89aeb
+    path: Assets/Scenes/newscene/SceneRomance.unity
+    guid: faf1c805adc24b447be0f4a998a3aa92
   - enabled: 1
-    path: Assets/Scenes/oldscene/Scene31King.unity
-    guid: c3f2d4e62d7d547468c594e48e19409c
+    path: Assets/Scenes/newscene/SceneHorror.unity
+    guid: ca431d0364bd28a4b9d685ba4f4afdb1
   - enabled: 1
-    path: Assets/Scenes/oldscene/Scene32Dragon.unity
-    guid: 9684f3ce52dbdb6448a85240c33c2738
+    path: Assets/Scenes/newscene/SceneMystery.unity
+    guid: 5675fff1713eb6c48aaca3e50ac53864
+  - enabled: 1
+    path: Assets/Scenes/newscene/SceneEnd.unity
+    guid: 07241fa1cf79c294c9020df7e28d9543
   m_configObjects: {}

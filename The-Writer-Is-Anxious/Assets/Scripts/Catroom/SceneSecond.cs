@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SceneSecond : GlobalManager
 {
@@ -35,6 +36,8 @@ public class SceneSecond : GlobalManager
     public GameObject milk;
     public GameObject table;
     public GameObject knight;
+
+    public bool death;
     // Start is called before the first frame update
     void Start()
     {
@@ -66,9 +69,14 @@ public class SceneSecond : GlobalManager
         }
         else if (state == 6)
         {
+            if (death == true)
+            {
+                StartCoroutine(DeathEnding());
+                return;
+            }
             StartCoroutine(Knight());
         }
-        else if (state == 6)
+        else if (state == 7)
         {
             StartCoroutine(NextScene());
         }
@@ -87,8 +95,10 @@ public class SceneSecond : GlobalManager
         fadeBlack.GetComponent<Animator>().SetTrigger("In");
         yield return new WaitForSeconds(1f);
         fadeWhite.GetComponent<Animator>().SetTrigger("In");
+        sound.Play(0);
         myRoom.SetActive(true);
         arrows.SetActive(true);
+        GameObject.Find("White").SetActive(false);
         frames.GetComponent<Animator>().SetTrigger("In");
         yield return new WaitForSeconds(1f);
         StartCoroutine(tm.ShowTextCat());
@@ -197,7 +207,8 @@ public class SceneSecond : GlobalManager
         } else if (currentChoices[0].order == "death")
         {
             rayInspect = false;
-            //Death Coroutine
+            death = true;
+            StartCoroutine(Death());
         } else if (currentChoices[0].order == "dorato")
         {
             if (doorOpened)
@@ -229,6 +240,20 @@ public class SceneSecond : GlobalManager
         }
     }
 
+    IEnumerator Death()
+    {
+        StartCoroutine(tm.ShowText("...You don't feel good. Your eyesight starts to blur...", 0));
+        yield return null;
+    }
+
+    IEnumerator DeathEnding()
+    {
+        fadeWhite.GetComponent<Animator>().SetTrigger("In");
+        yield return new WaitForSeconds(1f);
+        sm.fantasy = "The hero died in the Cat's house because of eating rotten food.";
+        SceneManager.LoadScene("SceneEnd");
+    }
+
     public void ChoiceB()
     {
         choicePanel.SetActive(false);
@@ -242,7 +267,8 @@ public class SceneSecond : GlobalManager
         else if (currentChoices[1].order == "death")
         {
             rayInspect = false;
-            //Death Coroutine
+            death = true;
+            StartCoroutine(Death());
         }
         else if (currentChoices[1].order == "dorato")
         {
@@ -284,12 +310,14 @@ public class SceneSecond : GlobalManager
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetTrigger("Left");
             yield return new WaitForSeconds(0.5f);
         }
+        room = 1;
         tm.textBoxes[0].GetComponent<Text>().text = hearSome;
         door.GetComponent<Door>().OpenTheDoor();
         bowl.GetComponent<Bowl>().FillBowl(0);
         catpic.UpdatePic(0);
 
         rayInspect = true;
+        sm.fantasy = "The hero got out of Cat's house.";
     }
 
     IEnumerator FeedRotten()
@@ -310,12 +338,14 @@ public class SceneSecond : GlobalManager
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetTrigger("Left");
             yield return new WaitForSeconds(0.5f);
         }
+        room = 1;
         tm.textBoxes[0].GetComponent<Text>().text = hearSome;
         door.GetComponent<Door>().OpenTheDoor();
         bowl.GetComponent<Bowl>().FillBowl(1);
         catpic.UpdatePic(1);
 
         rayInspect = true;
+        sm.fantasy = "The hero successfully pissed Cat off. She did not even want to stay in the same room with him for one more second. The hero was expelled from the house.";
     }
 
     public IEnumerator CountDown()
@@ -361,7 +391,7 @@ public class SceneSecond : GlobalManager
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetTrigger("Right");
             yield return new WaitForSeconds(0.5f);
         }
-        
+        room = 2;
         bowl.GetComponent<Animator>().SetTrigger("Catch");
         yield return new WaitForSeconds(1.2f);
         milk.SetActive(false);
@@ -382,6 +412,8 @@ public class SceneSecond : GlobalManager
         catpic.UpdatePic(2);
 
         rayInspect = true;
+
+        sm.fantasy = "The hero won Cat's heart by feeding her favorite milk to her. When the hero left, Cat missed him so much that she went on her own adventure to find the hero...";
     }
 
     IEnumerator SpillMilk()
@@ -402,7 +434,7 @@ public class SceneSecond : GlobalManager
             GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Animator>().SetTrigger("Right");
             yield return new WaitForSeconds(0.5f);
         }
-
+        room = 2;
         milk.GetComponent<Animator>().SetTrigger("Spill");
 
         tm.textBoxes[0].GetComponent<Text>().text = "Uh-oh.";
@@ -410,6 +442,7 @@ public class SceneSecond : GlobalManager
         GameObject.Find("friger_upper").GetComponent<Interactable>().intro = "Spilled milk does not make you any taller.";
 
         rayInspect = true;
+        sm.milk = "And, the hero also spilled the milk. When Cat found that, she cried, deeply.";
     }
 
     IEnumerator Knight()
@@ -422,6 +455,8 @@ public class SceneSecond : GlobalManager
     IEnumerator NextScene()
     {
         //scenemanage
+        sound.Stop();
+        SceneManager.LoadScene("SceneRPG");
         yield return null;
         
     }
